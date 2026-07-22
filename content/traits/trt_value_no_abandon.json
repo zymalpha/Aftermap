@@ -3,7 +3,7 @@
   "name_zh": "不弃同伴",
   "kind": "value",
   "bonus": {"morale_when_party_full": 2},
-  "penalty": {"reject_option": "abandon_ally"},
+  "penalty": {"morale_decay_when_ally_lost": 2},
   "opinion_rules": [
     {
       "when": {"op": "flag_has", "flag": "ally_injured", "value": true},

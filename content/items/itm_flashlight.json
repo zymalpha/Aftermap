@@ -1,0 +1,11 @@
+{
+  "id": "itm_flashlight",
+  "name_zh": "手电筒",
+  "name_en": "Flashlight",
+  "kind": "tool",
+  "weight_kg": 0.3,
+  "stack_size": 1,
+  "tags": ["tool", "light"],
+  "value_tier": 1,
+  "notes": "Visibility extender for tactical scenes."
+}

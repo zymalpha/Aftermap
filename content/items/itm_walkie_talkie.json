@@ -1,0 +1,11 @@
+{
+  "id": "itm_walkie_talkie",
+  "name_zh": "对讲机",
+  "name_en": "Walkie Talkie",
+  "kind": "tool",
+  "weight_kg": 0.25,
+  "stack_size": 2,
+  "tags": ["tool", "radio", "stackable"],
+  "value_tier": 2,
+  "notes": "Reduces POI travel time and enables remote broadcasts."
+}

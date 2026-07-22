@@ -1,0 +1,11 @@
+{
+  "id": "itm_crowbar",
+  "name_zh": "撬棍",
+  "name_en": "Crowbar",
+  "kind": "tool",
+  "weight_kg": 1.5,
+  "stack_size": 1,
+  "tags": ["tool", "weapon_melee"],
+  "value_tier": 2,
+  "notes": "Search tool + improvised melee weapon."
+}

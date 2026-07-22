@@ -1,0 +1,14 @@
+{
+  "id": "fac_medical_basic",
+  "name_zh": "医务室",
+  "kind": "medical",
+  "tier": 1,
+  "build_cost": {
+    "resource_material": 6,
+    "resource_parts": 1,
+    "fuel": 0
+  },
+  "daily_upkeep": {"medical": 1},
+  "power_draw_kw": 0.5,
+  "notes": "基础医务室；clean_exposure 双倍效果。"
+}

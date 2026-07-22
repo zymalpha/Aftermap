@@ -1,0 +1,13 @@
+{
+  "id": "trt_value_protect_children",
+  "name_zh": "守护幼小",
+  "kind": "value",
+  "bonus": {"morale_when_child_safe": 3},
+  "penalty": {"distress_when_child_threatened": 2},
+  "opinion_rules": [
+    {
+      "when": {"op": "flag_has", "flag": "child_in_party", "value": true},
+      "delta": {"axis": "trust", "amount": 0.15}
+    }
+  ]
+}

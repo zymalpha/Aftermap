@@ -1,0 +1,11 @@
+{
+  "id": "itm_fuel_can",
+  "name_zh": "燃料桶",
+  "name_en": "Fuel Can",
+  "kind": "material",
+  "weight_kg": 4.0,
+  "stack_size": 1,
+  "tags": ["fuel", "material"],
+  "value_tier": 2,
+  "notes": "Generator and vehicle fuel."
+}

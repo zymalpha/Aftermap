@@ -1,0 +1,34 @@
+{
+  "id": "evt_d5_stranger_visit",
+  "name_zh": "陌生人来访",
+  "kind": "decision",
+  "weight": 55,
+  "triggers": {
+    "all_of": [
+      {"op": "time_in_range", "day_from": 5, "day_to": 12}
+    ]
+  },
+  "effects": [
+    {"op": "set_flag", "flag": "stranger_visit_logged", "value": true}
+  ],
+  "options": [
+    {
+      "label_zh": "收留",
+      "weight": 60,
+      "effects": [
+        {"op": "stat_add", "target": "community", "stat": "morale", "amount": 1},
+        {"op": "spawn_npc", "target": "stranger_ally"}
+      ]
+    },
+    {
+      "label_zh": "拒绝",
+      "weight": 40,
+      "effects": [
+        {"op": "stat_add", "target": "community", "stat": "morale", "amount": -1}
+      ]
+    }
+  ],
+  "tags": ["social", "decision"],
+  "cooldown_days": 4,
+  "max_fires": 1
+}

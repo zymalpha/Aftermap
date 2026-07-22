@@ -1,0 +1,11 @@
+{
+  "id": "itm_cloth_rag",
+  "name_zh": "布料",
+  "name_en": "Cloth Rag",
+  "kind": "material",
+  "weight_kg": 0.05,
+  "stack_size": 24,
+  "tags": ["material", "stackable", "craft_input"],
+  "value_tier": 1,
+  "notes": "Crafting input for rcp_bandage_basic."
+}

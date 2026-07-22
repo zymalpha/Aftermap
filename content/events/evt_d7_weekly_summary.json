@@ -1,0 +1,18 @@
+{
+  "id": "evt_d7_weekly_summary",
+  "name_zh": "七日小结",
+  "kind": "summary",
+  "weight": 100,
+  "triggers": {
+    "all_of": [
+      {"op": "time_in_range", "day_from": 7, "day_to": 7}
+    ]
+  },
+  "effects": [
+    {"op": "set_flag", "flag": "week_1_summary", "value": true},
+    {"op": "stat_add", "target": "community", "stat": "morale", "amount": 2}
+  ],
+  "tags": ["summary", "week1"],
+  "cooldown_days": null,
+  "max_fires": 1
+}

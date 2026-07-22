@@ -1,0 +1,11 @@
+{
+  "id": "itm_notebook",
+  "name_zh": "笔记本",
+  "name_en": "Notebook",
+  "kind": "memento",
+  "weight_kg": 0.3,
+  "stack_size": 1,
+  "tags": ["memento", "lore"],
+  "value_tier": 1,
+  "notes": "Records of a survivor's life; intimate-bond catalyst."
+}

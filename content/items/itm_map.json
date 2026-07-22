@@ -1,0 +1,11 @@
+{
+  "id": "itm_map",
+  "name_zh": "城市地图",
+  "name_en": "City Map",
+  "kind": "quest",
+  "weight_kg": 0.1,
+  "stack_size": 1,
+  "tags": ["quest", "navigation"],
+  "value_tier": 2,
+  "notes": "Reveals city POIs + distances."
+}

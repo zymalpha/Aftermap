@@ -1,0 +1,14 @@
+{
+  "id": "fac_watch_basic",
+  "name_zh": "瞭望哨",
+  "kind": "watch",
+  "tier": 1,
+  "build_cost": {
+    "resource_material": 4,
+    "resource_parts": 1,
+    "fuel": 0
+  },
+  "daily_upkeep": {},
+  "power_draw_kw": 0,
+  "notes": "瞭望哨 1 级；提供 1 个 watch 岗位加成。"
+}

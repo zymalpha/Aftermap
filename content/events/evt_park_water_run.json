@@ -1,0 +1,18 @@
+{
+  "id": "evt_park_water_run",
+  "name_zh": "公园取水",
+  "kind": "scene",
+  "weight": 50,
+  "triggers": {
+    "all_of": [
+      {"op": "time_in_range", "day_from": 3, "day_to": 7}
+    ]
+  },
+  "effects": [
+    {"op": "item_add", "item_id": "itm_water_bottle", "qty": 4},
+    {"op": "set_flag", "flag": "water_run_done", "value": true}
+  ],
+  "tags": ["supply", "poi", "park"],
+  "cooldown_days": 2,
+  "max_fires": 1
+}

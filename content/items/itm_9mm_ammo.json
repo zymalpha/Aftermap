@@ -1,0 +1,11 @@
+{
+  "id": "itm_9mm_ammo",
+  "name_zh": "9mm 子弹",
+  "name_en": "9mm Ammo",
+  "kind": "ammo",
+  "weight_kg": 0.01,
+  "stack_size": 64,
+  "tags": ["ammo", "9mm", "stackable"],
+  "value_tier": 2,
+  "notes": "Ammunition for itm_handgun."
+}

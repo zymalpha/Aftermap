@@ -1,0 +1,14 @@
+{
+  "id": "fac_kitchen_basic",
+  "name_zh": "厨房",
+  "kind": "kitchen",
+  "tier": 1,
+  "build_cost": {
+    "resource_material": 8,
+    "resource_parts": 0,
+    "fuel": 0
+  },
+  "daily_upkeep": {"fuel": 1},
+  "power_draw_kw": 1.0,
+  "notes": "基础厨房；解锁 rcp_simple_meal。"
+}

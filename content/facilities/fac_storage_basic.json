@@ -1,0 +1,14 @@
+{
+  "id": "fac_storage_basic",
+  "name_zh": "仓库",
+  "kind": "storage",
+  "tier": 1,
+  "build_cost": {
+    "resource_material": 6,
+    "resource_parts": 0,
+    "fuel": 0
+  },
+  "daily_upkeep": {},
+  "power_draw_kw": 0,
+  "notes": "基础仓库；提供 60 容量。"
+}

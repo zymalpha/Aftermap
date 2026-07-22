@@ -1,0 +1,8 @@
+{
+  "id": "trt_cunning",
+  "name_zh": "机敏",
+  "kind": "personality",
+  "bonus": {"search": 1, "stealth": 1},
+  "penalty": {"morale_decay": 1},
+  "opinion_rules": []
+}

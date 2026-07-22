@@ -1,0 +1,8 @@
+{
+  "id": "trt_weak_hemophobia",
+  "name_zh": "晕血",
+  "kind": "weakness",
+  "bonus": {},
+  "penalty": {"medical_skill_penalty": 1},
+  "opinion_rules": []
+}

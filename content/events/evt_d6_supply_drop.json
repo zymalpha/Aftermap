@@ -1,0 +1,19 @@
+{
+  "id": "evt_d6_supply_drop",
+  "name_zh": "空投补给",
+  "kind": "scene",
+  "weight": 35,
+  "triggers": {
+    "all_of": [
+      {"op": "time_in_range", "day_from": 6, "day_to": 14}
+    ]
+  },
+  "effects": [
+    {"op": "item_add", "item_id": "itm_canned_food", "qty": 6},
+    {"op": "item_add", "item_id": "itm_bandage", "qty": 3},
+    {"op": "set_flag", "flag": "supply_drop_seen", "value": true}
+  ],
+  "tags": ["supply", "rare"],
+  "cooldown_days": 5,
+  "max_fires": 1
+}

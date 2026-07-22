@@ -1,0 +1,14 @@
+{
+  "id": "fac_barrier_basic",
+  "name_zh": "防御围栏",
+  "kind": "barrier",
+  "tier": 1,
+  "build_cost": {
+    "resource_material": 10,
+    "resource_parts": 0,
+    "fuel": 0
+  },
+  "daily_upkeep": {},
+  "power_draw_kw": 0,
+  "notes": "防御围栏 1 级；base.defense +10。"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "evt_d4_injury_decision",
+  "name_zh": "伤员处理",
+  "kind": "decision",
+  "weight": 65,
+  "triggers": {
+    "all_of": [
+      {"op": "time_in_range", "day_from": 4, "day_to": 9}
+    ]
+  },
+  "effects": [
+    {"op": "set_flag", "flag": "injury_decision_logged", "value": true}
+  ],
+  "options": [
+    {
+      "label_zh": "留队观察",
+      "weight": 70,
+      "effects": [
+        {"op": "stat_add", "target": "community", "stat": "morale", "amount": 1},
+        {"op": "item_remove", "item_id": "itm_bandage", "qty": 1}
+      ]
+    },
+    {
+      "label_zh": "冒险外出找抗生素",
+      "weight": 30,
+      "effects": [
+        {"op": "queue_event", "event_id": "evt_clinic_run_outcome"}
+      ]
+    }
+  ],
+  "tags": ["injury", "decision"],
+  "cooldown_days": 3,
+  "max_fires": 1
+}

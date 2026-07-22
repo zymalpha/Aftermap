@@ -1,0 +1,11 @@
+{
+  "id": "itm_bandage",
+  "name_zh": "绷带",
+  "name_en": "Bandage",
+  "kind": "consumable",
+  "weight_kg": 0.05,
+  "stack_size": 12,
+  "tags": ["medical", "consumable"],
+  "value_tier": 1,
+  "notes": "Craftable via rcp_bandage_basic. Restores HP via clean_exposure."
+}

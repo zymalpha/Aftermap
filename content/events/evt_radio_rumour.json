@@ -1,0 +1,17 @@
+{
+  "id": "evt_radio_rumour",
+  "name_zh": "电台传闻",
+  "kind": "broadcast",
+  "weight": 40,
+  "triggers": {
+    "all_of": [
+      {"op": "time_in_range", "day_from": 2, "day_to": 10}
+    ]
+  },
+  "effects": [
+    {"op": "set_flag", "flag": "radio_rumour_heard", "value": true}
+  ],
+  "tags": ["broadcast", "rumour"],
+  "cooldown_days": 2,
+  "max_fires": 3
+}

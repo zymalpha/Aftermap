@@ -1,0 +1,17 @@
+{
+  "id": "evt_d2_scavenge_return",
+  "name_zh": "侦察队归来",
+  "kind": "scene",
+  "weight": 50,
+  "triggers": {
+    "all_of": [
+      {"op": "time_in_range", "day_from": 2, "day_to": 5}
+    ]
+  },
+  "effects": [
+    {"op": "set_flag", "flag": "scavenge_party_returned", "value": true}
+  ],
+  "tags": ["day2", "scavenge"],
+  "cooldown_days": 2,
+  "max_fires": 2
+}

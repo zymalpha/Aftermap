@@ -1,0 +1,13 @@
+{
+  "id": "trt_iron_will",
+  "name_zh": "铁意志",
+  "kind": "personality",
+  "bonus": {"morale_decay_resist": 1, "energy_decay_resist": 1},
+  "penalty": {"social": -1},
+  "opinion_rules": [
+    {
+      "when": {"op": "stat_compare", "stat": "morale", "compare": ">", "threshold": 60},
+      "delta": {"axis": "trust", "amount": 0.1}
+    }
+  ]
+}

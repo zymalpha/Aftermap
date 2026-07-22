@@ -1,0 +1,11 @@
+{
+  "id": "itm_antibiotics",
+  "name_zh": "抗生素",
+  "name_en": "Antibiotics",
+  "kind": "consumable",
+  "weight_kg": 0.05,
+  "stack_size": 6,
+  "tags": ["medical", "consumable"],
+  "value_tier": 2,
+  "notes": "Suppressant; reduces infection daily growth."
+}

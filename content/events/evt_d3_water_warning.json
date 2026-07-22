@@ -1,0 +1,33 @@
+{
+  "id": "evt_d3_water_warning",
+  "name_zh": "供水告急",
+  "kind": "decision",
+  "weight": 70,
+  "triggers": {
+    "all_of": [
+      {"op": "time_in_range", "day_from": 3, "day_to": 7}
+    ]
+  },
+  "effects": [
+    {"op": "set_flag", "flag": "water_warning_seen", "value": true}
+  ],
+  "options": [
+    {
+      "label_zh": "立即派人去公园取水",
+      "weight": 60,
+      "effects": [
+        {"op": "queue_event", "event_id": "evt_park_water_run"}
+      ]
+    },
+    {
+      "label_zh": "坚持配给制度",
+      "weight": 40,
+      "effects": [
+        {"op": "stat_add", "target": "community", "stat": "morale", "amount": -2}
+      ]
+    }
+  ],
+  "tags": ["supply", "decision"],
+  "cooldown_days": 3,
+  "max_fires": 1
+}

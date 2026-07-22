@@ -1,0 +1,11 @@
+{
+  "id": "itm_handgun",
+  "name_zh": "手枪",
+  "name_en": "Handgun",
+  "kind": "weapon",
+  "weight_kg": 0.9,
+  "stack_size": 1,
+  "tags": ["weapon", "ranged", "9mm"],
+  "value_tier": 3,
+  "notes": "9mm sidearm. Needs ammo_9mm."
+}

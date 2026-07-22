@@ -9,7 +9,7 @@ Thumbs.db
 .idea/
 *.swp
 game/addons/gut/
-build/
+/build/
 dist/
 *.log
 .aftermap/saves/*.tmp

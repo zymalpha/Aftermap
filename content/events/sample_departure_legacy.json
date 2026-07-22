@@ -1,0 +1,63 @@
+{
+  "id": "evt_departure_legacy_choice",
+  "name_zh": "离城夜的遗产抉择",
+  "kind": "decision",
+  "weight": 100,
+  "triggers": {
+    "all_of": [
+      {"op": "time_in_range", "day_from": 19, "day_to": 30},
+      {"op": "flag_has", "flag": "departure_window_open", "value": true}
+    ]
+  },
+  "effects": [
+    {"op": "set_flag", "flag": "departure_decision_logged", "value": true}
+  ],
+  "options": [
+    {
+      "label_zh": "留下地图档案",
+      "weight": 20,
+      "effects": [
+        {"op": "set_flag", "flag": "migration_ending", "value": true},
+        {"op": "stat_add", "target": "community", "stat": "morale", "amount": 2}
+      ]
+    },
+    {
+      "label_zh": "留下医疗记录",
+      "weight": 20,
+      "effects": [
+        {"op": "set_flag", "flag": "migration_ending", "value": true},
+        {"op": "stat_add", "target": "c_alex_1", "stat": "morale", "amount": 3},
+        {"op": "item_add", "item_id": "itm_bandage", "qty": 2}
+      ]
+    },
+    {
+      "label_zh": "留下工具核心",
+      "weight": 20,
+      "effects": [
+        {"op": "set_flag", "flag": "migration_ending", "value": true},
+        {"op": "stat_add", "target": "community", "stat": "energy", "amount": -3},
+        {"op": "item_add", "item_id": "itm_crowbar", "qty": 1}
+      ]
+    },
+    {
+      "label_zh": "留下纪念册",
+      "weight": 20,
+      "effects": [
+        {"op": "set_flag", "flag": "migration_ending", "value": true},
+        {"op": "stat_add", "target": "c_alex_0", "stat": "stress", "amount": -2}
+      ]
+    },
+    {
+      "label_zh": "留下无线电台",
+      "weight": 20,
+      "effects": [
+        {"op": "set_flag", "flag": "migration_ending", "value": true},
+        {"op": "item_add", "item_id": "itm_walkie_talkie", "qty": 1},
+        {"op": "stat_add", "target": "c_alex_0", "stat": "morale", "amount": 1}
+      ]
+    }
+  ],
+  "tags": ["departure", "ending", "decision", "act3"],
+  "cooldown_days": null,
+  "max_fires": 1
+}

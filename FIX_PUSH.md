@@ -47,6 +47,25 @@ Credential Manager 里的 PAT 可能已过期或被 GitHub 撤销。重新生成
 9. 重新 push，会提示输入用户名 + 粘贴新 PAT 作为密码
 10. Credential Manager 会缓存新 PAT，下次免输入
 
+## Bundle 替代方案（无 PAT / 无 SSH key）
+
+如果你只是想拿到 v0.2 代码但不想走 Git 推送，工作区根目录已经有：
+
+```
+aftermap-v0.2.bundle    # v0.2 release：P0–P4 全部完成 + 352 PASS
+aftermap-p1.bundle      # v0.1 spike：P0 + P1 + 166 PASS（保留作历史）
+```
+
+直接 clone bundle 就能拿到完整仓库：
+
+```bash
+cd /d/workspace
+git clone /e/0_BestSelf/0_末世游戏制作/aftermap-v0.2.bundle aftermap
+cd aftermap
+git log --oneline   # 看到 28 个 commit（含本次 v0.2 release）
+bash run.sh          # 跑全量回归
+```
+
 ## 推完验证
 打开 https://github.com/zymalpha/Aftermap 应看到 9 个 commit（HEAD a07c73a 在最上）：
 ```

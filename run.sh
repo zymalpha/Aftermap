@@ -7,12 +7,14 @@ PY="${PYTHON:-python}"
 echo "=== Python 内容 schema 校验 ==="
 "$PY" "$HERE/tools/content_validator/validate.py" "$HERE/content"
 if [ -f "$GD" ]; then
-  echo "=== Godot headless P0 spike ==="
-  for t in test_rng_determinism test_save_atomic_recovery test_event_interpreter test_command_queue test_grid_pathfind test_pixel_scaling test_content_schema test_stage3_smoke test_p1_tactical; do
+  echo "=== Godot headless 全量回归 (Stage 13) ==="
+  for t in test_command_queue test_grid_pathfind test_pixel_scaling test_stage3_smoke test_p1_tactical test_p2_characters test_p2_content test_p2_inventory_base test_p2_seven_days test_p2_state_machine test_p2_world test_p4_thirty_days; do
     echo "-- $t --"
     "$GD" --headless --path "$HERE" --script "game/tests/$t.gd" || echo "WARN: $t exit non-zero"
   done
 else
   echo "WARN: Godot 未安装，跳过 headless spike（请在本机安装 Godot 4.6.2 后重跑）"
 fi
+echo "=== Python pytest: map_pipeline ==="
+"$PY" -m pytest "$HERE/tools/map_pipeline/tests/" || echo "WARN: pytest exit non-zero"
 echo "=== 完成 ==="

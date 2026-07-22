@@ -35,9 +35,9 @@ Branch 'main' set up to track remote 'main' from 'origin'.
 ### 方法 B：从 bundle 克隆推送（如果方法 A 凭证麻烦）
 
 ```bash
-# 1. 在工作区外（如 D:\workspace）从 bundle 克隆
+# 1. 在工作区外（如 D:\workspace）从 bundle 克隆（v0.2 优先）
 cd /d/workspace
-git clone /e/0_BestSelf/0_末世游戏制作/aftermap-p1.bundle aftermap
+git clone /e/0_BestSelf/0_末世游戏制作/aftermap-v0.2.bundle aftermap
 cd aftermap
 
 # 2. 接远程 + 推送

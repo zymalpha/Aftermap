@@ -1,0 +1,143 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://aftermap.local/schemas/effect_node.schema.json",
+  "title": "EffectNode",
+  "description": "Whitelisted effect operation. Mirrors ADR-0005. Effects run as a transaction through GameSession commands.",
+  "type": "object",
+  "required": ["op"],
+  "additionalProperties": true,
+  "properties": {
+    "op": {
+      "type": "string",
+      "enum": [
+        "stat_add",
+        "stat_set",
+        "item_add",
+        "item_remove",
+        "spawn_npc",
+        "set_flag",
+        "unlock_event",
+        "queue_event",
+        "deal_damage",
+        "apply_infection",
+        "move_to"
+      ]
+    },
+    "target": {
+      "type": ["string", "null"],
+      "description": "Logical entity reference (survivor_id / survivor_group / base / poi_id / null for global)."
+    },
+    "amount": {
+      "type": ["number", "null"],
+      "description": "Numeric magnitude for stat_add / deal_damage / apply_infection."
+    },
+    "stat": {
+      "type": ["string", "null"],
+      "description": "Stat key when op is stat_add or stat_set (mirrors stat names declared by domain)."
+    },
+    "item_id": {
+      "type": ["string", "null"],
+      "description": "Stable content item id when op is item_add / item_remove."
+    },
+    "qty": {
+      "type": ["integer", "null"],
+      "minimum": 1
+    },
+    "flag": {
+      "type": ["string", "null"],
+      "description": "Flag name when op is set_flag / unlock_event. ASCII [a-z0-9_.]+"
+    },
+    "value": {
+      "type": ["boolean", "null"]
+    },
+    "event_id": {
+      "type": ["string", "null"],
+      "description": "Content event id when op is unlock_event / queue_event."
+    },
+    "delay_minutes": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "description": "Optional delay (in absolute campaign minutes) before queue_event applies."
+    },
+    "damage_kind": {
+      "type": ["string", "null"],
+      "enum": ["bleed", "ballistic", "blunt", "infection", "fire", "explosive"]
+    },
+    "infection_stage": {
+      "type": ["string", "null"],
+      "enum": ["exposed", "latent", "active", "critical"]
+    },
+    "destination": {
+      "type": ["string", "null"],
+      "description": "POI id or coordinate ref when op is move_to. Strings only — no script paths (§11.14)."
+    }
+  },
+  "oneOf": [
+    {
+      "description": "stat_add",
+      "properties": {"op": {"const": "stat_add"}},
+      "required": ["op", "target", "stat", "amount"],
+      "additionalProperties": true
+    },
+    {
+      "description": "stat_set",
+      "properties": {"op": {"const": "stat_set"}},
+      "required": ["op", "target", "stat", "amount"],
+      "additionalProperties": true
+    },
+    {
+      "description": "item_add",
+      "properties": {"op": {"const": "item_add"}},
+      "required": ["op", "item_id", "qty"],
+      "additionalProperties": true
+    },
+    {
+      "description": "item_remove",
+      "properties": {"op": {"const": "item_remove"}},
+      "required": ["op", "item_id", "qty"],
+      "additionalProperties": true
+    },
+    {
+      "description": "spawn_npc",
+      "properties": {"op": {"const": "spawn_npc"}},
+      "required": ["op", "target"],
+      "additionalProperties": true
+    },
+    {
+      "description": "set_flag",
+      "properties": {"op": {"const": "set_flag"}},
+      "required": ["op", "flag", "value"],
+      "additionalProperties": true
+    },
+    {
+      "description": "unlock_event",
+      "properties": {"op": {"const": "unlock_event"}},
+      "required": ["op", "event_id"],
+      "additionalProperties": true
+    },
+    {
+      "description": "queue_event",
+      "properties": {"op": {"const": "queue_event"}},
+      "required": ["op", "event_id"],
+      "additionalProperties": true
+    },
+    {
+      "description": "deal_damage",
+      "properties": {"op": {"const": "deal_damage"}},
+      "required": ["op", "target", "amount", "damage_kind"],
+      "additionalProperties": true
+    },
+    {
+      "description": "apply_infection",
+      "properties": {"op": {"const": "apply_infection"}},
+      "required": ["op", "target", "amount", "infection_stage"],
+      "additionalProperties": true
+    },
+    {
+      "description": "move_to",
+      "properties": {"op": {"const": "move_to"}},
+      "required": ["op", "target", "destination"],
+      "additionalProperties": true
+    }
+  ]
+}

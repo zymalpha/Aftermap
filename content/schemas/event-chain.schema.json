@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://aftermap.local/schemas/event-chain.schema.json",
+  "title": "EventChain",
+  "description": "Sequenced storyline spanning multiple campaign days. Mirrors §08 §3 event chain format.",
+  "type": "object",
+  "required": ["id", "name_zh", "start_event_id", "nodes", "endings"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^evc_[a-z0-9_]+$"
+    },
+    "name_zh": {"type": "string", "minLength": 1},
+    "start_event_id": {
+      "type": "string",
+      "pattern": "^evt_[a-z0-9_]+$",
+      "description": "Event id that begins the chain. Must be a kind=chain_node event."
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "required": ["event_id", "when"],
+        "additionalProperties": false,
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "pattern": "^evt_[a-z0-9_]+$"
+          },
+          "when": {
+            "oneOf": [
+              {
+                "type": "object",
+                "required": ["days_offset"],
+                "additionalProperties": false,
+                "properties": {
+                  "days_offset": {"type": "integer", "minimum": 0, "maximum": 60},
+                  "hour": {"type": ["integer", "null"], "minimum": 0, "maximum": 23}
+                }
+              },
+              {
+                "type": "object",
+                "required": ["gating_condition"],
+                "additionalProperties": false,
+                "properties": {
+                  "gating_condition": {"$ref": "condition_node.schema.json"}
+                }
+              }
+            ]
+          },
+          "skippable": {
+            "type": "boolean",
+            "default": false,
+            "description": "If true, missing condition moves to the next node rather than breaking the chain (§08 §3.3)."
+          }
+        }
+      }
+    },
+    "endings": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "required": ["condition", "ending_kind"],
+        "additionalProperties": false,
+        "properties": {
+          "condition": {"$ref": "condition_node.schema.json"},
+          "ending_kind": {
+            "type": "string",
+            "enum": ["resolved", "abandoned", "tragedy", "open_thread"],
+            "description": "Mirrors §08 §3.4 ending kinds. open_thread feeds back into another chain."
+          }
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+      "uniqueItems": true
+    }
+  }
+}

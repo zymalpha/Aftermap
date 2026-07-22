@@ -1,0 +1,11 @@
+{
+  "id": "itm_water_bottle",
+  "name_zh": "瓶装饮用水",
+  "name_en": "Bottled Water",
+  "kind": "consumable",
+  "weight_kg": 0.5,
+  "stack_size": 6,
+  "tags": ["drink", "consumable", "stackable"],
+  "value_tier": 1,
+  "notes": "Daily hydration source. Mirrors §09 §3.1 daily consumption."
+}

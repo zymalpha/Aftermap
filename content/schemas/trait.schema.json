@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://aftermap.local/schemas/trait.schema.json",
+  "title": "Trait",
+  "description": "Character trait definition. Mirrors §04 性格 / 价值底线 / 弱点 design.",
+  "type": "object",
+  "required": ["id", "name_zh", "kind", "bonus", "penalty", "opinion_rules"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^trt_[a-z0-9_]+$"
+    },
+    "name_zh": {"type": "string", "minLength": 1},
+    "kind": {
+      "type": "string",
+      "enum": ["personality", "value", "weakness"],
+      "description": "personality = §04 个性; value = 价值底线; weakness = 弱点."
+    },
+    "bonus": {
+      "type": "object",
+      "description": "Stat-modifying bonus when condition is met. Keys are stat names; values are signed numbers.",
+      "additionalProperties": {"type": "number"}
+    },
+    "penalty": {
+      "type": "object",
+      "description": "Stat-modifying penalty when condition is met.",
+      "additionalProperties": {"type": "number"}
+    },
+    "opinion_rules": {
+      "type": "array",
+      "description": "Triggered relationship reactions. Each rule maps a flag or stat condition to an opinion delta.",
+      "items": {
+        "type": "object",
+        "required": ["when", "delta"],
+        "additionalProperties": false,
+        "properties": {
+          "when": {
+            "type": "object",
+            "required": ["op"],
+            "additionalProperties": true,
+            "properties": {
+              "op": {
+                "type": "string",
+                "enum": ["flag_has", "stat_compare", "relationship_threshold", "time_in_range"]
+              },
+              "flag": {"type": ["string", "null"]},
+              "value": {"type": ["boolean", "null"]},
+              "stat": {"type": ["string", "null"]},
+              "compare": {"type": ["string", "null"]},
+              "threshold": {"type": ["number", "null"]},
+              "axis": {"type": ["string", "null"]},
+              "day_from": {"type": ["integer", "null"]},
+              "day_to": {"type": ["integer", "null"]}
+            }
+          },
+          "delta": {
+            "type": "object",
+            "required": ["axis", "amount"],
+            "additionalProperties": false,
+            "properties": {
+              "axis": {"type": "string", "enum": ["trust", "intimacy"]},
+              "amount": {"type": "number", "minimum": -1, "maximum": 1}
+            }
+          }
+        }
+      },
+      "default": []
+    }
+  }
+}

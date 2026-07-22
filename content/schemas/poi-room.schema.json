@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://aftermap.local/schemas/poi-room.schema.json",
+  "title": "POIRoom",
+  "description": "Pre-authored POI room layout. Mirrors ADR-0005 / §11.15. Coordinates are integer tile indices, not pixels.",
+  "type": "object",
+  "required": ["id", "name_zh", "poi_class", "grid_w", "grid_h", "tiles", "containers"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^poi_[a-z0-9_]+$"
+    },
+    "name_zh": {"type": "string", "minLength": 1},
+    "poi_class": {
+      "type": "string",
+      "enum": [
+        "pharmacy",
+        "clinic",
+        "grocery",
+        "depot",
+        "residence",
+        "police",
+        "school",
+        "gas_station",
+        "warehouse",
+        "park",
+        "industrial",
+        "office"
+      ],
+      "description": "Mirrors §12.9.2 content quota of 12 POI classes, each with at least 2 rooms by P5."
+    },
+    "grid_w": {
+      "type": "integer",
+      "minimum": 4,
+      "maximum": 64
+    },
+    "grid_h": {
+      "type": "integer",
+      "minimum": 4,
+      "maximum": 64
+    },
+    "tiles": {
+      "type": "array",
+      "description": "One tile per (x,y) cell in 0 <= x < grid_w, 0 <= y < grid_h.",
+      "items": {
+        "type": "object",
+        "required": ["x", "y", "kind", "floor_tag"],
+        "additionalProperties": false,
+        "properties": {
+          "x": {"type": "integer", "minimum": 0, "maximum": 63},
+          "y": {"type": "integer", "minimum": 0, "maximum": 63},
+          "kind": {
+            "type": "string",
+            "enum": ["floor", "wall", "door", "window", "loot_spot", "cover", "extractor", "hazard"]
+          },
+          "floor_tag": {
+            "type": "string",
+            "enum": ["concrete", "tile", "carpet", "grass", "water", "dirt", "metal", "asphalt"],
+            "description": "Mirrors §10 美术 ground tag for movement / noise calculations."
+          },
+          "blocks_sight": {
+            "type": ["boolean", "null"],
+            "description": "Defaults: wall=true, door=false, window=true unless otherwise stated."
+          }
+        }
+      }
+    },
+    "containers": {
+      "type": "array",
+      "description": "Loot containers placed at (x,y). Mirrors TAC-005 search rules.",
+      "items": {
+        "type": "object",
+        "required": ["x", "y", "loot_table"],
+        "additionalProperties": false,
+        "properties": {
+          "x": {"type": "integer", "minimum": 0, "maximum": 63},
+          "y": {"type": "integer", "minimum": 0, "maximum": 63},
+          "loot_table": {
+            "type": "string",
+            "pattern": "^lt_[a-z0-9_]+$",
+            "description": "Identifier for a loot table to be loaded separately; not embedded to keep this schema focused."
+          },
+          "locked": {"type": ["boolean", "null"]}
+        }
+      },
+      "default": []
+    }
+  }
+}

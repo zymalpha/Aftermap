@@ -1,0 +1,32 @@
+{
+  "id": "trt_loner",
+  "name_zh": "独行侠",
+  "kind": "personality",
+  "bonus": {
+    "stealth": 1,
+    "scavenge": 1
+  },
+  "penalty": {
+    "social": -1
+  },
+  "opinion_rules": [
+    {
+      "when": {
+        "op": "relationship_threshold",
+        "target": "any",
+        "axis": "trust",
+        "compare": ">",
+        "threshold": 0.5
+      },
+      "delta": {"axis": "trust", "amount": -0.1}
+    },
+    {
+      "when": {
+        "op": "flag_has",
+        "flag": "crowd_gathering_active",
+        "value": true
+      },
+      "delta": {"axis": "trust", "amount": -0.05}
+    }
+  ]
+}

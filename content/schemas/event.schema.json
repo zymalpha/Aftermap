@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://aftermap.local/schemas/event.schema.json",
+  "title": "Event",
+  "description": "Single event card. Effects are whitelisted (ADR-0005 §1). Options use the same schema.",
+  "type": "object",
+  "required": ["id", "name_zh", "kind", "weight", "triggers", "effects", "tags"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^evt_[a-z0-9_]+$"
+    },
+    "name_zh": {"type": "string", "minLength": 1},
+    "kind": {
+      "type": "string",
+      "enum": ["scene", "decision", "summary", "broadcast", "chain_node"],
+      "description": "scene = narrative moment; decision = player choice; summary = end-of-day; broadcast = radio/rumor; chain_node = part of an event chain."
+    },
+    "weight": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Director priority. §08 事件配额 require 60 independent events."
+    },
+    "triggers": {
+      "type": "object",
+      "description": "Conditions for the event to fire. All must be true (AND).",
+      "additionalProperties": false,
+      "properties": {
+        "all_of": {
+          "type": "array",
+          "items": {"$ref": "condition_node.schema.json"}
+        },
+        "any_of": {
+          "type": "array",
+          "items": {"$ref": "condition_node.schema.json"}
+        }
+      },
+      "anyOf": [
+        {"required": ["all_of"]},
+        {"required": ["any_of"]}
+      ]
+    },
+    "effects": {
+      "type": "array",
+      "description": "Effects applied as a transaction (ADR-0005 §3).",
+      "items": {"$ref": "effect_node.schema.json"},
+      "minItems": 1
+    },
+    "options": {
+      "type": "array",
+      "description": "Decision options. Only used when kind == decision.",
+      "items": {
+        "type": "object",
+        "required": ["label_zh", "effects"],
+        "additionalProperties": false,
+        "properties": {
+          "label_zh": {"type": "string", "minLength": 1},
+          "effects": {
+            "type": "array",
+            "items": {"$ref": "effect_node.schema.json"},
+            "minItems": 1
+          },
+          "weight": {"type": "integer", "minimum": 0, "maximum": 100}
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$"
+      },
+      "uniqueItems": true,
+      "maxItems": 16
+    },
+    "cooldown_days": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "description": "Minimum days between fires (§08 冷却)."
+    },
+    "max_fires": {
+      "type": ["integer", "null"],
+      "minimum": 1,
+      "description": "Maximum lifetime fires per campaign."
+    }
+  }
+}

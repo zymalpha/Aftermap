@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://aftermap.local/schemas/facility.schema.json",
+  "title": "Facility",
+  "description": "Base facility definition. Costs and upkeep use the resource keys declared in §09 §3.",
+  "type": "object",
+  "required": ["id", "name_zh", "kind", "tier", "build_cost", "daily_upkeep", "power_draw_kw"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^fac_[a-z0-9_]+$"
+    },
+    "name_zh": {"type": "string", "minLength": 1},
+    "kind": {
+      "type": "string",
+      "enum": ["sleep", "storage", "kitchen", "water", "medical", "workbench", "power", "radio", "watch", "barrier", "quarantine", "garden"]
+    },
+    "tier": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 2,
+      "description": "MVP cap = 2 (策划 §12 P4 calls for 12 facilities, but only 2 tiers in MVP)."
+    },
+    "build_cost": {
+      "type": "object",
+      "description": "Resource map for initial construction. Allowed keys: resource_material, resource_parts, fuel, ammo_9mm, water, food.",
+      "additionalProperties": {"type": "integer", "minimum": 0},
+      "minProperties": 1
+    },
+    "daily_upkeep": {
+      "type": "object",
+      "description": "Resource map consumed per day.",
+      "additionalProperties": {"type": "integer", "minimum": 0}
+    },
+    "power_draw_kw": {
+      "type": "number",
+      "description": "Signed value: positive produces, negative consumes (§09 §9). Generator tiers are 6 / 10."
+    },
+    "notes": {"type": ["string", "null"]}
+  }
+}

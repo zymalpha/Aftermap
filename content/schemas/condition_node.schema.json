@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://aftermap.local/schemas/condition_node.schema.json",
+  "title": "ConditionNode",
+  "description": "Whitelisted boolean condition (ADR-0005 §1). Conditions must be pure functions of GameSession state; no IO.",
+  "type": "object",
+  "required": ["op"],
+  "additionalProperties": true,
+  "properties": {
+    "op": {
+      "type": "string",
+      "enum": [
+        "flag_has",
+        "stat_compare",
+        "rng_chance",
+        "time_in_range",
+        "item_count",
+        "relationship_threshold",
+        "city_pressure"
+      ]
+    },
+    "flag": {
+      "type": ["string", "null"],
+      "description": "Flag name when op is flag_has (ASCII [a-z0-9_.]+)."
+    },
+    "value": {
+      "type": ["boolean", "null"]
+    },
+    "target": {
+      "type": ["string", "null"]
+    },
+    "stat": {
+      "type": ["string", "null"]
+    },
+    "compare": {
+      "type": ["string", "null"],
+      "enum": ["==", "!=", "<", "<=", ">", ">="]
+    },
+    "threshold": {
+      "type": ["number", "null"]
+    },
+    "probability": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "stream": {
+      "type": ["string", "null"],
+      "description": "RngService stream name; defaults to 'daily_director_<day>'."
+    },
+    "day_from": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "day_to": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "time_of_day": {
+      "type": ["string", "null"],
+      "enum": ["morning", "midday", "evening", "night"]
+    },
+    "item_id": {
+      "type": ["string", "null"]
+    },
+    "axis": {
+      "type": ["string", "null"],
+      "enum": ["trust", "intimacy"],
+      "description": "Required only for relationship_threshold (§04 design)."
+    },
+    "pressure_min": {
+      "type": ["number", "null"]
+    },
+    "pressure_max": {
+      "type": ["number", "null"]
+    }
+  },
+  "oneOf": [
+    {
+      "description": "flag_has",
+      "properties": {"op": {"const": "flag_has"}},
+      "required": ["op", "flag", "value"],
+      "additionalProperties": true
+    },
+    {
+      "description": "stat_compare",
+      "properties": {"op": {"const": "stat_compare"}},
+      "required": ["op", "target", "stat", "compare", "threshold"],
+      "additionalProperties": true
+    },
+    {
+      "description": "rng_chance",
+      "properties": {"op": {"const": "rng_chance"}},
+      "required": ["op", "probability"],
+      "additionalProperties": true
+    },
+    {
+      "description": "time_in_range",
+      "properties": {"op": {"const": "time_in_range"}},
+      "required": ["op", "day_from", "day_to"],
+      "additionalProperties": true
+    },
+    {
+      "description": "item_count",
+      "properties": {"op": {"const": "item_count"}},
+      "required": ["op", "item_id", "compare", "threshold"],
+      "additionalProperties": true
+    },
+    {
+      "description": "relationship_threshold",
+      "properties": {"op": {"const": "relationship_threshold"}},
+      "required": ["op", "target", "axis", "compare", "threshold"],
+      "additionalProperties": true
+    },
+    {
+      "description": "city_pressure",
+      "properties": {"op": {"const": "city_pressure"}},
+      "required": ["op", "pressure_min"],
+      "additionalProperties": true
+    }
+  ]
+}

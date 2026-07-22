@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://aftermap.local/schemas/recipe.schema.json",
+  "title": "Recipe",
+  "description": "Crafting / cooking recipe definition. Mirrors §09 §7 配方基线.",
+  "type": "object",
+  "required": ["id", "name_zh", "output_item_id", "inputs", "tools", "skill_required", "time_minutes", "category"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^rcp_[a-z0-9_]+$"
+    },
+    "name_zh": {"type": "string", "minLength": 1},
+    "output_item_id": {
+      "type": "string",
+      "pattern": "^itm_[a-z0-9_]+$"
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["item_id", "qty"],
+        "additionalProperties": false,
+        "properties": {
+          "item_id": {"type": "string", "pattern": "^itm_[a-z0-9_]+$"},
+          "qty": {"type": "integer", "minimum": 1, "maximum": 999}
+        }
+      },
+      "minItems": 1
+    },
+    "tools": {
+      "type": "array",
+      "description": "Optional required tool item ids. Empty array means no tool.",
+      "items": {"type": "string", "pattern": "^itm_[a-z0-9_]+$"},
+      "uniqueItems": true,
+      "default": []
+    },
+    "facility_required": {
+      "type": ["string", "null"],
+      "pattern": "^fac_[a-z0-9_]+$",
+      "description": "Facility id required to attempt, e.g. fac_workbench or fac_kitchen."
+    },
+    "skill_required": {
+      "type": "object",
+      "required": ["skill", "min_level"],
+      "additionalProperties": false,
+      "properties": {
+        "skill": {
+          "type": "string",
+          "enum": ["medical", "scavenge", "craft", "stealth", "social"]
+        },
+        "min_level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        }
+      }
+    },
+    "time_minutes": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1440
+    },
+    "category": {
+      "type": "string",
+      "enum": ["consume", "craft", "protect", "migrate"],
+      "description": "Mirrors §08 event categories: treat/buff, build, defend, journey."
+    }
+  }
+}

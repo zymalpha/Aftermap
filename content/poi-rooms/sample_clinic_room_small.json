@@ -1,0 +1,65 @@
+{
+  "id": "poi_clinic_room_small_01",
+  "name_zh": "诊所小房间",
+  "poi_class": "clinic",
+  "grid_w": 8,
+  "grid_h": 6,
+  "tiles": [
+    {"x": 0, "y": 0, "kind": "wall", "floor_tag": "concrete", "blocks_sight": true},
+    {"x": 1, "y": 0, "kind": "wall", "floor_tag": "concrete", "blocks_sight": true},
+    {"x": 2, "y": 0, "kind": "wall", "floor_tag": "concrete", "blocks_sight": true},
+    {"x": 3, "y": 0, "kind": "wall", "floor_tag": "concrete", "blocks_sight": true},
+    {"x": 4, "y": 0, "kind": "wall", "floor_tag": "concrete", "blocks_sight": true},
+    {"x": 5, "y": 0, "kind": "wall", "floor_tag": "concrete", "blocks_sight": true},
+    {"x": 6, "y": 0, "kind": "wall", "floor_tag": "concrete", "blocks_sight": true},
+    {"x": 7, "y": 0, "kind": "wall", "floor_tag": "concrete", "blocks_sight": true},
+
+    {"x": 0, "y": 1, "kind": "wall", "floor_tag": "tile", "blocks_sight": true},
+    {"x": 1, "y": 1, "kind": "floor", "floor_tag": "tile"},
+    {"x": 2, "y": 1, "kind": "floor", "floor_tag": "tile"},
+    {"x": 3, "y": 1, "kind": "floor", "floor_tag": "tile"},
+    {"x": 4, "y": 1, "kind": "floor", "floor_tag": "tile"},
+    {"x": 5, "y": 1, "kind": "floor", "floor_tag": "tile"},
+    {"x": 6, "y": 1, "kind": "floor", "floor_tag": "tile"},
+    {"x": 7, "y": 1, "kind": "wall", "floor_tag": "tile", "blocks_sight": true},
+
+    {"x": 0, "y": 2, "kind": "wall", "floor_tag": "tile", "blocks_sight": true},
+    {"x": 1, "y": 2, "kind": "floor", "floor_tag": "tile"},
+    {"x": 2, "y": 2, "kind": "loot_spot", "floor_tag": "tile"},
+    {"x": 3, "y": 2, "kind": "floor", "floor_tag": "tile"},
+    {"x": 4, "y": 2, "kind": "cover", "floor_tag": "tile"},
+    {"x": 5, "y": 2, "kind": "floor", "floor_tag": "tile"},
+    {"x": 6, "y": 2, "kind": "door", "floor_tag": "tile", "blocks_sight": false},
+    {"x": 7, "y": 2, "kind": "wall", "floor_tag": "tile", "blocks_sight": true},
+
+    {"x": 0, "y": 3, "kind": "wall", "floor_tag": "tile", "blocks_sight": true},
+    {"x": 1, "y": 3, "kind": "floor", "floor_tag": "tile"},
+    {"x": 2, "y": 3, "kind": "floor", "floor_tag": "tile"},
+    {"x": 3, "y": 3, "kind": "cover", "floor_tag": "tile"},
+    {"x": 4, "y": 3, "kind": "floor", "floor_tag": "tile"},
+    {"x": 5, "y": 3, "kind": "hazard", "floor_tag": "tile"},
+    {"x": 6, "y": 3, "kind": "floor", "floor_tag": "tile"},
+    {"x": 7, "y": 3, "kind": "wall", "floor_tag": "tile", "blocks_sight": true},
+
+    {"x": 0, "y": 4, "kind": "wall", "floor_tag": "tile", "blocks_sight": true},
+    {"x": 1, "y": 4, "kind": "floor", "floor_tag": "tile"},
+    {"x": 2, "y": 4, "kind": "floor", "floor_tag": "tile"},
+    {"x": 3, "y": 4, "kind": "floor", "floor_tag": "tile"},
+    {"x": 4, "y": 4, "kind": "floor", "floor_tag": "tile"},
+    {"x": 5, "y": 4, "kind": "floor", "floor_tag": "tile"},
+    {"x": 6, "y": 4, "kind": "floor", "floor_tag": "tile"},
+    {"x": 7, "y": 4, "kind": "wall", "floor_tag": "tile", "blocks_sight": true},
+
+    {"x": 0, "y": 5, "kind": "wall", "floor_tag": "concrete", "blocks_sight": true},
+    {"x": 1, "y": 5, "kind": "wall", "floor_tag": "concrete", "blocks_sight": true},
+    {"x": 2, "y": 5, "kind": "wall", "floor_tag": "concrete", "blocks_sight": true},
+    {"x": 3, "y": 5, "kind": "wall", "floor_tag": "concrete", "blocks_sight": true},
+    {"x": 4, "y": 5, "kind": "wall", "floor_tag": "concrete", "blocks_sight": true},
+    {"x": 5, "y": 5, "kind": "wall", "floor_tag": "concrete", "blocks_sight": true},
+    {"x": 6, "y": 5, "kind": "wall", "floor_tag": "concrete", "blocks_sight": true},
+    {"x": 7, "y": 5, "kind": "wall", "floor_tag": "concrete", "blocks_sight": true}
+  ],
+  "containers": [
+    {"x": 2, "y": 2, "loot_table": "lt_clinic_basic", "locked": false}
+  ]
+}

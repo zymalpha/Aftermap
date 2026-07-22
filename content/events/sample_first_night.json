@@ -1,0 +1,38 @@
+{
+  "id": "evt_first_night_decision",
+  "name_zh": "第一夜的争论",
+  "kind": "decision",
+  "weight": 60,
+  "triggers": {
+    "all_of": [
+      {"op": "time_in_range", "day_from": 1, "day_to": 1},
+      {"op": "flag_has", "flag": "first_night_pending", "value": true}
+    ]
+  },
+  "effects": [
+    {"op": "set_flag", "flag": "first_night_decision_logged", "value": true}
+  ],
+  "options": [
+    {
+      "label_zh": "分组轮班守夜",
+      "weight": 70,
+      "effects": [
+        {"op": "stat_add", "target": "community", "stat": "morale", "amount": -1},
+        {"op": "set_flag", "flag": "watch_rotation_locked", "value": true},
+        {"op": "queue_event", "event_id": "evt_d2_rumour_watch"}
+      ]
+    },
+    {
+      "label_zh": "所有人彻夜不眠",
+      "weight": 30,
+      "effects": [
+        {"op": "stat_add", "target": "community", "stat": "morale", "amount": -3},
+        {"op": "stat_add", "target": "all", "stat": "energy", "amount": -8},
+        {"op": "queue_event", "event_id": "evt_d2_rumour_exhaustion"}
+      ]
+    }
+  ],
+  "tags": ["intro", "morale", "night_one"],
+  "cooldown_days": null,
+  "max_fires": 1
+}

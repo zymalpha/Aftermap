@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://aftermap.local/schemas/item.schema.json",
+  "title": "Item",
+  "description": "Content definition of a single item kind. Mirrors ADR-0005 §3 and §11.6. Display name goes through localization (§11.18).",
+  "type": "object",
+  "required": ["id", "name_zh", "name_en", "kind", "weight_kg", "stack_size", "tags"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^itm_[a-z0-9_]+$",
+      "description": "Stable content id (§11.6.1). ASCII lowercase, never reused after deletion."
+    },
+    "name_zh": {"type": "string", "minLength": 1},
+    "name_en": {"type": "string", "minLength": 1},
+    "kind": {
+      "type": "string",
+      "enum": ["tool", "weapon", "armor", "consumable", "material", "ammo", "key", "quest", "food", "memento"]
+    },
+    "weight_kg": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "description": "Per-unit weight in kilograms. Used by inventory carry checks (§04)."
+    },
+    "stack_size": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999,
+      "description": "Maximum instances per inventory stack."
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$"
+      },
+      "uniqueItems": true
+    },
+    "value_tier": {
+      "type": ["integer", "null"],
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Trading/loot table tier, mirrors §11.8.2."
+    },
+    "notes": {
+      "type": ["string", "null"],
+      "description": "Author note. Not displayed to player."
+    }
+  }
+}

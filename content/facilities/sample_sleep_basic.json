@@ -1,0 +1,14 @@
+{
+  "id": "fac_sleep_basic",
+  "name_zh": "睡眠区",
+  "kind": "sleep",
+  "tier": 1,
+  "build_cost": {
+    "resource_material": 4,
+    "resource_parts": 0,
+    "fuel": 0
+  },
+  "daily_upkeep": {},
+  "power_draw_kw": 0,
+  "notes": "睡眠区1级；提供4张床位。§09 §8 baseline."
+}

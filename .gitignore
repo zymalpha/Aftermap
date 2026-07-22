@@ -1,4 +1,6 @@
 .tools/
+.godot/
+*.uid
 *.pyc
 __pycache__/
 .DS_Store
@@ -11,3 +13,5 @@ build/
 dist/
 *.log
 .aftermap/saves/*.tmp
+/content_validator/__pycache__/
+/content_validator/.pytest_cache/

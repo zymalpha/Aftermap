@@ -1,0 +1,72 @@
+{
+  "city_id": "nanjing_demo",
+  "name": "南京（演示包）",
+  "version": "0.1.0",
+  "fingerprint": "1f8b4d2c6e0a3f9b",
+  "content_fingerprint": "f2e74d1a93b04c8ed7c5a1e02b9d6f44",
+  "pois": [
+    {
+      "poi_id": "poi_pharmacy_01",
+      "name": "示范药房",
+      "class": "pharmacy",
+      "lat": 32.05,
+      "lon": 118.78,
+      "grid_w": 12,
+      "grid_h": 12,
+      "container_count": 4
+    },
+    {
+      "poi_id": "poi_clinic_01",
+      "name": "示范诊所",
+      "class": "clinic",
+      "lat": 32.06,
+      "lon": 118.79,
+      "grid_w": 14,
+      "grid_h": 10,
+      "container_count": 6
+    },
+    {
+      "poi_id": "poi_grocery_01",
+      "name": "示范超市",
+      "class": "grocery",
+      "lat": 32.04,
+      "lon": 118.77,
+      "grid_w": 16,
+      "grid_h": 14,
+      "container_count": 8
+    },
+    {
+      "poi_id": "poi_police_01",
+      "name": "示范派出所",
+      "class": "police",
+      "lat": 32.05,
+      "lon": 118.80,
+      "grid_w": 12,
+      "grid_h": 12,
+      "container_count": 5
+    },
+    {
+      "poi_id": "poi_school_01",
+      "name": "示范学校",
+      "class": "school",
+      "lat": 32.07,
+      "lon": 118.78,
+      "grid_w": 18,
+      "grid_h": 16,
+      "container_count": 7
+    },
+    {
+      "poi_id": "poi_park_01",
+      "name": "示范公园",
+      "class": "park",
+      "lat": 32.04,
+      "lon": 118.80,
+      "grid_w": 20,
+      "grid_h": 18,
+      "container_count": 2
+    }
+  ],
+  "generated_at": "2026-07-22T00:00:00Z",
+  "source": "preset-demo",
+  "license": "ODbL"
+}

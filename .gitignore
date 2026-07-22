@@ -15,3 +15,4 @@ dist/
 .aftermap/saves/*.tmp
 /content_validator/__pycache__/
 /content_validator/.pytest_cache/
+aftermap-*.bundle

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <title>AFTERMAP 对称 FOV - 32x32 网格视线投射</title>
+  <desc>32x32 pixel grid with central character and symmetric field of view rays, yellow translucent visible cells and dark grey shadow cells</desc>
+  <rect x="0" y="0" width="800" height="800" fill="#1F2426"/>
+
+  <!-- Title corners -->
+  <rect x="40" y="40" width="240" height="48" fill="#1F2426"/>
+  <rect x="40" y="40" width="240" height="8" fill="#D7A34B"/>
+  <rect x="40" y="80" width="240" height="8" fill="#D7A34B"/>
+  <rect x="40" y="40" width="8" height="48" fill="#D7A34B"/>
+  <rect x="272" y="40" width="8" height="48" fill="#D7A34B"/>
+  <text x="160" y="72" font-family="Courier New, monospace" font-size="20" fill="#D7A34B" text-anchor="middle" font-weight="bold">对称 FOV</text>
+
+  <!-- Grid offset: 80,80 to 720,720 (32x32, each cell 20px) -->
+  <!-- Background grid fill (dark) -->
+  <rect x="80" y="80" width="640" height="640" fill="#1F2426"/>
+
+  <!-- Shadow area: far corners (using #3A3F42) -->
+  <!-- Top-left corner shadow -->
+  <rect x="80" y="80" width="120" height="120" fill="#3A3F42"/>
+  <rect x="200" y="80" width="80" height="80" fill="#3A3F42"/>
+  <rect x="80" y="200" width="80" height="80" fill="#3A3F42"/>
+  <!-- Top-right corner shadow -->
+  <rect x="600" y="80" width="120" height="120" fill="#3A3F42"/>
+  <rect x="520" y="80" width="80" height="80" fill="#3A3F42"/>
+  <rect x="640" y="200" width="80" height="80" fill="#3A3F42"/>
+  <!-- Bottom-left corner shadow -->
+  <rect x="80" y="600" width="120" height="120" fill="#3A3F42"/>
+  <rect x="200" y="640" width="80" height="80" fill="#3A3F42"/>
+  <rect x="80" y="520" width="80" height="80" fill="#3A3F42"/>
+  <!-- Bottom-right corner shadow -->
+  <rect x="600" y="600" width="120" height="120" fill="#3A3F42"/>
+  <rect x="520" y="640" width="80" height="80" fill="#3A3F42"/>
+  <rect x="640" y="520" width="80" height="80" fill="#3A3F42"/>
+
+  <!-- Visible cells (FOV): yellow translucent #D7A34B33 -->
+  <!-- Center at (400, 400), character at cell (16,16), grid 80+16*20=400 -->
+  <!-- Visible area approximates a circle/diamond around center -->
+  <!-- Inner ring (close visible) -->
+  <rect x="300" y="300" width="200" height="200" fill="#D7A34B" fill-opacity="0.20"/>
+  <rect x="280" y="320" width="240" height="160" fill="#D7A34B" fill-opacity="0.20"/>
+  <rect x="320" y="280" width="160" height="240" fill="#D7A34B" fill-opacity="0.20"/>
+  <rect x="260" y="360" width="280" height="80" fill="#D7A34B" fill-opacity="0.18"/>
+  <rect x="360" y="260" width="80" height="280" fill="#D7A34B" fill-opacity="0.18"/>
+  <rect x="340" y="340" width="120" height="120" fill="#D7A34B" fill-opacity="0.30"/>
+  <!-- Outer visible (semi-visible) -->
+  <rect x="220" y="220" width="80" height="80" fill="#D7A34B" fill-opacity="0.10"/>
+  <rect x="500" y="220" width="80" height="80" fill="#D7A34B" fill-opacity="0.10"/>
+  <rect x="220" y="500" width="80" height="80" fill="#D7A34B" fill-opacity="0.10"/>
+  <rect x="500" y="500" width="80" height="80" fill="#D7A34B" fill-opacity="0.10"/>
+  <rect x="240" y="360" width="40" height="80" fill="#D7A34B" fill-opacity="0.12"/>
+  <rect x="520" y="360" width="40" height="80" fill="#D7A34B" fill-opacity="0.12"/>
+  <rect x="360" y="240" width="80" height="40" fill="#D7A34B" fill-opacity="0.12"/>
+  <rect x="360" y="520" width="80" height="40" fill="#D7A34B" fill-opacity="0.12"/>
+
+  <!-- Walls (blocking FOV) -->
+  <rect x="240" y="320" width="80" height="8" fill="#707578"/>
+  <rect x="240" y="320" width="8" height="80" fill="#707578"/>
+  <rect x="480" y="400" width="80" height="8" fill="#707578"/>
+  <rect x="552" y="328" width="8" height="80" fill="#707578"/>
+  <rect x="320" y="480" width="80" height="8" fill="#707578"/>
+  <rect x="320" y="480" width="8" height="80" fill="#707578"/>
+  <rect x="400" y="240" width="80" height="8" fill="#707578"/>
+  <rect x="472" y="240" width="8" height="80" fill="#707578"/>
+
+  <!-- Central character (橙黄方块) -->
+  <rect x="380" y="380" width="40" height="40" fill="#D7A34B"/>
+  <rect x="388" y="388" width="24" height="24" fill="#C5A47E"/>
+  <rect x="392" y="392" width="16" height="16" fill="#1F2426"/>
+
+  <!-- Grid lines (faint) -->
+  <rect x="80" y="80" width="640" height="2" fill="#3A3F42"/>
+  <rect x="80" y="720" width="640" height="2" fill="#3A3F42"/>
+  <rect x="80" y="80" width="2" height="640" fill="#3A3F42"/>
+  <rect x="720" y="80" width="2" height="640" fill="#3A3F42"/>
+  <!-- Vertical gridlines every 80px (every 4 cells) for clarity -->
+  <rect x="160" y="80" width="1" height="640" fill="#2A3033"/>
+  <rect x="240" y="80" width="1" height="640" fill="#2A3033"/>
+  <rect x="320" y="80" width="1" height="640" fill="#2A3033"/>
+  <rect x="400" y="80" width="1" height="640" fill="#2A3033"/>
+  <rect x="480" y="80" width="1" height="640" fill="#2A3033"/>
+  <rect x="560" y="80" width="1" height="640" fill="#2A3033"/>
+  <rect x="640" y="80" width="1" height="640" fill="#2A3033"/>
+  <!-- Horizontal gridlines every 80px -->
+  <rect x="80" y="160" width="640" height="1" fill="#2A3033"/>
+  <rect x="80" y="240" width="640" height="1" fill="#2A3033"/>
+  <rect x="80" y="320" width="640" height="1" fill="#2A3033"/>
+  <rect x="80" y="400" width="640" height="1" fill="#2A3033"/>
+  <rect x="80" y="480" width="640" height="1" fill="#2A3033"/>
+  <rect x="80" y="560" width="640" height="1" fill="#2A3033"/>
+  <rect x="80" y="640" width="640" height="1" fill="#2A3033"/>
+
+  <!-- Direction indicators (rays) -->
+  <rect x="396" y="160" width="8" height="40" fill="#D7A34B"/>
+  <rect x="396" y="600" width="8" height="40" fill="#D7A34B"/>
+  <rect x="160" y="396" width="40" height="8" fill="#D7A34B"/>
+  <rect x="600" y="396" width="40" height="8" fill="#D7A34B"/>
+
+  <!-- Legend at bottom -->
+  <rect x="40" y="740" width="720" height="40" fill="#1F2426"/>
+  <rect x="48" y="752" width="16" height="16" fill="#D7A34B" fill-opacity="0.30"/>
+  <text x="72" y="765" font-family="Courier New, monospace" font-size="12" fill="#E5E5E5">可见</text>
+  <rect x="128" y="752" width="16" height="16" fill="#3A3F42"/>
+  <text x="152" y="765" font-family="Courier New, monospace" font-size="12" fill="#E5E5E5">阴影</text>
+  <rect x="208" y="752" width="16" height="16" fill="#D7A34B"/>
+  <text x="232" y="765" font-family="Courier New, monospace" font-size="12" fill="#E5E5E5">玩家</text>
+  <rect x="288" y="752" width="16" height="16" fill="#707578"/>
+  <text x="312" y="765" font-family="Courier New, monospace" font-size="12" fill="#E5E5E5">墙体</text>
+  <text x="640" y="765" font-family="Courier New, monospace" font-size="14" fill="#D7A34B" text-anchor="end">32x32 GRID / 20px</text>
+</svg>

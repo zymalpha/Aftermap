@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <title>AFTERMAP 末日坐标 - Hero 主视觉</title>
+  <desc>AFTERMAP apocalypse coordinate game hero illustration with top-down clinic view and feature highlights</desc>
+  <rect x="0" y="0" width="1280" height="720" fill="#1F2426"/>
+
+  <!-- Top 1/3: warm light title bar (240px tall) -->
+  <rect x="0" y="0" width="1280" height="240" fill="#1F2426"/>
+  <rect x="64" y="56" width="64" height="64" fill="#D7A34B"/>
+  <rect x="136" y="64" width="48" height="48" fill="#C74A45"/>
+  <rect x="192" y="56" width="64" height="64" fill="#77A88D"/>
+  <rect x="264" y="64" width="48" height="48" fill="#8A5A43"/>
+
+  <!-- AFTERMAP pixel letters (8px grid approximation) -->
+  <rect x="400" y="72" width="8" height="40" fill="#D7A34B"/>
+  <rect x="408" y="72" width="16" height="8" fill="#D7A34B"/>
+  <rect x="424" y="72" width="8" height="16" fill="#D7A34B"/>
+  <rect x="424" y="96" width="16" height="8" fill="#D7A34B"/>
+  <rect x="424" y="104" width="8" height="16" fill="#D7A34B"/>
+  <rect x="416" y="104" width="8" height="8" fill="#D7A34B"/>
+  <rect x="440" y="72" width="8" height="40" fill="#D7A34B"/>
+  <rect x="448" y="104" width="16" height="8" fill="#D7A34B"/>
+  <rect x="464" y="72" width="8" height="16" fill="#D7A34B"/>
+  <rect x="464" y="96" width="16" height="8" fill="#D7A34B"/>
+  <rect x="480" y="72" width="8" height="16" fill="#D7A34B"/>
+  <rect x="488" y="72" width="8" height="40" fill="#D7A34B"/>
+
+  <text x="640" y="120" font-family="Courier New, monospace" font-size="48" font-weight="bold" fill="#D7A34B" text-anchor="middle">AFTERMAP</text>
+  <text x="640" y="176" font-family="Courier New, monospace" font-size="32" fill="#E5E5E5" text-anchor="middle">末日坐标</text>
+  <rect x="568" y="200" width="144" height="8" fill="#C74A45"/>
+
+  <!-- Middle 1/3: 24x24 clinic top-down view simplified (640-320 to 880+320 area, 240-480) -->
+  <!-- Clinic box: x=320 y=264 width=640 height=216 -->
+  <rect x="320" y="264" width="640" height="216" fill="#1F2426"/>
+  <rect x="320" y="264" width="640" height="8" fill="#707578"/>
+  <rect x="320" y="264" width="8" height="216" fill="#707578"/>
+  <rect x="952" y="264" width="8" height="216" fill="#707578"/>
+  <rect x="320" y="472" width="640" height="8" fill="#707578"/>
+
+  <!-- Interior walls -->
+  <rect x="320" y="360" width="200" height="8" fill="#707578"/>
+  <rect x="328" y="360" width="8" height="80" fill="#707578"/>
+  <rect x="520" y="360" width="8" height="80" fill="#707578"/>
+  <rect x="640" y="320" width="8" height="120" fill="#707578"/>
+  <rect x="800" y="360" width="160" height="8" fill="#707578"/>
+  <rect x="800" y="360" width="8" height="80" fill="#707578"/>
+  <rect x="640" y="464" width="160" height="8" fill="#707578"/>
+
+  <!-- Door openings (darker) -->
+  <rect x="408" y="360" width="32" height="8" fill="#1F2426"/>
+  <rect x="552" y="408" width="32" height="8" fill="#1F2426"/>
+
+  <!-- Floor tiles pattern -->
+  <rect x="336" y="280" width="200" height="72" fill="#3F6470"/>
+  <rect x="552" y="280" width="80" height="72" fill="#3F6470"/>
+  <rect x="656" y="280" width="136" height="32" fill="#3F6470"/>
+  <rect x="656" y="328" width="136" height="32" fill="#3F6470"/>
+  <rect x="336" y="376" width="184" height="88" fill="#3F6470"/>
+  <rect x="536" y="376" width="96" height="32" fill="#3F6470"/>
+  <rect x="336" y="376" width="184" height="32" fill="#3F6470"/>
+  <rect x="808" y="376" width="144" height="88" fill="#3F6470"/>
+  <rect x="656" y="416" width="136" height="48" fill="#3F6470"/>
+
+  <!-- 3 infected (red/green) -->
+  <rect x="376" y="304" width="16" height="16" fill="#5B7B5C"/>
+  <rect x="592" y="304" width="16" height="16" fill="#C74A45"/>
+  <rect x="720" y="344" width="16" height="16" fill="#5B7B5C"/>
+
+  <!-- 4 character placeholders (skin tone) -->
+  <rect x="448" y="408" width="16" height="16" fill="#C5A47E"/>
+  <rect x="496" y="408" width="16" height="16" fill="#C5A47E"/>
+  <rect x="704" y="408" width="16" height="16" fill="#C5A47E"/>
+  <rect x="848" y="432" width="16" height="16" fill="#C5A47E"/>
+
+  <!-- Furniture: medical cabinet -->
+  <rect x="816" y="280" width="48" height="24" fill="#8A5A43"/>
+  <rect x="880" y="280" width="48" height="24" fill="#77A88D"/>
+
+  <!-- Bottom 1/3: 4 lines of text with emoji -->
+  <rect x="64" y="520" width="1152" height="8" fill="#707578"/>
+  <text x="120" y="568" font-family="Courier New, monospace" font-size="24" fill="#D7A34B" text-anchor="start">&#x1F3E0;</text>
+  <text x="168" y="568" font-family="Courier New, monospace" font-size="24" fill="#E5E5E5" text-anchor="start">建立你的避难所</text>
+
+  <text x="120" y="608" font-family="Courier New, monospace" font-size="24" fill="#77A88D" text-anchor="start">&#x1F5FA;</text>
+  <text x="168" y="608" font-family="Courier New, monospace" font-size="24" fill="#E5E5E5" text-anchor="start">探索真实城市</text>
+
+  <text x="120" y="648" font-family="Courier New, monospace" font-size="24" fill="#C74A45" text-anchor="start">&#x2694;</text>
+  <text x="168" y="648" font-family="Courier New, monospace" font-size="24" fill="#E5E5E5" text-anchor="start">用暂停与战术活下来</text>
+
+  <text x="120" y="688" font-family="Courier New, monospace" font-size="24" fill="#8A5A43" text-anchor="start">&#x1F6AA;</text>
+  <text x="168" y="688" font-family="Courier New, monospace" font-size="24" fill="#E5E5E5" text-anchor="start">第 30 天决定是否离开</text>
+</svg>

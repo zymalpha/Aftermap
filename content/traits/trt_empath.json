@@ -1,0 +1,13 @@
+{
+  "id": "trt_empath",
+  "name_zh": "共情者",
+  "kind": "personality",
+  "bonus": {"social": 1, "morale_recovery": 1},
+  "penalty": {"search": -1},
+  "opinion_rules": [
+    {
+      "when": {"op": "flag_has", "flag": "someone_injured", "value": true},
+      "delta": {"axis": "intimacy", "amount": 0.1}
+    }
+  ]
+}

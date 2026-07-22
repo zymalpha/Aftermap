@@ -1,0 +1,8 @@
+{
+  "id": "trt_weak_dependency",
+  "name_zh": "戒断反应",
+  "kind": "weakness",
+  "bonus": {},
+  "penalty": {"daily_stress_gain": 2},
+  "opinion_rules": []
+}

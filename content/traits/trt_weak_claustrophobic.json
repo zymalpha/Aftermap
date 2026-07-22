@@ -1,0 +1,8 @@
+{
+  "id": "trt_weak_claustrophobic",
+  "name_zh": "幽闭恐惧",
+  "kind": "weakness",
+  "bonus": {},
+  "penalty": {"morale_decay_in_dark": 2, "panic_when_broken": 1},
+  "opinion_rules": []
+}

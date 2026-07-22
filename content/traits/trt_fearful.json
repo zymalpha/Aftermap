@@ -1,0 +1,13 @@
+{
+  "id": "trt_fearful",
+  "name_zh": "易惊体质",
+  "kind": "personality",
+  "bonus": {"stealth": 1, "alertness_recovery": 1},
+  "penalty": {"morale_decay": 1, "combat": -1},
+  "opinion_rules": [
+    {
+      "when": {"op": "time_in_range", "day_from": 1, "day_to": 60},
+      "delta": {"axis": "trust", "amount": -0.02}
+    }
+  ]
+}

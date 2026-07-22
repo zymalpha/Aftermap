@@ -1,0 +1,13 @@
+{
+  "id": "trt_value_share_last",
+  "name_zh": "最后一口也分人",
+  "kind": "value",
+  "bonus": {"morale_recovery": 2},
+  "penalty": {"self_preservation": -1},
+  "opinion_rules": [
+    {
+      "when": {"op": "flag_has", "flag": "food_shared", "value": true},
+      "delta": {"axis": "intimacy", "amount": 0.15}
+    }
+  ]
+}

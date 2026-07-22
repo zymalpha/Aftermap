@@ -8,7 +8,7 @@ echo === Python 内容 schema 校验 ===
 "%PY%" "%HERE%tools\content_validator\validate.py" "%HERE%content"
 if exist "%GD%" (
   echo === Godot headless P0 spike ===
-  for %%t in (test_rng_determinism test_save_atomic_recovery test_event_interpreter test_command_queue test_grid_pathfind test_pixel_scaling test_content_schema) do (
+  for %%t in (test_rng_determinism test_save_atomic_recovery test_event_interpreter test_command_queue test_grid_pathfind test_pixel_scaling test_content_schema test_stage3_smoke test_p1_tactical) do (
     echo -- %%t --
     "%GD%" --headless --path "%HERE%" --script "game/tests/%%t.gd" || echo WARN: %%t exit non-zero
   )

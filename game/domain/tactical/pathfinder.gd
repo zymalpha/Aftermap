@@ -29,14 +29,18 @@ const INF: float = 1.0e30
 static var _heap_keys: PackedInt32Array = PackedInt32Array()
 static var _heap_f: PackedFloat32Array = PackedFloat32Array()
 static var _heap_n: int = 0
+const _HEAP_INIT_CAP: int = 4096
 
 static func _heap_reset() -> void:
+	if _heap_keys.size() == 0:
+		_heap_keys.resize(_HEAP_INIT_CAP)
+		_heap_f.resize(_HEAP_INIT_CAP)
 	_heap_n = 0
 
 static func _heap_push(k: int, f: float) -> void:
 	# Resize if needed (geometric).
 	if _heap_n >= _heap_keys.size():
-		var cap: int = 1024 if _heap_keys.size() == 0 else _heap_keys.size() * 2
+		var cap: int = _heap_keys.size() * 2
 		_heap_keys.resize(cap)
 		_heap_f.resize(cap)
 	_heap_keys[_heap_n] = k

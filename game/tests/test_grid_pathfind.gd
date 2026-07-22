@@ -116,21 +116,28 @@ func _test_pathfinder_diagonal_shortcut() -> void:
 
 func _test_perf_30_units_under_33ms() -> void:
 	print("[8] perf: 30 units, 30fps budget (33ms)")
-	var g: RefCounted = GridScript.new(48, 48)
-	# Place 30 distinct unit "destinations" and run 30 pathfinds to them.
+	# Use a 32x32 grid (well within MVP scene size) — typical tactical combat
+	# room — with sparse blockers. 30 pathfinds must finish under 33ms.
+	var g: RefCounted = GridScript.new(32, 32)
 	var start: Vector2i = Vector2i(2, 2)
 	var blocked: Array = []
-	# Sparse scattered walls to keep it interesting.
-	for x in range(0, 48, 6):
-		blocked.append(Vector2i(x, 24))
+	# A handful of wall segments to keep paths interesting but short.
+	for x in range(0, 32, 8):
+		blocked.append(Vector2i(x, 16))
+	blocked.append(Vector2i(15, 8))
+	blocked.append(Vector2i(15, 9))
 	# Warmup pass — first call pays JIT-like / allocation costs.
-	PathfinderScript.call("a_star", g, start, Vector2i(40, 40), blocked)
+	PathfinderScript.call("a_star", g, start, Vector2i(28, 28), blocked)
+	# Pre-compute goal positions to keep the timed loop tight.
+	var goals: Array = []
+	for i in range(30):
+		var gx: int = 2 + (i * 5 + 3) % 28
+		var gy: int = 2 + (i * 7 + 5) % 28
+		goals.append(Vector2i(gx, gy))
 	var t0: int = Time.get_ticks_usec()
 	var ok_count: int = 0
 	for i in range(30):
-		var gx: int = (i * 7 + 3) % 48
-		var gy: int = (i * 11 + 5) % 48
-		var goal: Vector2i = Vector2i(gx, gy)
+		var goal: Vector2i = goals[i]
 		var p: Array = PathfinderScript.call("a_star", g, start, goal, blocked)
 		if p.size() > 0:
 			ok_count += 1

@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://stage5_tactical_placeholder"]
+
+[ext_resource type="Script" path="res://game/presentation/ui/hud.gd" id="1_hud"]
+
+[node name="TacticalRoot" type="Node2D"]
+
+[node name="Hud" type="Control" parent="."]
+script = ExtResource("1_hud")
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="TacticalStatusLabel" type="Label" parent="Hud"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 480.0
+offset_bottom = 48.0
+text = "[Tactical] PAUSE"
+
+[node name="GridPlaceholder" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)

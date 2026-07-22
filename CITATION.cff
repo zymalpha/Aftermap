@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+title: Aftermap
+message: |
+  If you use Aftermap in academic work, please cite the
+  latest tagged release via "Cite this repository" on GitHub.
+type: software
+authors:
+  - family-names: zymalpha
+    given-names: ""
+    alias: zymalpha
+    affiliation: Independent
+identifiers:
+  - type: url
+    value: https://github.com/zymalpha/aftermap
+license: MIT
+license-url: https://opensource.org/licenses/MIT
+repository-code: https://github.com/zymalpha/aftermap
+url: https://github.com/zymalpha/aftermap
+abstract: |
+  Aftermap 末日坐标 是一款 2D 像素末日生存经营游戏，
+  以真实世界城市街区为蓝本的回合制潜行 + 基地经营 + 迁徙叙事
+  体验；基于 Godot 4.6.2 + GDScript，命名 RNG 流 + 原子存档 +
+  白名单事件解释器 + 程序生成现实地图。
+keywords:
+  - godot
+  - gdscript
+  - pixel-art
+  - survival
+  - turn-based
+  - stealth
+  - base-building
+  - procedural
+  - roguelike
+  - indie-game
+date-released: 2026-07-22
+version: 0.1.0
+preferred-citation:
+  type: software
+  title: Aftermap — 末日坐标
+  authors:
+    - family-names: zymalpha
+      alias: zymalpha
+  year: 2026
+  url: https://github.com/zymalpha/aftermap

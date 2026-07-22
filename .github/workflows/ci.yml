@@ -1,0 +1,98 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+permissions:
+  contents: read
+
+jobs:
+  content-validate:
+    name: Content schema validate (Python)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install jsonschema
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install jsonschema
+
+      - name: Run content validator
+        run: |
+          python tools/content_validator/validate.py content
+
+  godot-headless:
+    name: Godot headless tests (Ubuntu)
+    runs-on: ubuntu-latest
+    needs: content-validate
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Godot 4.6.2 (third-party setup-action)
+        uses: chickentown888/godot-setup-action@v3
+        with:
+          godot-version: "4.6.2"
+          use-remote-cache: true
+
+      - name: Smoke-check binary
+        run: |
+          godot --version
+
+      - name: Run all test_*.gd scripts
+        run: |
+          set -e
+          for t in $(ls game/tests/test_*.gd | xargs -n1 basename | sed 's/\.gd$//'); do
+            echo "-- $t --"
+            godot --headless --path . --script "game/tests/$t.gd" || { echo "FAIL: $t"; exit 1; }
+          done
+          echo "=== headless tests 完成 ==="
+
+  readme-checks:
+    name: README hygiene
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: README must contain emoji banner
+        run: |
+          grep -q "🏠" README.md || { echo "README.md missing 🏠"; exit 1; }
+          grep -q "🗺️" README.md || { echo "README.md missing 🗺️"; exit 1; }
+          grep -q "⚔️" README.md || { echo "README.md missing ⚔️"; exit 1; }
+          grep -q "🧟" README.md || { echo "README.md missing 🧟"; exit 1; }
+
+      - name: LICENSE must be MIT
+        run: |
+          head -n1 LICENSE | grep -qi "MIT License" || { echo "LICENSE must be MIT"; exit 1; }
+
+      - name: Code of Conduct must exist
+        run: |
+          test -f CODE_OF_CONDUCT.md || { echo "CODE_OF_CONDUCT.md missing"; exit 1; }
+
+  ci-summary:
+    name: CI summary
+    runs-on: ubuntu-latest
+    needs: [content-validate, godot-headless, readme-checks]
+    if: always()
+    steps:
+      - name: Report
+        run: |
+          if [ "${{ needs.content-validate.result }}" != "success" ] \
+             || [ "${{ needs.godot-headless.result }}" != "success" ] \
+             || [ "${{ needs.readme-checks.result }}" != "success" ]; then
+            echo "One or more CI jobs failed."
+            exit 1
+          fi
+          echo "All CI jobs passed."

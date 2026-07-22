@@ -1,0 +1,13 @@
+.tools/
+*.pyc
+__pycache__/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+game/addons/gut/
+build/
+dist/
+*.log
+.aftermap/saves/*.tmp

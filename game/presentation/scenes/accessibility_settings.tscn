@@ -1,0 +1,281 @@
+[gd_scene load_steps=2 format=3 uid="uid://stage15_accessibility"]
+
+[ext_resource type="Script" path="res://game/presentation/scenes/accessibility_settings.gd" id="1_acc"]
+
+[node name="AccessibilitySettings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 0
+script = ExtResource("1_acc")
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.05, 0.06, 0.09, 1)
+
+[node name="SettingsVBox" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="SettingsVBox"]
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 32
+text = "无障碍设置"
+
+[node name="ZoomRow" type="HBoxContainer" parent="SettingsVBox"]
+theme_override_constants/separation = 8
+
+[node name="ZoomLabel" type="Label" parent="SettingsVBox/ZoomRow"]
+theme_override_font_sizes/font_size = 16
+text = "UI 缩放"
+
+[node name="ZoomOption_0" type="Button" parent="SettingsVBox/ZoomRow"]
+custom_minimum_size = Vector2(64, 32)
+text = "80%"
+
+[node name="ZoomOption_1" type="Button" parent="SettingsVBox/ZoomRow"]
+custom_minimum_size = Vector2(64, 32)
+text = "100%"
+
+[node name="ZoomOption_2" type="Button" parent="SettingsVBox/ZoomRow"]
+custom_minimum_size = Vector2(64, 32)
+text = "120%"
+
+[node name="ZoomOption_3" type="Button" parent="SettingsVBox/ZoomRow"]
+custom_minimum_size = Vector2(64, 32)
+text = "160%"
+
+[node name="FontRow" type="HBoxContainer" parent="SettingsVBox"]
+theme_override_constants/separation = 8
+
+[node name="FontLabel" type="Label" parent="SettingsVBox/FontRow"]
+theme_override_font_sizes/font_size = 16
+text = "字号"
+
+[node name="FontOption_0" type="Button" parent="SettingsVBox/FontRow"]
+custom_minimum_size = Vector2(64, 32)
+text = "small"
+
+[node name="FontOption_1" type="Button" parent="SettingsVBox/FontRow"]
+custom_minimum_size = Vector2(64, 32)
+text = "standard"
+
+[node name="FontOption_2" type="Button" parent="SettingsVBox/FontRow"]
+custom_minimum_size = Vector2(64, 32)
+text = "large"
+
+[node name="ColorRow" type="HBoxContainer" parent="SettingsVBox"]
+theme_override_constants/separation = 8
+
+[node name="ColorLabel" type="Label" parent="SettingsVBox/ColorRow"]
+theme_override_font_sizes/font_size = 16
+text = "色觉模式"
+
+[node name="ColorOption_0" type="Button" parent="SettingsVBox/ColorRow"]
+custom_minimum_size = Vector2(96, 32)
+text = "default"
+
+[node name="ColorOption_1" type="Button" parent="SettingsVBox/ColorRow"]
+custom_minimum_size = Vector2(96, 32)
+text = "protanopia"
+
+[node name="ColorOption_2" type="Button" parent="SettingsVBox/ColorRow"]
+custom_minimum_size = Vector2(96, 32)
+text = "deuteranopia"
+
+[node name="ColorOption_3" type="Button" parent="SettingsVBox/ColorRow"]
+custom_minimum_size = Vector2(96, 32)
+text = "high_contrast"
+
+[node name="KeybindList" type="PanelContainer" parent="SettingsVBox"]
+
+[node name="KeybindVBox" type="VBoxContainer" parent="SettingsVBox/KeybindList"]
+
+[node name="KeybindSlot_0" type="HBoxContainer" parent="SettingsVBox/KeybindList/KeybindVBox"]
+
+[node name="ActionLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_0"]
+theme_override_font_sizes/font_size = 16
+text = "动作 1"
+
+[node name="BindingLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_0"]
+theme_override_font_sizes/font_size = 16
+text = "—"
+
+[node name="KeybindSlot_1" type="HBoxContainer" parent="SettingsVBox/KeybindList/KeybindVBox"]
+
+[node name="ActionLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_1"]
+theme_override_font_sizes/font_size = 16
+text = "动作 2"
+
+[node name="BindingLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_1"]
+theme_override_font_sizes/font_size = 16
+text = "—"
+
+[node name="KeybindSlot_2" type="HBoxContainer" parent="SettingsVBox/KeybindList/KeybindVBox"]
+
+[node name="ActionLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_2"]
+theme_override_font_sizes/font_size = 16
+text = "动作 3"
+
+[node name="BindingLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_2"]
+theme_override_font_sizes/font_size = 16
+text = "—"
+
+[node name="KeybindSlot_3" type="HBoxContainer" parent="SettingsVBox/KeybindList/KeybindVBox"]
+
+[node name="ActionLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_3"]
+theme_override_font_sizes/font_size = 16
+text = "动作 4"
+
+[node name="BindingLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_3"]
+theme_override_font_sizes/font_size = 16
+text = "—"
+
+[node name="KeybindSlot_4" type="HBoxContainer" parent="SettingsVBox/KeybindList/KeybindVBox"]
+
+[node name="ActionLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_4"]
+theme_override_font_sizes/font_size = 16
+text = "动作 5"
+
+[node name="BindingLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_4"]
+theme_override_font_sizes/font_size = 16
+text = "—"
+
+[node name="KeybindSlot_5" type="HBoxContainer" parent="SettingsVBox/KeybindList/KeybindVBox"]
+
+[node name="ActionLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_5"]
+theme_override_font_sizes/font_size = 16
+text = "动作 6"
+
+[node name="BindingLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_5"]
+theme_override_font_sizes/font_size = 16
+text = "—"
+
+[node name="KeybindSlot_6" type="HBoxContainer" parent="SettingsVBox/KeybindList/KeybindVBox"]
+
+[node name="ActionLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_6"]
+theme_override_font_sizes/font_size = 16
+text = "动作 7"
+
+[node name="BindingLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_6"]
+theme_override_font_sizes/font_size = 16
+text = "—"
+
+[node name="KeybindSlot_7" type="HBoxContainer" parent="SettingsVBox/KeybindList/KeybindVBox"]
+
+[node name="ActionLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_7"]
+theme_override_font_sizes/font_size = 16
+text = "动作 8"
+
+[node name="BindingLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_7"]
+theme_override_font_sizes/font_size = 16
+text = "—"
+
+[node name="KeybindSlot_8" type="HBoxContainer" parent="SettingsVBox/KeybindList/KeybindVBox"]
+
+[node name="ActionLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_8"]
+theme_override_font_sizes/font_size = 16
+text = "动作 9"
+
+[node name="BindingLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_8"]
+theme_override_font_sizes/font_size = 16
+text = "—"
+
+[node name="KeybindSlot_9" type="HBoxContainer" parent="SettingsVBox/KeybindList/KeybindVBox"]
+
+[node name="ActionLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_9"]
+theme_override_font_sizes/font_size = 16
+text = "动作 10"
+
+[node name="BindingLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_9"]
+theme_override_font_sizes/font_size = 16
+text = "—"
+
+[node name="KeybindSlot_10" type="HBoxContainer" parent="SettingsVBox/KeybindList/KeybindVBox"]
+
+[node name="ActionLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_10"]
+theme_override_font_sizes/font_size = 16
+text = "动作 11"
+
+[node name="BindingLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_10"]
+theme_override_font_sizes/font_size = 16
+text = "—"
+
+[node name="KeybindSlot_11" type="HBoxContainer" parent="SettingsVBox/KeybindList/KeybindVBox"]
+
+[node name="ActionLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_11"]
+theme_override_font_sizes/font_size = 16
+text = "动作 12"
+
+[node name="BindingLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_11"]
+theme_override_font_sizes/font_size = 16
+text = "—"
+
+[node name="KeybindSlot_12" type="HBoxContainer" parent="SettingsVBox/KeybindList/KeybindVBox"]
+
+[node name="ActionLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_12"]
+theme_override_font_sizes/font_size = 16
+text = "动作 13"
+
+[node name="BindingLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_12"]
+theme_override_font_sizes/font_size = 16
+text = "—"
+
+[node name="KeybindSlot_13" type="HBoxContainer" parent="SettingsVBox/KeybindList/KeybindVBox"]
+
+[node name="ActionLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_13"]
+theme_override_font_sizes/font_size = 16
+text = "动作 14"
+
+[node name="BindingLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_13"]
+theme_override_font_sizes/font_size = 16
+text = "—"
+
+[node name="KeybindSlot_14" type="HBoxContainer" parent="SettingsVBox/KeybindList/KeybindVBox"]
+
+[node name="ActionLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_14"]
+theme_override_font_sizes/font_size = 16
+text = "动作 15"
+
+[node name="BindingLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_14"]
+theme_override_font_sizes/font_size = 16
+text = "—"
+
+[node name="KeybindSlot_15" type="HBoxContainer" parent="SettingsVBox/KeybindList/KeybindVBox"]
+
+[node name="ActionLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_15"]
+theme_override_font_sizes/font_size = 16
+text = "动作 16"
+
+[node name="BindingLabel" type="Label" parent="SettingsVBox/KeybindList/KeybindVBox/KeybindSlot_15"]
+theme_override_font_sizes/font_size = 16
+text = "—"
+
+[node name="EffectsRow" type="HBoxContainer" parent="SettingsVBox"]
+theme_override_constants/separation = 8
+
+[node name="EffectsLabel" type="Label" parent="SettingsVBox/EffectsRow"]
+theme_override_font_sizes/font_size = 16
+text = "效果"
+
+[node name="EffectToggle_screen_shake" type="Button" parent="SettingsVBox/EffectsRow"]
+custom_minimum_size = Vector2(96, 32)
+text = "screen_shake"
+
+[node name="EffectToggle_camera_shake" type="Button" parent="SettingsVBox/EffectsRow"]
+custom_minimum_size = Vector2(96, 32)
+text = "camera_shake"
+
+[node name="EffectToggle_damage_vignette" type="Button" parent="SettingsVBox/EffectsRow"]
+custom_minimum_size = Vector2(96, 32)
+text = "damage_vignette"
+
+[node name="EffectToggle_motion_blur" type="Button" parent="SettingsVBox/EffectsRow"]
+custom_minimum_size = Vector2(96, 32)
+text = "motion_blur"
+
+[node name="CloseButton" type="Button" parent="SettingsVBox"]
+custom_minimum_size = Vector2(96, 32)
+text = "关闭"

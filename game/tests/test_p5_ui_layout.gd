@@ -161,10 +161,10 @@ func _test_inventory_layout() -> void:
 	if n == null:
 		return
 	_expect(n.get_node_or_null("InventoryVBox/TitleLabel") != null, "TitleLabel present")
-	_expect(n.get_node_or_null("InventoryHBox/BaseStockPanel") != null, "BaseStockPanel present")
-	_expect(n.get_node_or_null("InventoryHBox/CharEquipmentPanel") != null, "CharEquipmentPanel present")
-	_expect(n.get_node_or_null("InventoryHBox/BaseStockPanel/ResourceList") != null, "ResourceList present")
-	_expect(n.get_node_or_null("InventoryHBox/CharEquipmentPanel/EquipmentList") != null, "EquipmentList present")
+	_expect(n.get_node_or_null("InventoryVBox/InventoryHBox/BaseStockPanel") != null, "BaseStockPanel present")
+	_expect(n.get_node_or_null("InventoryVBox/InventoryHBox/CharEquipmentPanel") != null, "CharEquipmentPanel present")
+	_expect(n.get_node_or_null("InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList") != null, "ResourceList present")
+	_expect(n.get_node_or_null("InventoryVBox/InventoryHBox/CharEquipmentPanel/EquipmentList") != null, "EquipmentList present")
 	_free_node(n)
 
 func _test_tutorial_layout() -> void:

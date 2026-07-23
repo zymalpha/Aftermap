@@ -109,7 +109,7 @@ func set_inventory(payload: Dictionary) -> void:
 		var lbl: Label = row_v.get_node("ResourceLabel") as Label
 		lbl.text = "%s %d" % [RESOURCE_KEYS[i], int(res.get(RESOURCE_KEYS[i], 0))]
 	# Items list
-	var eq_v: Node = get_node_or_null("InventoryHBox/CharEquipmentPanel/EquipmentList")
+	var eq_v: Node = get_node_or_null("InventoryVBox/InventoryHBox/CharEquipmentPanel/EquipmentList")
 	if eq_v != null:
 		var char_l: Label = eq_v.get_node("CharLabel") as Label
 		char_l.text = "角色：%s" % (_selected_character if _selected_character != "" else "—")

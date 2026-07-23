@@ -1,0 +1,33 @@
+{
+  "id": "evt_summary_d14",
+  "name_zh": "第二周小结",
+  "kind": "summary",
+  "weight": 100,
+  "triggers": {
+    "all_of": [
+      {
+        "op": "time_in_range",
+        "day_from": 14,
+        "day_to": 14
+      }
+    ]
+  },
+  "effects": [
+    {
+      "op": "set_flag",
+      "flag": "week_2_summary",
+      "value": true
+    },
+    {
+      "op": "stat_add",
+      "target": "community",
+      "stat": "morale",
+      "amount": 2
+    }
+  ],
+  "tags": [
+    "summary",
+    "week2",
+    "milestone"
+  ]
+}

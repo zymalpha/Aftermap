@@ -1,52 +1,51 @@
 {
-  "id": "evt_decision_trap_found",
-  "name_zh": "陷阱发现",
+  "id": "evt_decision_escape_plan",
+  "name_zh": "撤离计划",
   "kind": "decision",
-  "weight": 40,
+  "weight": 35,
   "triggers": {
     "all_of": [
       {
         "op": "time_in_range",
-        "day_from": 3,
-        "day_to": 12
+        "day_from": 10,
+        "day_to": 20
       }
     ]
   },
   "effects": [
     {
       "op": "set_flag",
-      "flag": "trap_seen",
+      "flag": "escape_plan_seen",
       "value": true
     }
   ],
   "options": [
     {
-      "label_zh": "拆除陷阱",
+      "label_zh": "留在这里",
       "weight": 50,
       "effects": [
         {
           "op": "stat_add",
           "target": "community",
           "stat": "morale",
-          "amount": 1
+          "amount": 0
         }
       ]
     },
     {
-      "label_zh": "绕道而行",
+      "label_zh": "准备撤离",
       "weight": 50,
       "effects": [
         {
-          "op": "stat_add",
-          "target": "community",
-          "stat": "morale",
-          "amount": -1
+          "op": "set_flag",
+          "flag": "evacuation_prepared",
+          "value": true
         }
       ]
     }
   ],
   "tags": [
-    "exploration",
+    "strategic",
     "decision"
   ]
 }

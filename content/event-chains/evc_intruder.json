@@ -1,0 +1,69 @@
+{
+  "id": "evc_intruder",
+  "name_zh": "入侵者",
+  "start_event_id": "evt_decision_storage_raid",
+  "nodes": [
+    {
+      "event_id": "evt_decision_storage_raid",
+      "when": {
+        "days_offset": 0,
+        "hour": 23
+      },
+      "skippable": false
+    },
+    {
+      "event_id": "evt_decision_rumored_traitor",
+      "when": {
+        "days_offset": 2,
+        "hour": 9
+      },
+      "skippable": true
+    },
+    {
+      "event_id": "evt_decision_gun_smuggling",
+      "when": {
+        "days_offset": 3,
+        "hour": 10
+      },
+      "skippable": true
+    },
+    {
+      "event_id": "evt_decision_loyalty_test",
+      "when": {
+        "days_offset": 4,
+        "hour": 14
+      },
+      "skippable": true
+    }
+  ],
+  "endings": [
+    {
+      "condition": {
+        "op": "flag_has",
+        "flag": "loyalty_test_seen",
+        "value": true
+      },
+      "ending_kind": "resolved"
+    },
+    {
+      "condition": {
+        "op": "flag_has",
+        "flag": "gun_smuggling_seen",
+        "value": true
+      },
+      "ending_kind": "tragedy"
+    },
+    {
+      "condition": {
+        "op": "flag_has",
+        "flag": "traitor_rumor_seen",
+        "value": true
+      },
+      "ending_kind": "open_thread"
+    }
+  ],
+  "tags": [
+    "social",
+    "intruder"
+  ]
+}

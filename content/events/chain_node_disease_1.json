@@ -1,0 +1,33 @@
+{
+  "id": "evt_chain_node_disease_1",
+  "name_zh": "疾病爆发节点1",
+  "kind": "chain_node",
+  "weight": 50,
+  "triggers": {
+    "all_of": [
+      {
+        "op": "time_in_range",
+        "day_from": 8,
+        "day_to": 16
+      }
+    ]
+  },
+  "effects": [
+    {
+      "op": "set_flag",
+      "flag": "disease_chain_started",
+      "value": true
+    },
+    {
+      "op": "stat_add",
+      "target": "community",
+      "stat": "morale",
+      "amount": -2
+    }
+  ],
+  "tags": [
+    "chain",
+    "medical",
+    "disease"
+  ]
+}

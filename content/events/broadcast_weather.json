@@ -1,0 +1,27 @@
+{
+  "id": "evt_broadcast_weather",
+  "name_zh": "天气广播",
+  "kind": "broadcast",
+  "weight": 30,
+  "triggers": {
+    "all_of": [
+      {
+        "op": "time_in_range",
+        "day_from": 3,
+        "day_to": 14
+      }
+    ]
+  },
+  "effects": [
+    {
+      "op": "set_flag",
+      "flag": "weather_heard",
+      "value": true
+    }
+  ],
+  "tags": [
+    "broadcast",
+    "weather",
+    "rumour"
+  ]
+}

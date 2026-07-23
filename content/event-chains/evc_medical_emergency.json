@@ -1,0 +1,68 @@
+{
+  "id": "evc_medical_emergency",
+  "name_zh": "医疗危机",
+  "start_event_id": "evt_chain_node_medical_1",
+  "nodes": [
+    {
+      "event_id": "evt_d4_injury_decision",
+      "when": {
+        "days_offset": 0,
+        "hour": 11
+      },
+      "skippable": false
+    },
+    {
+      "event_id": "evt_chain_node_medical_1",
+      "when": {
+        "days_offset": 2,
+        "hour": 9
+      },
+      "skippable": true
+    },
+    {
+      "event_id": "evt_decision_medical_stock",
+      "when": {
+        "days_offset": 4,
+        "hour": 10
+      },
+      "skippable": true
+    },
+    {
+      "event_id": "evt_clinic_run_outcome",
+      "when": {
+        "days_offset": 5,
+        "hour": 12
+      },
+      "skippable": true
+    }
+  ],
+  "endings": [
+    {
+      "condition": {
+        "op": "flag_has",
+        "flag": "clinic_run_done",
+        "value": true
+      },
+      "ending_kind": "resolved"
+    },
+    {
+      "condition": {
+        "op": "city_pressure",
+        "pressure_min": 75.0
+      },
+      "ending_kind": "tragedy"
+    },
+    {
+      "condition": {
+        "op": "flag_has",
+        "flag": "medical_chain_started",
+        "value": true
+      },
+      "ending_kind": "open_thread"
+    }
+  ],
+  "tags": [
+    "medical",
+    "injury"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "evt_summary_d15",
+  "name_zh": "第十五日小结",
+  "kind": "summary",
+  "weight": 90,
+  "triggers": {
+    "all_of": [
+      {
+        "op": "time_in_range",
+        "day_from": 15,
+        "day_to": 15
+      }
+    ]
+  },
+  "effects": [
+    {
+      "op": "set_flag",
+      "flag": "day15_summary",
+      "value": true
+    },
+    {
+      "op": "stat_add",
+      "target": "community",
+      "stat": "morale",
+      "amount": 2
+    }
+  ],
+  "tags": [
+    "summary",
+    "day15",
+    "milestone"
+  ]
+}

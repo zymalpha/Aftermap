@@ -1,0 +1,32 @@
+{
+  "id": "evt_summary_d5",
+  "name_zh": "第五日小结",
+  "kind": "summary",
+  "weight": 90,
+  "triggers": {
+    "all_of": [
+      {
+        "op": "time_in_range",
+        "day_from": 5,
+        "day_to": 5
+      }
+    ]
+  },
+  "effects": [
+    {
+      "op": "set_flag",
+      "flag": "day5_summary",
+      "value": true
+    },
+    {
+      "op": "stat_add",
+      "target": "community",
+      "stat": "morale",
+      "amount": 1
+    }
+  ],
+  "tags": [
+    "summary",
+    "day5"
+  ]
+}

@@ -1,40 +1,38 @@
 {
-  "id": "evt_decision_trap_found",
-  "name_zh": "陷阱发现",
+  "id": "evt_decision_medical_stock",
+  "name_zh": "医疗库存",
   "kind": "decision",
   "weight": 40,
   "triggers": {
     "all_of": [
       {
         "op": "time_in_range",
-        "day_from": 3,
-        "day_to": 12
+        "day_from": 6,
+        "day_to": 16
       }
     ]
   },
   "effects": [
     {
       "op": "set_flag",
-      "flag": "trap_seen",
+      "flag": "medical_stock_seen",
       "value": true
     }
   ],
   "options": [
     {
-      "label_zh": "拆除陷阱",
-      "weight": 50,
+      "label_zh": "搜寻药房",
+      "weight": 60,
       "effects": [
         {
-          "op": "stat_add",
-          "target": "community",
-          "stat": "morale",
-          "amount": 1
+          "op": "queue_event",
+          "event_id": "evt_clinic_run_outcome"
         }
       ]
     },
     {
-      "label_zh": "绕道而行",
-      "weight": 50,
+      "label_zh": "节约用药",
+      "weight": 40,
       "effects": [
         {
           "op": "stat_add",
@@ -46,7 +44,7 @@
     }
   ],
   "tags": [
-    "exploration",
+    "medical",
     "decision"
   ]
 }

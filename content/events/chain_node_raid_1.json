@@ -1,0 +1,33 @@
+{
+  "id": "evt_chain_node_raid_1",
+  "name_zh": "掠夺者节点1",
+  "kind": "chain_node",
+  "weight": 55,
+  "triggers": {
+    "all_of": [
+      {
+        "op": "time_in_range",
+        "day_from": 6,
+        "day_to": 14
+      }
+    ]
+  },
+  "effects": [
+    {
+      "op": "set_flag",
+      "flag": "raid_chain_started",
+      "value": true
+    },
+    {
+      "op": "stat_add",
+      "target": "community",
+      "stat": "morale",
+      "amount": -2
+    }
+  ],
+  "tags": [
+    "chain",
+    "combat",
+    "raid"
+  ]
+}

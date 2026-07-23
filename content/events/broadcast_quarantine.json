@@ -1,0 +1,33 @@
+{
+  "id": "evt_broadcast_quarantine",
+  "name_zh": "隔离广播",
+  "kind": "broadcast",
+  "weight": 30,
+  "triggers": {
+    "all_of": [
+      {
+        "op": "time_in_range",
+        "day_from": 8,
+        "day_to": 18
+      }
+    ]
+  },
+  "effects": [
+    {
+      "op": "set_flag",
+      "flag": "quarantine_heard",
+      "value": true
+    },
+    {
+      "op": "stat_add",
+      "target": "community",
+      "stat": "morale",
+      "amount": -1
+    }
+  ],
+  "tags": [
+    "broadcast",
+    "quarantine",
+    "rumour"
+  ]
+}

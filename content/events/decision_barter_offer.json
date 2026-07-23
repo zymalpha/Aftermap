@@ -1,37 +1,37 @@
 {
-  "id": "evt_decision_trader_visit",
-  "name_zh": "商人来访",
+  "id": "evt_decision_barter_offer",
+  "name_zh": "以物易物",
   "kind": "decision",
-  "weight": 50,
+  "weight": 40,
   "triggers": {
     "all_of": [
       {
         "op": "time_in_range",
-        "day_from": 6,
-        "day_to": 15
+        "day_from": 8,
+        "day_to": 16
       }
     ]
   },
   "effects": [
     {
       "op": "set_flag",
-      "flag": "trader_visit_seen",
+      "flag": "barter_offer_seen",
       "value": true
     }
   ],
   "options": [
     {
-      "label_zh": "交换罐头换药品",
+      "label_zh": "用布换罐头",
       "weight": 60,
       "effects": [
         {
           "op": "item_remove",
-          "item_id": "itm_canned_food",
+          "item_id": "itm_cloth_rag",
           "qty": 2
         },
         {
           "op": "item_add",
-          "item_id": "itm_antibiotics",
+          "item_id": "itm_canned_food",
           "qty": 1
         }
       ]
@@ -44,7 +44,7 @@
           "op": "stat_add",
           "target": "community",
           "stat": "morale",
-          "amount": -1
+          "amount": 0
         }
       ]
     }

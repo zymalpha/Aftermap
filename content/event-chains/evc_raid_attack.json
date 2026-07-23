@@ -1,0 +1,68 @@
+{
+  "id": "evc_raid_attack",
+  "name_zh": "掠夺者攻击",
+  "start_event_id": "evt_chain_node_raid_1",
+  "nodes": [
+    {
+      "event_id": "evt_chain_node_raid_1",
+      "when": {
+        "days_offset": 0,
+        "hour": 14
+      },
+      "skippable": false
+    },
+    {
+      "event_id": "evt_decision_broken_gate",
+      "when": {
+        "days_offset": 1,
+        "hour": 9
+      },
+      "skippable": true
+    },
+    {
+      "event_id": "evt_decision_storage_raid",
+      "when": {
+        "days_offset": 2,
+        "hour": 22
+      },
+      "skippable": true
+    },
+    {
+      "event_id": "evt_decision_infected_approach",
+      "when": {
+        "days_offset": 3,
+        "hour": 6
+      },
+      "skippable": true
+    }
+  ],
+  "endings": [
+    {
+      "condition": {
+        "op": "flag_has",
+        "flag": "raid_chain_started",
+        "value": true
+      },
+      "ending_kind": "resolved"
+    },
+    {
+      "condition": {
+        "op": "city_pressure",
+        "pressure_min": 80.0
+      },
+      "ending_kind": "tragedy"
+    },
+    {
+      "condition": {
+        "op": "flag_has",
+        "flag": "storage_raid_seen",
+        "value": true
+      },
+      "ending_kind": "open_thread"
+    }
+  ],
+  "tags": [
+    "combat",
+    "raid"
+  ]
+}

@@ -1,29 +1,34 @@
 {
-  "id": "evt_decision_trap_found",
-  "name_zh": "陷阱发现",
+  "id": "evt_decision_cold_night",
+  "name_zh": "寒冷之夜",
   "kind": "decision",
   "weight": 40,
   "triggers": {
     "all_of": [
       {
         "op": "time_in_range",
-        "day_from": 3,
-        "day_to": 12
+        "day_from": 9,
+        "day_to": 18
       }
     ]
   },
   "effects": [
     {
       "op": "set_flag",
-      "flag": "trap_seen",
+      "flag": "cold_night_seen",
       "value": true
     }
   ],
   "options": [
     {
-      "label_zh": "拆除陷阱",
-      "weight": 50,
+      "label_zh": "烧柴取暖",
+      "weight": 65,
       "effects": [
+        {
+          "op": "item_remove",
+          "item_id": "itm_fuel_can",
+          "qty": 1
+        },
         {
           "op": "stat_add",
           "target": "community",
@@ -33,8 +38,8 @@
       ]
     },
     {
-      "label_zh": "绕道而行",
-      "weight": 50,
+      "label_zh": "挤在一起",
+      "weight": 35,
       "effects": [
         {
           "op": "stat_add",
@@ -46,7 +51,7 @@
     }
   ],
   "tags": [
-    "exploration",
+    "engineering",
     "decision"
   ]
 }

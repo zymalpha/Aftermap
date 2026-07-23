@@ -1,0 +1,26 @@
+{
+  "id": "evt_summary_d19",
+  "name_zh": "第十九日小结",
+  "kind": "summary",
+  "weight": 90,
+  "triggers": {
+    "all_of": [
+      {
+        "op": "time_in_range",
+        "day_from": 19,
+        "day_to": 19
+      }
+    ]
+  },
+  "effects": [
+    {
+      "op": "set_flag",
+      "flag": "day19_summary",
+      "value": true
+    }
+  ],
+  "tags": [
+    "summary",
+    "day19"
+  ]
+}

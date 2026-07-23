@@ -1,0 +1,27 @@
+{
+  "id": "evt_broadcast_military",
+  "name_zh": "军方广播",
+  "kind": "broadcast",
+  "weight": 40,
+  "triggers": {
+    "all_of": [
+      {
+        "op": "time_in_range",
+        "day_from": 4,
+        "day_to": 14
+      }
+    ]
+  },
+  "effects": [
+    {
+      "op": "set_flag",
+      "flag": "military_broadcast_heard",
+      "value": true
+    }
+  ],
+  "tags": [
+    "broadcast",
+    "military",
+    "rumour"
+  ]
+}

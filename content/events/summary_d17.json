@@ -1,0 +1,26 @@
+{
+  "id": "evt_summary_d17",
+  "name_zh": "第十七日小结",
+  "kind": "summary",
+  "weight": 90,
+  "triggers": {
+    "all_of": [
+      {
+        "op": "time_in_range",
+        "day_from": 17,
+        "day_to": 17
+      }
+    ]
+  },
+  "effects": [
+    {
+      "op": "set_flag",
+      "flag": "day17_summary",
+      "value": true
+    }
+  ],
+  "tags": [
+    "summary",
+    "day17"
+  ]
+}

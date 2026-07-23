@@ -1,13 +1,52 @@
 {
-  "id": "decision_quarrel",
+  "id": "evt_decision_quarrel",
   "name_zh": "队伍争吵",
   "kind": "decision",
   "weight": 45,
-  "triggers": {"all_of": [{"op": "time_in_range", "day_from": 4, "day_to": 14}]},
-  "effects": [{"op": "set_flag", "flag": "quarrel_seen", "value": true}],
-  "options": [
-    {"label_zh": "主持调解", "weight": 65, "effects": [{"op": "stat_add", "target": "community", "stat": "morale", "amount": 1}]},
-    {"label_zh": "放任不管", "weight": 35, "effects": [{"op": "stat_add", "target": "community", "stat": "morale", "amount": -3}]}
+  "triggers": {
+    "all_of": [
+      {
+        "op": "time_in_range",
+        "day_from": 4,
+        "day_to": 14
+      }
+    ]
+  },
+  "effects": [
+    {
+      "op": "set_flag",
+      "flag": "quarrel_seen",
+      "value": true
+    }
   ],
-  "tags": ["social", "decision"]
+  "options": [
+    {
+      "label_zh": "主持调解",
+      "weight": 65,
+      "effects": [
+        {
+          "op": "stat_add",
+          "target": "community",
+          "stat": "morale",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "label_zh": "放任不管",
+      "weight": 35,
+      "effects": [
+        {
+          "op": "stat_add",
+          "target": "community",
+          "stat": "morale",
+          "amount": -3
+        }
+      ]
+    }
+  ],
+  "tags": [
+    "social",
+    "decision"
+  ]
 }

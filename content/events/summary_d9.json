@@ -1,0 +1,26 @@
+{
+  "id": "evt_summary_d9",
+  "name_zh": "第九日小结",
+  "kind": "summary",
+  "weight": 90,
+  "triggers": {
+    "all_of": [
+      {
+        "op": "time_in_range",
+        "day_from": 9,
+        "day_to": 9
+      }
+    ]
+  },
+  "effects": [
+    {
+      "op": "set_flag",
+      "flag": "day9_summary",
+      "value": true
+    }
+  ],
+  "tags": [
+    "summary",
+    "day9"
+  ]
+}

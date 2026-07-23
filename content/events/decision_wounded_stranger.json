@@ -1,56 +1,56 @@
 {
-  "id": "evt_decision_trader_visit",
-  "name_zh": "商人来访",
+  "id": "evt_decision_wounded_stranger",
+  "name_zh": "受伤的陌生人",
   "kind": "decision",
-  "weight": 50,
+  "weight": 40,
   "triggers": {
     "all_of": [
       {
         "op": "time_in_range",
         "day_from": 6,
-        "day_to": 15
+        "day_to": 14
       }
     ]
   },
   "effects": [
     {
       "op": "set_flag",
-      "flag": "trader_visit_seen",
+      "flag": "wounded_stranger_seen",
       "value": true
     }
   ],
   "options": [
     {
-      "label_zh": "交换罐头换药品",
-      "weight": 60,
+      "label_zh": "使用绷带救助",
+      "weight": 55,
       "effects": [
         {
           "op": "item_remove",
-          "item_id": "itm_canned_food",
-          "qty": 2
+          "item_id": "itm_bandage",
+          "qty": 1
         },
         {
-          "op": "item_add",
-          "item_id": "itm_antibiotics",
-          "qty": 1
+          "op": "spawn_npc",
+          "target": "stranger_ally"
         }
       ]
     },
     {
-      "label_zh": "拒绝交易",
-      "weight": 40,
+      "label_zh": "见死不救",
+      "weight": 45,
       "effects": [
         {
           "op": "stat_add",
           "target": "community",
           "stat": "morale",
-          "amount": -1
+          "amount": -2
         }
       ]
     }
   ],
   "tags": [
-    "trade",
+    "social",
+    "medical",
     "decision"
   ]
 }

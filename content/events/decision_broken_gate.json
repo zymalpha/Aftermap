@@ -1,28 +1,28 @@
 {
-  "id": "evt_decision_trap_found",
-  "name_zh": "陷阱发现",
+  "id": "evt_decision_broken_gate",
+  "name_zh": "破损围墙",
   "kind": "decision",
-  "weight": 40,
+  "weight": 55,
   "triggers": {
     "all_of": [
       {
         "op": "time_in_range",
-        "day_from": 3,
-        "day_to": 12
+        "day_from": 4,
+        "day_to": 11
       }
     ]
   },
   "effects": [
     {
       "op": "set_flag",
-      "flag": "trap_seen",
+      "flag": "broken_gate_seen",
       "value": true
     }
   ],
   "options": [
     {
-      "label_zh": "拆除陷阱",
-      "weight": 50,
+      "label_zh": "立即修补",
+      "weight": 70,
       "effects": [
         {
           "op": "stat_add",
@@ -33,20 +33,20 @@
       ]
     },
     {
-      "label_zh": "绕道而行",
-      "weight": 50,
+      "label_zh": "推迟维修",
+      "weight": 30,
       "effects": [
         {
           "op": "stat_add",
           "target": "community",
           "stat": "morale",
-          "amount": -1
+          "amount": -2
         }
       ]
     }
   ],
   "tags": [
-    "exploration",
+    "engineering",
     "decision"
   ]
 }

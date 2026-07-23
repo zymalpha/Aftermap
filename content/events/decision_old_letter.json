@@ -1,28 +1,40 @@
 {
-  "id": "evt_decision_trap_found",
-  "name_zh": "陷阱发现",
+  "id": "evt_decision_old_letter",
+  "name_zh": "旧信件",
   "kind": "decision",
-  "weight": 40,
+  "weight": 25,
   "triggers": {
     "all_of": [
       {
         "op": "time_in_range",
-        "day_from": 3,
-        "day_to": 12
+        "day_from": 6,
+        "day_to": 15
       }
     ]
   },
   "effects": [
     {
       "op": "set_flag",
-      "flag": "trap_seen",
+      "flag": "old_letter_seen",
       "value": true
     }
   ],
   "options": [
     {
-      "label_zh": "拆除陷阱",
-      "weight": 50,
+      "label_zh": "朗读信件",
+      "weight": 60,
+      "effects": [
+        {
+          "op": "stat_add",
+          "target": "community",
+          "stat": "morale",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "label_zh": "收藏起来",
+      "weight": 40,
       "effects": [
         {
           "op": "stat_add",
@@ -31,22 +43,11 @@
           "amount": 1
         }
       ]
-    },
-    {
-      "label_zh": "绕道而行",
-      "weight": 50,
-      "effects": [
-        {
-          "op": "stat_add",
-          "target": "community",
-          "stat": "morale",
-          "amount": -1
-        }
-      ]
     }
   ],
   "tags": [
-    "exploration",
+    "memento",
+    "social",
     "decision"
   ]
 }

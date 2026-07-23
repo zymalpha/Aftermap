@@ -1,0 +1,60 @@
+{
+  "id": "evc_radio_contact",
+  "name_zh": "无线电联络",
+  "start_event_id": "evt_chain_node_radio_1",
+  "nodes": [
+    {
+      "event_id": "evt_chain_node_radio_1",
+      "when": {
+        "days_offset": 0,
+        "hour": 21
+      },
+      "skippable": false
+    },
+    {
+      "event_id": "evt_decision_radio_signal",
+      "when": {
+        "days_offset": 1,
+        "hour": 20
+      },
+      "skippable": true
+    },
+    {
+      "event_id": "evt_broadcast_safe_zone",
+      "when": {
+        "days_offset": 3,
+        "hour": 22
+      },
+      "skippable": true
+    }
+  ],
+  "endings": [
+    {
+      "condition": {
+        "op": "flag_has",
+        "flag": "safe_zone_heard",
+        "value": true
+      },
+      "ending_kind": "resolved"
+    },
+    {
+      "condition": {
+        "op": "flag_has",
+        "flag": "radio_chain_started",
+        "value": true
+      },
+      "ending_kind": "open_thread"
+    },
+    {
+      "condition": {
+        "op": "city_pressure",
+        "pressure_min": 70.0
+      },
+      "ending_kind": "tragedy"
+    }
+  ],
+  "tags": [
+    "broadcast",
+    "radio"
+  ]
+}

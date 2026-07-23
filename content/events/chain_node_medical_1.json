@@ -1,0 +1,32 @@
+{
+  "id": "evt_chain_node_medical_1",
+  "name_zh": "医疗危机节点1",
+  "kind": "chain_node",
+  "weight": 50,
+  "triggers": {
+    "all_of": [
+      {
+        "op": "flag_has",
+        "flag": "injury_decision_logged",
+        "value": true
+      }
+    ]
+  },
+  "effects": [
+    {
+      "op": "set_flag",
+      "flag": "medical_chain_started",
+      "value": true
+    },
+    {
+      "op": "stat_add",
+      "target": "community",
+      "stat": "morale",
+      "amount": -1
+    }
+  ],
+  "tags": [
+    "chain",
+    "medical"
+  ]
+}

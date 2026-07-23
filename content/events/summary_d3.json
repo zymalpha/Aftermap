@@ -1,0 +1,32 @@
+{
+  "id": "evt_summary_d3",
+  "name_zh": "第三日小结",
+  "kind": "summary",
+  "weight": 90,
+  "triggers": {
+    "all_of": [
+      {
+        "op": "time_in_range",
+        "day_from": 3,
+        "day_to": 3
+      }
+    ]
+  },
+  "effects": [
+    {
+      "op": "set_flag",
+      "flag": "day3_summary",
+      "value": true
+    },
+    {
+      "op": "stat_add",
+      "target": "community",
+      "stat": "morale",
+      "amount": 1
+    }
+  ],
+  "tags": [
+    "summary",
+    "day3"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "evt_chain_node_water_2",
+  "name_zh": "缺水节点2",
+  "kind": "chain_node",
+  "weight": 50,
+  "triggers": {
+    "all_of": [
+      {
+        "op": "flag_has",
+        "flag": "water_warning_seen",
+        "value": true
+      }
+    ]
+  },
+  "effects": [
+    {
+      "op": "set_flag",
+      "flag": "water_node_2_seen",
+      "value": true
+    },
+    {
+      "op": "stat_add",
+      "target": "community",
+      "stat": "morale",
+      "amount": -1
+    }
+  ],
+  "tags": [
+    "chain",
+    "supply",
+    "water"
+  ]
+}

@@ -1,52 +1,53 @@
 {
-  "id": "evt_decision_trap_found",
-  "name_zh": "陷阱发现",
+  "id": "evt_decision_loyalty_test",
+  "name_zh": "忠诚考验",
   "kind": "decision",
-  "weight": 40,
+  "weight": 35,
   "triggers": {
     "all_of": [
       {
         "op": "time_in_range",
-        "day_from": 3,
-        "day_to": 12
+        "day_from": 8,
+        "day_to": 18
       }
     ]
   },
   "effects": [
     {
       "op": "set_flag",
-      "flag": "trap_seen",
+      "flag": "loyalty_test_seen",
       "value": true
     }
   ],
   "options": [
     {
-      "label_zh": "拆除陷阱",
-      "weight": 50,
+      "label_zh": "信守承诺",
+      "weight": 65,
       "effects": [
         {
           "op": "stat_add",
           "target": "community",
           "stat": "morale",
-          "amount": 1
+          "amount": 2
         }
       ]
     },
     {
-      "label_zh": "绕道而行",
-      "weight": 50,
+      "label_zh": "抛弃约定",
+      "weight": 35,
       "effects": [
         {
           "op": "stat_add",
           "target": "community",
           "stat": "morale",
-          "amount": -1
+          "amount": -3
         }
       ]
     }
   ],
   "tags": [
-    "exploration",
+    "social",
+    "morale",
     "decision"
   ]
 }

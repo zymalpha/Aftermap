@@ -1,40 +1,28 @@
 {
-  "id": "evt_decision_trap_found",
-  "name_zh": "陷阱发现",
+  "id": "evt_decision_rumored_traitor",
+  "name_zh": "传言叛徒",
   "kind": "decision",
-  "weight": 40,
+  "weight": 30,
   "triggers": {
     "all_of": [
       {
         "op": "time_in_range",
-        "day_from": 3,
-        "day_to": 12
+        "day_from": 9,
+        "day_to": 18
       }
     ]
   },
   "effects": [
     {
       "op": "set_flag",
-      "flag": "trap_seen",
+      "flag": "traitor_rumor_seen",
       "value": true
     }
   ],
   "options": [
     {
-      "label_zh": "拆除陷阱",
-      "weight": 50,
-      "effects": [
-        {
-          "op": "stat_add",
-          "target": "community",
-          "stat": "morale",
-          "amount": 1
-        }
-      ]
-    },
-    {
-      "label_zh": "绕道而行",
-      "weight": 50,
+      "label_zh": "公开调查",
+      "weight": 55,
       "effects": [
         {
           "op": "stat_add",
@@ -43,10 +31,22 @@
           "amount": -1
         }
       ]
+    },
+    {
+      "label_zh": "暗中观察",
+      "weight": 45,
+      "effects": [
+        {
+          "op": "stat_add",
+          "target": "community",
+          "stat": "morale",
+          "amount": 0
+        }
+      ]
     }
   ],
   "tags": [
-    "exploration",
+    "social",
     "decision"
   ]
 }

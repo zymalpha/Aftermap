@@ -1,0 +1,27 @@
+{
+  "id": "evt_chain_node_radio_1",
+  "name_zh": "无线电联络节点1",
+  "kind": "chain_node",
+  "weight": 45,
+  "triggers": {
+    "all_of": [
+      {
+        "op": "flag_has",
+        "flag": "radio_rumour_heard",
+        "value": true
+      }
+    ]
+  },
+  "effects": [
+    {
+      "op": "set_flag",
+      "flag": "radio_chain_started",
+      "value": true
+    }
+  ],
+  "tags": [
+    "chain",
+    "broadcast",
+    "radio"
+  ]
+}

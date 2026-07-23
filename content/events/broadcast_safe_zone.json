@@ -1,0 +1,33 @@
+{
+  "id": "evt_broadcast_safe_zone",
+  "name_zh": "安全区广播",
+  "kind": "broadcast",
+  "weight": 35,
+  "triggers": {
+    "all_of": [
+      {
+        "op": "time_in_range",
+        "day_from": 6,
+        "day_to": 16
+      }
+    ]
+  },
+  "effects": [
+    {
+      "op": "set_flag",
+      "flag": "safe_zone_heard",
+      "value": true
+    },
+    {
+      "op": "stat_add",
+      "target": "community",
+      "stat": "morale",
+      "amount": 1
+    }
+  ],
+  "tags": [
+    "broadcast",
+    "safe_zone",
+    "rumour"
+  ]
+}

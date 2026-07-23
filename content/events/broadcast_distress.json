@@ -1,0 +1,33 @@
+{
+  "id": "evt_broadcast_distress",
+  "name_zh": "求救广播",
+  "kind": "broadcast",
+  "weight": 35,
+  "triggers": {
+    "all_of": [
+      {
+        "op": "time_in_range",
+        "day_from": 7,
+        "day_to": 16
+      }
+    ]
+  },
+  "effects": [
+    {
+      "op": "set_flag",
+      "flag": "distress_heard",
+      "value": true
+    },
+    {
+      "op": "stat_add",
+      "target": "community",
+      "stat": "morale",
+      "amount": -1
+    }
+  ],
+  "tags": [
+    "broadcast",
+    "distress",
+    "rumour"
+  ]
+}

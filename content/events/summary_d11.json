@@ -1,0 +1,26 @@
+{
+  "id": "evt_summary_d11",
+  "name_zh": "第十一日小结",
+  "kind": "summary",
+  "weight": 90,
+  "triggers": {
+    "all_of": [
+      {
+        "op": "time_in_range",
+        "day_from": 11,
+        "day_to": 11
+      }
+    ]
+  },
+  "effects": [
+    {
+      "op": "set_flag",
+      "flag": "day11_summary",
+      "value": true
+    }
+  ],
+  "tags": [
+    "summary",
+    "day11"
+  ]
+}

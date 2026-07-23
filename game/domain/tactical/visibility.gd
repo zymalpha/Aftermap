@@ -12,6 +12,21 @@ class_name Visibility extends RefCounted
 
 const _PATH: String = "res://game/domain/tactical/visibility.gd"
 
+# Cached blocker mask, keyed by grid dimensions. Reused across fov_from calls
+# on the same grid to avoid a PackedByteArray allocation per call (the FOV
+# hot path runs once per unit per frame).
+static var _buf_w: int = 0
+static var _buf_h: int = 0
+static var _buf_block: PackedByteArray = PackedByteArray()
+
+static func _ensure_block_buffer(w: int, h: int) -> PackedByteArray:
+	if w == _buf_w and h == _buf_h and _buf_block.size() >= w * h:
+		return _buf_block
+	_buf_w = w
+	_buf_h = h
+	_buf_block.resize(w * h)
+	return _buf_block
+
 # Compute visible cells (Array[Vector2i]) from `origin` with the given `radius`.
 # Blockers are opaque cells (Vector2i list). Origin is always visible.
 static func fov_from(grid: RefCounted, origin: Vector2i, radius: int, blockers: Array) -> Array:
@@ -24,9 +39,8 @@ static func fov_from(grid: RefCounted, origin: Vector2i, radius: int, blockers: 
 	if radius < 0:
 		radius = 0
 
-	# Build blocker mask.
-	var block: PackedByteArray = PackedByteArray()
-	block.resize(w * h)
+	# Build blocker mask in a cached buffer (alloc-free on repeated calls).
+	var block: PackedByteArray = _ensure_block_buffer(w, h)
 	block.fill(0)
 	for b in blockers:
 		var bv: Vector2i = b

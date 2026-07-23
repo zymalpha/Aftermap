@@ -80,8 +80,8 @@ bash tools/build/run_tests.sh
 === test_p6_thousand_seeds result: pass=2 fail=0 ===
 === summary: 1000 / 1000 seeds completed 30 days ===
 === test_p6_perf_benchmark result: pass=2 fail=0 ===
-  PASS  avg frame 10.2 ms < 16.67 ms (60fps)
-  PASS  max frame 21.0 ms < 33.00 ms (30fps)
+  PASS  avg frame 10.0 ms < 16.67 ms (60fps)
+  PASS  p99 frame 15.0 ms < 33.00 ms (sustained 30fps)
 === 完成 ===
 ```
 

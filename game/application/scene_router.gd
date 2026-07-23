@@ -9,6 +9,11 @@ class_name SceneRouter
 ##   3. After the new scene is installed, connect its signals to the
 ##      GameApp and apply any pending payload (e.g. set_morning_report
 ##      payload on the morning_report scene).
+##
+## Note: change_scene_to_packed() cannot be called from within a
+## _ready() callback (Godot reports "Parent node is busy adding/
+## removing children"). The router defers the actual scene switch
+## to the next idle frame via call_deferred().
 
 const _PATH: String = "res://game/application/scene_router.gd"
 
@@ -17,6 +22,10 @@ const SCENES_DIR: String = "res://game/presentation/scenes/"
 var tree: SceneTree = null
 var current_scene: Node = null
 var _packed_cache: Dictionary = {}
+
+# Deferred switch state.
+var _pending_scene: String = ""
+var _pending_payload: Dictionary = {}
 
 func _log(msg: String) -> void:
 	push_warning("[SceneRouter] " + msg)
@@ -27,6 +36,25 @@ func _log(msg: String) -> void:
 func goto(scene_name: String, payload: Dictionary = {}) -> void:
 	if tree == null:
 		_log("goto: tree not set")
+		return
+
+	# If we're already inside a tree mutation (e.g. called from
+	# _ready), defer the switch to the next idle frame.
+	if _pending_scene != "":
+		_log("goto: already pending scene '%s'; replacing with '%s'" % [_pending_scene, scene_name])
+	_pending_scene = scene_name
+	_pending_payload = payload.duplicate(true)
+	tree.process_frame.connect(_do_pending_goto, CONNECT_ONE_SHOT)
+
+## Process the deferred goto. Runs on the next idle frame after the
+## caller (typically _ready) has finished mutating the tree.
+func _do_pending_goto() -> void:
+	var scene_name: String = _pending_scene
+	var payload: Dictionary = _pending_payload
+	_pending_scene = ""
+	_pending_payload = {}
+
+	if scene_name == "":
 		return
 
 	# 1. Disconnect signals on the previous scene (if alive)
@@ -73,16 +101,17 @@ func get_current_scene() -> Node:
 # === Signal wiring ==================================================
 
 func _connect_scene_signals(scene: Node) -> void:
-	var app: RefCounted = GameApp.get_app(scene)
+	# Look up the GameApp singleton via the tree root metadata.
+	# (Avoid referencing the `GameApp` class_name directly so this
+	# script compiles without a hard dependency on app.gd.)
+	var AppCls: GDScript = load("res://game/application/app.gd")
+	var app: RefCounted = null
+	if AppCls != null and AppCls.has_method("get_app"):
+		app = AppCls.get_app(scene)
 	if app == null:
 		# App not ready yet (e.g. during initial goto from main.gd).
 		# No wiring possible; payload will still be applied.
 		return
-
-	# main_menu signals
-	if scene.has_signal(&"start_campaign") and scene.is_connected(&"start_campaign", Callable()):
-		pass  # already connected by scene script itself
-	# We re-connect here so all signal sources funnel through App.
 
 	# Helper: connect a signal to an app method if both exist
 	_wire(scene, &"start_campaign", app, &"start_new_game")

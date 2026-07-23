@@ -1,5 +1,8 @@
 extends RefCounted
 class_name GameApp
+## ^ ADDS this to the project's global class registry, so other scripts
+##   can use `GameApp.get_app(...)` without needing to load() it
+##   as a GDScript first.
 
 ## Global application controller for Aftermap.
 ##

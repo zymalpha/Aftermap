@@ -1,0 +1,31 @@
+{
+  "id": "evt_d1_first_morning",
+  "name_zh": "第一个清晨",
+  "kind": "decision",
+  "weight": 55,
+  "triggers": {
+    "all_of": [
+      {"op": "time_in_range", "day_from": 1, "day_to": 1}
+    ]
+  },
+  "effects": [
+    {"op": "set_flag", "flag": "evt_d1_first_morning_seen", "value": true}
+  ],
+  "options": [
+    {
+      "label_zh": "立刻清查库存",
+      "weight": 50,
+      "effects": [
+        {"op": "set_flag", "flag": "inventory_audited", "value": true}
+      ]
+    },
+    {
+      "label_zh": "先派人外出侦察",
+      "weight": 50,
+      "effects": [
+        {"op": "set_flag", "flag": "scout_sent", "value": true}
+      ]
+    }
+  ],
+  "tags": ["decision", "first_day", "planning"]
+}

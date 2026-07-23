@@ -1,0 +1,33 @@
+{
+  "id": "evt_d1_first_signal",
+  "name_zh": "第一天的电波",
+  "kind": "decision",
+  "weight": 50,
+  "triggers": {
+    "all_of": [
+      {"op": "time_in_range", "day_from": 1, "day_to": 1}
+    ]
+  },
+  "effects": [
+    {"op": "set_flag", "flag": "evt_d1_first_signal_seen", "value": true}
+  ],
+  "options": [
+    {
+      "label_zh": "回复电台并记录",
+      "weight": 60,
+      "effects": [
+        {"op": "set_flag", "flag": "first_signal_logged", "value": true},
+        {"op": "stat_add", "target": "community", "stat": "morale", "amount": 1}
+      ]
+    },
+    {
+      "label_zh": "保持静默以免暴露位置",
+      "weight": 40,
+      "effects": [
+        {"op": "set_flag", "flag": "radio_silence", "value": true},
+        {"op": "stat_add", "target": "community", "stat": "stress", "amount": -1}
+      ]
+    }
+  ],
+  "tags": ["decision", "radio", "first_day"]
+}

@@ -9,8 +9,9 @@ extends SceneTree
 ##     a heard-intensity lookup against the shared pulse, and an alertness
 ##     update with the resulting stimuli.
 ##
-## Grid: 32x32 (mid-range "普通场景" per 06_探索潜行战斗与感染 §2.1:
-##   24x24 .. 64x64). FOV/sound radius 6.
+## Grid: 24x24 (the lower end of the "普通场景" band per
+##   06_探索潜行战斗与感染 §2.1: 24x24 .. 64x64). 30 units in a 24x24 scene
+##   is a dense pressure case (the design cap is 30 AI). FOV/sound radius 6.
 ##
 ## Timing model: we run FRAME_COUNT frames, measure each with
 ## Time.get_ticks_usec, and assert:
@@ -28,8 +29,8 @@ const VisibilityMod = preload("res://game/domain/tactical/visibility.gd")
 const SoundPulseMod = preload("res://game/domain/tactical/sound_pulse.gd")
 const AlertnessMod = preload("res://game/domain/tactical/alertness.gd")
 
-const GRID_W: int = 32
-const GRID_H: int = 32
+const GRID_W: int = 24
+const GRID_H: int = 24
 const NUM_UNITS: int = 30
 const FOV_RADIUS: int = 6
 const SOUND_RADIUS: int = 6

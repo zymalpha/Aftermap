@@ -73,7 +73,7 @@ func _ensure_layout() -> void:
 	var btn_grid: GridContainer = GridContainer.new()
 	btn_grid.name = "ButtonGrid"
 	btn_grid.columns = 1
-	btn_grid.alignment = GridContainer.ALIGNMENT_CENTER
+	btn_grid.alignment = BoxContainer.ALIGNMENT_CENTER
 	btn_grid.add_theme_constant_override("h_separation", 8)
 	btn_grid.add_theme_constant_override("v_separation", 8)
 	root.add_child(btn_grid)

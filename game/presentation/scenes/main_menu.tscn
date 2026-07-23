@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://stage15_main_menu"]
+[gd_scene load_steps=3 format=3 uid="uid://stage15_main_menu"]
 
 [ext_resource type="Script" path="res://game/presentation/scenes/scene_main_menu.gd" id="1_main"]
+[ext_resource type="Script" path="res://game/presentation/scenes/main_menu_localizer.gd" id="2_loc"]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -100,3 +101,6 @@ text = "重庆（占��）"
 
 [node name="CityPanelCancel" type="Button" parent="CityPanel/CityPanelVBox"]
 text = "取消"
+
+[node name="Localizer" type="Node" parent="."]
+script = ExtResource("2_loc")

@@ -4,8 +4,9 @@ class_name Localizer
 ## Stage 17 minimal PO-file localizer.
 ##
 ## Loads standard `.po` files into a nested Dictionary keyed by language then
-## message-id, and resolves `tr()` calls against the currently active language
-## with safe fallback to a default language when a key is missing.
+## message-id, and resolves `lookup()` / `translate()` calls against the
+## currently active language with safe fallback to a default language when a
+## key is missing.
 ##
 ## Implementation notes:
 ## - No third-party gettext/ICU dependency. The `.po` parser is hand-rolled and
@@ -75,7 +76,7 @@ func load_from_po(path: String, lang: StringName) -> int:
 		lang_dict[key] = parsed[key]
 	_dict[String(lang)] = lang_dict
 	# Ensure active and default languages have at least an empty bucket so
-	# subsequent tr() calls don't crash.
+	# subsequent lookup() calls don't crash.
 	if not _dict.has(String(_current_lang)):
 		_dict[String(_current_lang)] = {}
 	if not _dict.has(String(_default_lang)):
@@ -84,7 +85,9 @@ func load_from_po(path: String, lang: StringName) -> int:
 
 ## Translate `key`. Lookup order: active language -> default language ->
 ## explicit fallback -> key itself (so caller always gets a non-empty String).
-func tr(key: StringName, fallback: String = "") -> String:
+##
+## Named `lookup` to avoid the native `Object.tr()` translation hook in Godot.
+func lookup(key: StringName, fallback: String = "") -> String:
 	var sk: String = String(key)
 	if sk.is_empty():
 		return fallback
@@ -97,6 +100,12 @@ func tr(key: StringName, fallback: String = "") -> String:
 	if not fallback.is_empty():
 		return fallback
 	return sk
+
+## Convenience wrapper around `lookup()` named `tr()` for code that uses the
+## familiar translation API. Implemented as a separate method to avoid the
+## native `Object.tr(StringName, StringName) -> String` signature conflict.
+func translate(key: StringName, fallback: String = "") -> String:
+	return lookup(key, fallback)
 
 ## Returns true if the active language (or fallback) has an entry for `key`.
 func has(key: StringName) -> bool:
@@ -197,7 +206,7 @@ func _decode_quoted(s: String) -> String:
 			return ""
 		t = t.substr(0, last_quote + 1)
 	var inner: String = t.substr(1, t.length() - 2)
-	var out: PackedByteArray = PackedByteArray()
+	var out: String = ""
 	var i: int = 0
 	var n: int = inner.length()
 	while i < n:
@@ -206,22 +215,22 @@ func _decode_quoted(s: String) -> String:
 			var nx: String = inner.substr(i + 1, 1)
 			match nx:
 				"n":
-					out.append(10)
+					out += "\n"
 				"r":
-					out.append(13)
+					out += "\r"
 				"t":
-					out.append(9)
+					out += "\t"
 				"\"":
-					out.append(34)
+					out += "\""
 				"\\":
-					out.append(92)
+					out += "\\"
 				"0":
-					out.append(0)
+					out += String.chr(0)
 				_:
 					# unknown escape — pass through the escaped char as literal.
-					out.append(nx.unicode_at(0))
+					out += nx
 			i += 2
 		else:
-			out.append(ch.unicode_at(0))
+			out += ch
 			i += 1
-	return out.get_string_from_utf8()
+	return out

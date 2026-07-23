@@ -1,0 +1,13 @@
+{
+  "id": "decision_trader_visit",
+  "name_zh": "商人来访",
+  "kind": "decision",
+  "weight": 50,
+  "triggers": {"all_of": [{"op": "time_in_range", "day_from": 6, "day_to": 15}]},
+  "effects": [{"op": "set_flag", "flag": "trader_visit_seen", "value": true}],
+  "options": [
+    {"label_zh": "交换罐头换药品", "weight": 60, "effects": [{"op": "item_remove", "item_id": "itm_canned_food", "qty": 2}, {"op": "item_add", "item_id": "itm_antibiotics", "qty": 1}]},
+    {"label_zh": "拒绝交易", "weight": 40, "effects": [{"op": "stat_add", "target": "community", "stat": "morale", "amount": -1}]}
+  ],
+  "tags": ["trade", "decision"]
+}

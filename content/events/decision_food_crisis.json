@@ -1,0 +1,13 @@
+{
+  "id": "decision_food_crisis",
+  "name_zh": "食物危机",
+  "kind": "decision",
+  "weight": 60,
+  "triggers": {"all_of": [{"op": "time_in_range", "day_from": 5, "day_to": 12}]},
+  "effects": [{"op": "set_flag", "flag": "food_crisis_seen", "value": true}],
+  "options": [
+    {"label_zh": "外出搜索", "weight": 55, "effects": [{"op": "stat_add", "target": "community", "stat": "morale", "amount": -1}]},
+    {"label_zh": "严格配给", "weight": 45, "effects": [{"op": "stat_add", "target": "community", "stat": "morale", "amount": -2}]}
+  ],
+  "tags": ["supply", "food", "decision"]
+}

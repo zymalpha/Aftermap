@@ -1,0 +1,13 @@
+{
+  "id": "decision_trap_found",
+  "name_zh": "陷阱发现",
+  "kind": "decision",
+  "weight": 40,
+  "triggers": {"all_of": [{"op": "time_in_range", "day_from": 3, "day_to": 12}]},
+  "effects": [{"op": "set_flag", "flag": "trap_seen", "value": true}],
+  "options": [
+    {"label_zh": "拆除陷阱", "weight": 50, "effects": [{"op": "stat_add", "target": "community", "stat": "morale", "amount": 1}]},
+    {"label_zh": "绕道而行", "weight": 50, "effects": [{"op": "stat_add", "target": "community", "stat": "morale", "amount": -1}]}
+  ],
+  "tags": ["exploration", "decision"]
+}

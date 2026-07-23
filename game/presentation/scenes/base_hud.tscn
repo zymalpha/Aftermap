@@ -1,0 +1,254 @@
+[gd_scene load_steps=2 format=3 uid="uid://stage15_base_hud"]
+
+[ext_resource type="Script" path="res://game/presentation/scenes/scene_base_hud.gd" id="1_base"]
+
+[node name="BaseHud" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+script = ExtResource("1_base")
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.08, 0.09, 0.1, 1)
+
+[node name="TopBar" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+custom_minimum_size = Vector2(0, 32)
+theme_override_constants/separation = 16
+
+[node name="DayLabel" type="Label" parent="TopBar"]
+theme_override_font_sizes/font_size = 24
+text = "Day 1"
+
+[node name="ClockLabel" type="Label" parent="TopBar"]
+theme_override_font_sizes/font_size = 16
+text = "08:00"
+
+[node name="PressureLabel" type="Label" parent="TopBar"]
+theme_override_font_sizes/font_size = 16
+text = "城市压力 0"
+
+[node name="PressureProgress" type="ProgressBar" parent="TopBar"]
+custom_minimum_size = Vector2(160, 16)
+max_value = 100.0
+
+[node name="FacilityPanel" type="PanelContainer" parent="."]
+anchor_bottom = 1.0
+offset_top = 32.0
+
+[node name="FacilityBox" type="VBoxContainer" parent="FacilityPanel"]
+
+[node name="Facility_sleep" type="HBoxContainer" parent="FacilityPanel/FacilityBox"]
+
+[node name="FacilityIcon" type="ColorRect" parent="FacilityPanel/FacilityBox/Facility_sleep"]
+custom_minimum_size = Vector2(24, 24)
+color = Color(0.4, 0.4, 0.7, 1)
+
+[node name="FacilityLabel" type="Label" parent="FacilityPanel/FacilityBox/Facility_sleep"]
+theme_override_font_sizes/font_size = 16
+text = "sleep"
+
+[node name="Facility_storage" type="HBoxContainer" parent="FacilityPanel/FacilityBox"]
+
+[node name="FacilityIcon" type="ColorRect" parent="FacilityPanel/FacilityBox/Facility_storage"]
+custom_minimum_size = Vector2(24, 24)
+color = Color(0.5, 0.4, 0.3, 1)
+
+[node name="FacilityLabel" type="Label" parent="FacilityPanel/FacilityBox/Facility_storage"]
+theme_override_font_sizes/font_size = 16
+text = "storage"
+
+[node name="Facility_kitchen" type="HBoxContainer" parent="FacilityPanel/FacilityBox"]
+
+[node name="FacilityIcon" type="ColorRect" parent="FacilityPanel/FacilityBox/Facility_kitchen"]
+custom_minimum_size = Vector2(24, 24)
+color = Color(0.7, 0.4, 0.3, 1)
+
+[node name="FacilityLabel" type="Label" parent="FacilityPanel/FacilityBox/Facility_kitchen"]
+theme_override_font_sizes/font_size = 16
+text = "kitchen"
+
+[node name="Facility_water" type="HBoxContainer" parent="FacilityPanel/FacilityBox"]
+
+[node name="FacilityIcon" type="ColorRect" parent="FacilityPanel/FacilityBox/Facility_water"]
+custom_minimum_size = Vector2(24, 24)
+color = Color(0.3, 0.5, 0.8, 1)
+
+[node name="FacilityLabel" type="Label" parent="FacilityPanel/FacilityBox/Facility_water"]
+theme_override_font_sizes/font_size = 16
+text = "water"
+
+[node name="Facility_medical" type="HBoxContainer" parent="FacilityPanel/FacilityBox"]
+
+[node name="FacilityIcon" type="ColorRect" parent="FacilityPanel/FacilityBox/Facility_medical"]
+custom_minimum_size = Vector2(24, 24)
+color = Color(0.8, 0.3, 0.5, 1)
+
+[node name="FacilityLabel" type="Label" parent="FacilityPanel/FacilityBox/Facility_medical"]
+theme_override_font_sizes/font_size = 16
+text = "medical"
+
+[node name="Facility_power" type="HBoxContainer" parent="FacilityPanel/FacilityBox"]
+
+[node name="FacilityIcon" type="ColorRect" parent="FacilityPanel/FacilityBox/Facility_power"]
+custom_minimum_size = Vector2(24, 24)
+color = Color(0.8, 0.7, 0.3, 1)
+
+[node name="FacilityLabel" type="Label" parent="FacilityPanel/FacilityBox/Facility_power"]
+theme_override_font_sizes/font_size = 16
+text = "power"
+
+[node name="CharacterPanel" type="PanelContainer" parent="."]
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_top = -256.0
+offset_right = 256.0
+
+[node name="CharacterBox" type="VBoxContainer" parent="CharacterPanel"]
+
+[node name="ResourcePanel" type="PanelContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -256.0
+
+[node name="ResourceBox" type="VBoxContainer" parent="ResourcePanel"]
+
+[node name="Resource_food" type="HBoxContainer" parent="ResourcePanel/ResourceBox"]
+
+[node name="ResourceBar" type="ProgressBar" parent="ResourcePanel/ResourceBox/Resource_food"]
+custom_minimum_size = Vector2(160, 16)
+max_value = 100.0
+
+[node name="ResourceLabel" type="Label" parent="ResourcePanel/ResourceBox/Resource_food"]
+theme_override_font_sizes/font_size = 16
+text = "food 0"
+
+[node name="Resource_water" type="HBoxContainer" parent="ResourcePanel/ResourceBox"]
+
+[node name="ResourceBar" type="ProgressBar" parent="ResourcePanel/ResourceBox/Resource_water"]
+custom_minimum_size = Vector2(160, 16)
+max_value = 100.0
+
+[node name="ResourceLabel" type="Label" parent="ResourcePanel/ResourceBox/Resource_water"]
+theme_override_font_sizes/font_size = 16
+text = "water 0"
+
+[node name="Resource_material" type="HBoxContainer" parent="ResourcePanel/ResourceBox"]
+
+[node name="ResourceBar" type="ProgressBar" parent="ResourcePanel/ResourceBox/Resource_material"]
+custom_minimum_size = Vector2(160, 16)
+max_value = 100.0
+
+[node name="ResourceLabel" type="Label" parent="ResourcePanel/ResourceBox/Resource_material"]
+theme_override_font_sizes/font_size = 16
+text = "material 0"
+
+[node name="Resource_parts" type="HBoxContainer" parent="ResourcePanel/ResourceBox"]
+
+[node name="ResourceBar" type="ProgressBar" parent="ResourcePanel/ResourceBox/Resource_parts"]
+custom_minimum_size = Vector2(160, 16)
+max_value = 100.0
+
+[node name="ResourceLabel" type="Label" parent="ResourcePanel/ResourceBox/Resource_parts"]
+theme_override_font_sizes/font_size = 16
+text = "parts 0"
+
+[node name="Resource_medical" type="HBoxContainer" parent="ResourcePanel/ResourceBox"]
+
+[node name="ResourceBar" type="ProgressBar" parent="ResourcePanel/ResourceBox/Resource_medical"]
+custom_minimum_size = Vector2(160, 16)
+max_value = 100.0
+
+[node name="ResourceLabel" type="Label" parent="ResourcePanel/ResourceBox/Resource_medical"]
+theme_override_font_sizes/font_size = 16
+text = "medical 0"
+
+[node name="Resource_fuel" type="HBoxContainer" parent="ResourcePanel/ResourceBox"]
+
+[node name="ResourceBar" type="ProgressBar" parent="ResourcePanel/ResourceBox/Resource_fuel"]
+custom_minimum_size = Vector2(160, 16)
+max_value = 100.0
+
+[node name="ResourceLabel" type="Label" parent="ResourcePanel/ResourceBox/Resource_fuel"]
+theme_override_font_sizes/font_size = 16
+text = "fuel 0"
+
+[node name="Resource_ammo" type="HBoxContainer" parent="ResourcePanel/ResourceBox"]
+
+[node name="ResourceBar" type="ProgressBar" parent="ResourcePanel/ResourceBox/Resource_ammo"]
+custom_minimum_size = Vector2(160, 16)
+max_value = 100.0
+
+[node name="ResourceLabel" type="Label" parent="ResourcePanel/ResourceBox/Resource_ammo"]
+theme_override_font_sizes/font_size = 16
+text = "ammo 0"
+
+[node name="RolePanel" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -96.0
+offset_right = 192.0
+offset_bottom = 96.0
+
+[node name="RoleGrid" type="GridContainer" parent="RolePanel"]
+columns = 4
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+
+[node name="Role_cook" type="Button" parent="RolePanel/RoleGrid"]
+custom_minimum_size = Vector2(64, 32)
+text = "cook"
+
+[node name="Role_water" type="Button" parent="RolePanel/RoleGrid"]
+custom_minimum_size = Vector2(64, 32)
+text = "water"
+
+[node name="Role_medical" type="Button" parent="RolePanel/RoleGrid"]
+custom_minimum_size = Vector2(64, 32)
+text = "medical"
+
+[node name="Role_engineering" type="Button" parent="RolePanel/RoleGrid"]
+custom_minimum_size = Vector2(64, 32)
+text = "engineering"
+
+[node name="Role_cleaning" type="Button" parent="RolePanel/RoleGrid"]
+custom_minimum_size = Vector2(64, 32)
+text = "cleaning"
+
+[node name="Role_garden" type="Button" parent="RolePanel/RoleGrid"]
+custom_minimum_size = Vector2(64, 32)
+text = "garden"
+
+[node name="Role_watch" type="Button" parent="RolePanel/RoleGrid"]
+custom_minimum_size = Vector2(64, 32)
+text = "watch"
+
+[node name="Role_guard" type="Button" parent="RolePanel/RoleGrid"]
+custom_minimum_size = Vector2(64, 32)
+text = "guard"
+
+[node name="Role_radio" type="Button" parent="RolePanel/RoleGrid"]
+custom_minimum_size = Vector2(64, 32)
+text = "radio"
+
+[node name="Role_hauling" type="Button" parent="RolePanel/RoleGrid"]
+custom_minimum_size = Vector2(64, 32)
+text = "hauling"
+
+[node name="Role_rest" type="Button" parent="RolePanel/RoleGrid"]
+custom_minimum_size = Vector2(64, 32)
+text = "rest"
+
+[node name="Role_free" type="Button" parent="RolePanel/RoleGrid"]
+custom_minimum_size = Vector2(64, 32)
+text = "free"

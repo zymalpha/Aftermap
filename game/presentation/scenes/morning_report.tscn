@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://stage15_morning_report"]
+
+[ext_resource type="Script" path="res://game/presentation/scenes/scene_morning_report.gd" id="1_mr"]
+
+[node name="MorningReport" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+script = ExtResource("1_mr")
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.07, 0.08, 0.1, 1)
+
+[node name="ReportVBox" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="ReportVBox"]
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 32
+text = "第 1 天  晨间报告"
+
+[node name="SummaryList" type="VBoxContainer" parent="ReportVBox"]
+
+[node name="SummaryLine_0" type="Label" parent="ReportVBox/SummaryList"]
+theme_override_font_sizes/font_size = 16
+text = ""
+
+[node name="SummaryLine_1" type="Label" parent="ReportVBox/SummaryList"]
+theme_override_font_sizes/font_size = 16
+text = ""
+
+[node name="SummaryLine_2" type="Label" parent="ReportVBox/SummaryList"]
+theme_override_font_sizes/font_size = 16
+text = ""
+
+[node name="SummaryLine_3" type="Label" parent="ReportVBox/SummaryList"]
+theme_override_font_sizes/font_size = 16
+text = ""
+
+[node name="SummaryLine_4" type="Label" parent="ReportVBox/SummaryList"]
+theme_override_font_sizes/font_size = 16
+text = ""
+
+[node name="StartTodayButton" type="Button" parent="ReportVBox"]
+custom_minimum_size = Vector2(160, 32)
+text = "开始今天"

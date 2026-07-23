@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://stage15_event_decision"]
+
+[ext_resource type="Script" path="res://game/presentation/scenes/scene_event_decision.gd" id="1_ev"]
+
+[node name="EventDecision" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 0
+script = ExtResource("1_ev")
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.06, 0.08, 0.1, 0.95)
+
+[node name="DecisionVBox" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="DecisionVBox"]
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 24
+text = "事件"
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="DecisionVBox"]
+custom_minimum_size = Vector2(640, 96)
+bbcode_enabled = true
+fit_content = true
+
+[node name="OptionList" type="VBoxContainer" parent="DecisionVBox"]
+
+[node name="OptionButton_0" type="Button" parent="DecisionVBox/OptionList"]
+custom_minimum_size = Vector2(0, 32)
+text = "选项 1"
+
+[node name="OptionButton_1" type="Button" parent="DecisionVBox/OptionList"]
+custom_minimum_size = Vector2(0, 32)
+text = "选项 2"
+
+[node name="OptionButton_2" type="Button" parent="DecisionVBox/OptionList"]
+custom_minimum_size = Vector2(0, 32)
+text = "选项 3"
+
+[node name="OptionButton_3" type="Button" parent="DecisionVBox/OptionList"]
+custom_minimum_size = Vector2(0, 32)
+text = "选项 4"

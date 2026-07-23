@@ -1,0 +1,14 @@
+{
+  "id": "fac_radio_basic",
+  "name_zh": "无线电台",
+  "kind": "radio",
+  "tier": 1,
+  "build_cost": {
+    "resource_material": 6,
+    "resource_parts": 3,
+    "fuel": 0
+  },
+  "daily_upkeep": {"fuel": 1},
+  "power_draw_kw": 0.5,
+  "notes": "基础电台 1 级；解锁 radio 岗位与 evc_radio_* 事件链入口；解锁 rcp_radio_repair。"
+}

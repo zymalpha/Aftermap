@@ -1,0 +1,17 @@
+{
+  "id": "rcp_bullet_repack",
+  "name_zh": "弹药打包",
+  "output_item_id": "itm_9mm_ammo",
+  "inputs": [
+    {"item_id": "itm_bolts", "qty": 4},
+    {"item_id": "itm_tape", "qty": 1}
+  ],
+  "tools": ["itm_pliers"],
+  "facility_required": "fac_workbench_basic",
+  "skill_required": {
+    "skill": "craft",
+    "min_level": 1
+  },
+  "time_minutes": 15,
+  "category": "craft"
+}

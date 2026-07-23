@@ -1,0 +1,14 @@
+{
+  "id": "fac_water_basic",
+  "name_zh": "净水器",
+  "kind": "water",
+  "tier": 1,
+  "build_cost": {
+    "resource_material": 6,
+    "resource_parts": 1,
+    "fuel": 0
+  },
+  "daily_upkeep": {"water": 1},
+  "power_draw_kw": 0.5,
+  "notes": "基础净水器 1 级；解锁 rcp_water_filtered / rcp_clean_water_large。"
+}

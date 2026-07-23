@@ -1,0 +1,14 @@
+{
+  "id": "fac_power_basic",
+  "name_zh": "发电机",
+  "kind": "power",
+  "tier": 1,
+  "build_cost": {
+    "resource_material": 8,
+    "resource_parts": 4,
+    "fuel": 2
+  },
+  "daily_upkeep": {"fuel": 2},
+  "power_draw_kw": 6.0,
+  "notes": "基础发电机 1 级；提供 +6 kW 正向电力，覆盖 kitchen/medical/workbench 的 power_draw 消耗。"
+}

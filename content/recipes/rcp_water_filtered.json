@@ -1,0 +1,16 @@
+{
+  "id": "rcp_water_filtered",
+  "name_zh": "过滤水",
+  "output_item_id": "itm_water_bottle",
+  "inputs": [
+    {"item_id": "itm_water_purifier", "qty": 1}
+  ],
+  "tools": [],
+  "facility_required": "fac_water_basic",
+  "skill_required": {
+    "skill": "scavenge",
+    "min_level": 1
+  },
+  "time_minutes": 12,
+  "category": "consume"
+}

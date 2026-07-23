@@ -1,0 +1,33 @@
+{
+  "id": "evt_d20_stranger_warning",
+  "name_zh": "陌生人警告",
+  "kind": "decision",
+  "weight": 45,
+  "triggers": {
+    "all_of": [
+      {"op": "time_in_range", "day_from": 20, "day_to": 28}
+    ]
+  },
+  "effects": [
+    {"op": "set_flag", "flag": "d20_stranger_visited", "value": true}
+  ],
+  "options": [
+    {
+      "label_zh": "邀请进入并盘问",
+      "weight": 60,
+      "effects": [
+        {"op": "stat_add", "target": "community", "stat": "stress", "amount": 1},
+        {"op": "set_flag", "flag": "d20_stranger_interrogated", "value": true}
+      ]
+    },
+    {
+      "label_zh": "拒绝入内并警告离开",
+      "weight": 40,
+      "effects": [
+        {"op": "stat_add", "target": "community", "stat": "morale", "amount": 1},
+        {"op": "set_flag", "flag": "d20_stranger_turned_away", "value": true}
+      ]
+    }
+  ],
+  "tags": ["decision", "stranger", "warning"]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "rcp_radio_repair",
+  "name_zh": "电台维修",
+  "output_item_id": "itm_radio_parts",
+  "inputs": [
+    {"item_id": "itm_walkie_talkie", "qty": 1},
+    {"item_id": "itm_battery", "qty": 1}
+  ],
+  "tools": ["itm_screwdriver"],
+  "facility_required": "fac_radio_basic",
+  "skill_required": {
+    "skill": "craft",
+    "min_level": 2
+  },
+  "time_minutes": 18,
+  "category": "craft"
+}

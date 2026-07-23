@@ -1,0 +1,14 @@
+{
+  "id": "fac_workbench_basic",
+  "name_zh": "工作台",
+  "kind": "workbench",
+  "tier": 1,
+  "build_cost": {
+    "resource_material": 12,
+    "resource_parts": 2,
+    "fuel": 0
+  },
+  "daily_upkeep": {"fuel": 1},
+  "power_draw_kw": 0.5,
+  "notes": "基础工作台；解锁 rcp_basic_repair / rcp_bullet_repack / rcp_bandolier 等 craft 类配方。"
+}

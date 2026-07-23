@@ -1,0 +1,16 @@
+{
+  "id": "evt_d8_quiet_night",
+  "name_zh": "第八日宁静",
+  "kind": "summary",
+  "weight": 50,
+  "triggers": {
+    "all_of": [
+      {"op": "time_in_range", "day_from": 8, "day_to": 9}
+    ]
+  },
+  "effects": [
+    {"op": "stat_add", "target": "community", "stat": "morale", "amount": 1},
+    {"op": "set_flag", "flag": "d8_quiet_observed", "value": true}
+  ],
+  "tags": ["summary", "calm"]
+}

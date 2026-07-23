@@ -1,0 +1,14 @@
+{
+  "id": "fac_quarantine_basic",
+  "name_zh": "隔离区",
+  "kind": "quarantine",
+  "tier": 1,
+  "build_cost": {
+    "resource_material": 8,
+    "resource_parts": 1,
+    "fuel": 0
+  },
+  "daily_upkeep": {"medical": 1},
+  "power_draw_kw": 0,
+  "notes": "基础隔离区 1 级；感染暴露后可在此处理 / 隔离伤病员；医疗床位 1。"
+}

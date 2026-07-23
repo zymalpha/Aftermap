@@ -1,0 +1,17 @@
+{
+  "id": "rcp_lockpick_make",
+  "name_zh": "撬锁器制作",
+  "output_item_id": "itm_lockpick",
+  "inputs": [
+    {"item_id": "itm_pliers", "qty": 1},
+    {"item_id": "itm_screwdriver", "qty": 1}
+  ],
+  "tools": [],
+  "facility_required": "fac_workbench_basic",
+  "skill_required": {
+    "skill": "scavenge",
+    "min_level": 2
+  },
+  "time_minutes": 18,
+  "category": "craft"
+}

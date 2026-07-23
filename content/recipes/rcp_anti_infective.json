@@ -1,0 +1,17 @@
+{
+  "id": "rcp_anti_infective",
+  "name_zh": "抗生素提取",
+  "output_item_id": "itm_antibiotics",
+  "inputs": [
+    {"item_id": "itm_bandage", "qty": 2},
+    {"item_id": "itm_water_bottle", "qty": 1}
+  ],
+  "tools": [],
+  "facility_required": "fac_medical_basic",
+  "skill_required": {
+    "skill": "medical",
+    "min_level": 2
+  },
+  "time_minutes": 25,
+  "category": "consume"
+}

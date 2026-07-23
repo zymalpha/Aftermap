@@ -1,0 +1,17 @@
+{
+  "id": "rcp_clean_water_large",
+  "name_zh": "大桶净水",
+  "output_item_id": "itm_water_bottle",
+  "inputs": [
+    {"item_id": "itm_water_purifier", "qty": 3},
+    {"item_id": "itm_cloth_rag", "qty": 2}
+  ],
+  "tools": [],
+  "facility_required": "fac_water_basic",
+  "skill_required": {
+    "skill": "scavenge",
+    "min_level": 2
+  },
+  "time_minutes": 20,
+  "category": "consume"
+}

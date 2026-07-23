@@ -1,0 +1,17 @@
+{
+  "id": "rcp_meal_cooked",
+  "name_zh": "热饭",
+  "output_item_id": "itm_canned_food",
+  "inputs": [
+    {"item_id": "itm_dry_rations", "qty": 1},
+    {"item_id": "itm_water_bottle", "qty": 1}
+  ],
+  "tools": [],
+  "facility_required": "fac_kitchen_basic",
+  "skill_required": {
+    "skill": "craft",
+    "min_level": 1
+  },
+  "time_minutes": 8,
+  "category": "consume"
+}

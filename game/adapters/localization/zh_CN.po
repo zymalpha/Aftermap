@@ -1,0 +1,341 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: zh_CN\n"
+
+# ui.menu.*
+msgid "ui.menu.title"
+msgstr "末日坐标：Aftermap"
+
+msgid "ui.menu.start"
+msgstr "开始战役"
+
+msgid "ui.menu.continue"
+msgstr "继续战役"
+
+msgid "ui.menu.load"
+msgstr "载入存档"
+
+msgid "ui.menu.save"
+msgstr "保存进度"
+
+msgid "ui.menu.settings"
+msgstr "设置"
+
+msgid "ui.menu.quit"
+msgstr "退出游戏"
+
+msgid "ui.menu.new_game"
+msgstr "新游戏"
+
+msgid "ui.menu.language"
+msgstr "语言"
+
+msgid "ui.menu.credits"
+msgstr "制作名单"
+
+msgid "ui.menu.back"
+msgstr "返回"
+
+msgid "ui.menu.confirm_quit"
+msgstr "确定要退出当前战役吗？"
+
+# ui.hud.*
+msgid "ui.hud.resources"
+msgstr "资源"
+
+msgid "ui.hud.food"
+msgstr "食物"
+
+msgid "ui.hud.water"
+msgstr "饮水"
+
+msgid "ui.hud.medicine"
+msgstr "医疗"
+
+msgid "ui.hud.materials"
+msgstr "材料"
+
+msgid "ui.hud.fuel"
+msgstr "燃料"
+
+msgid "ui.hud.ammo"
+msgstr "弹药"
+
+msgid "ui.hud.parts"
+msgstr "零件"
+
+msgid "ui.hud.morale"
+msgstr "士气"
+
+msgid "ui.hud.defense"
+msgstr "防御"
+
+msgid "ui.hud.power"
+msgstr "电力"
+
+msgid "ui.hud.day"
+msgstr "第 {day} 天"
+
+msgid "ui.hud.time"
+msgstr "{h:02d}:{m:02d}"
+
+msgid "ui.hud.pause"
+msgstr "暂停"
+
+msgid "ui.hud.resume"
+msgstr "继续"
+
+msgid "ui.hud.status"
+msgstr "状态"
+
+msgid "ui.hud.members"
+msgstr "幸存者"
+
+# ui.morning.*
+msgid "ui.morning.report"
+msgstr "早间报告"
+
+msgid "ui.morning.summary"
+msgstr "昨日总结"
+
+msgid "ui.morning.resources_change"
+msgstr "资源变化"
+
+msgid "ui.morning.events"
+msgstr "事件记录"
+
+msgid "ui.morning.injuries"
+msgstr "伤员状况"
+
+msgid "ui.morning.weather"
+msgstr "今日天气"
+
+msgid "ui.morning.weather.clear"
+msgstr "晴朗"
+
+msgid "ui.morning.weather.rain"
+msgstr "阴雨"
+
+msgid "ui.morning.weather.storm"
+msgstr "风暴"
+
+msgid "ui.morning.weather.fog"
+msgstr "大雾"
+
+msgid "ui.morning.actions"
+msgstr "今日行动"
+
+msgid "ui.morning.confirm"
+msgstr "开始今日"
+
+# ui.event.*
+msgid "ui.event.decision"
+msgstr "事件抉择"
+
+msgid "ui.event.option.stay"
+msgstr "留守观察"
+
+msgid "ui.event.option.scavenge"
+msgstr "外出搜寻"
+
+msgid "ui.event.option.trade"
+msgstr "以物易物"
+
+msgid "ui.event.option.fight"
+msgstr "武力解决"
+
+msgid "ui.event.option.flee"
+msgstr "撤退"
+
+msgid "ui.event.option.help"
+msgstr "伸出援手"
+
+msgid "ui.event.option.ignore"
+msgstr "视而不见"
+
+msgid "ui.event.option.investigate"
+msgstr "调查"
+
+msgid "ui.event.option.wait"
+msgstr "等待"
+
+msgid "ui.event.outcome"
+msgstr "事件结果"
+
+# ui.facility.*
+msgid "ui.facility.build"
+msgstr "建造"
+
+msgid "ui.facility.upgrade"
+msgstr "升级"
+
+msgid "ui.facility.repair"
+msgstr "维修"
+
+msgid "ui.facility.power_on"
+msgstr "启动"
+
+msgid "ui.facility.power_off"
+msgstr "关闭"
+
+msgid "ui.facility.upkeep"
+msgstr "日常维护"
+
+msgid "ui.facility.barrier"
+msgstr "防御围栏"
+
+msgid "ui.facility.kitchen"
+msgstr "简易厨房"
+
+msgid "ui.facility.medical"
+msgstr "医务室"
+
+msgid "ui.facility.storage"
+msgstr "仓库"
+
+msgid "ui.facility.watch"
+msgstr "瞭望哨"
+
+msgid "ui.facility.sleep"
+msgstr "休息区"
+
+msgid "ui.facility.tier"
+msgstr "等级 {tier}"
+
+# ui.error.*
+msgid "ui.error.no_resource"
+msgstr "资源不足"
+
+msgid "ui.error.no_member"
+msgstr "无可用人员"
+
+msgid "ui.error.invalid_save"
+msgstr "存档已损坏"
+
+msgid "ui.error.save_failed"
+msgstr "保存失败"
+
+msgid "ui.error.load_failed"
+msgstr "读取失败"
+
+msgid "ui.error.network"
+msgstr "通信异常"
+
+msgid "ui.error.unknown"
+msgstr "未知错误"
+
+msgid "ui.error.not_implemented"
+msgstr "功能尚未开放"
+
+# ui.tutorial.*
+msgid "ui.tutorial.welcome"
+msgstr "欢迎来到末日坐标。基地是你的避难所，每一天都要做出选择。"
+
+msgid "ui.tutorial.resources"
+msgstr "关注顶部资源栏：食物、饮水、燃料和士气每天都会消耗。"
+
+msgid "ui.tutorial.facility"
+msgstr "建造设施可以扩展基地功能，消耗材料并需要日常维护。"
+
+msgid "ui.tutorial.events"
+msgstr "每天清晨会有事件出现——阅读描述并选择最合适的应对方案。"
+
+msgid "ui.tutorial.scavenge"
+msgstr "外出搜寻可获得稀有物资，但会消耗燃料并可能遭遇风险。"
+
+msgid "ui.tutorial.members"
+msgstr "幸存者的状态会随时间变化，记得关注伤病和士气。"
+
+msgid "ui.tutorial.save"
+msgstr "记得定期存档——末日里没有后悔药。"
+
+msgid "ui.tutorial.endings"
+msgstr "你的选择将决定基地的最终结局。善用每一份资源。"
+
+# content.item.*
+msgid "content.item.itm_bandage"
+msgstr "绷带"
+
+msgid "content.item.itm_antibiotics"
+msgstr "抗生素"
+
+msgid "content.item.itm_canned_food"
+msgstr "罐头食物"
+
+msgid "content.item.itm_water_bottle"
+msgstr "瓶装水"
+
+msgid "content.item.itm_cloth_rag"
+msgstr "碎布"
+
+msgid "content.item.itm_crowbar"
+msgstr "撬棍"
+
+msgid "content.item.itm_flashlight"
+msgstr "手电筒"
+
+msgid "content.item.itm_fuel_can"
+msgstr "燃料桶"
+
+msgid "content.item.itm_handgun"
+msgstr "手枪"
+
+msgid "content.item.itm_9mm_ammo"
+msgstr "9 毫米弹药"
+
+msgid "content.item.itm_map"
+msgstr "城市地图"
+
+msgid "content.item.itm_notebook"
+msgstr "幸存者笔记"
+
+msgid "content.item.itm_walkie_talkie"
+msgstr "对讲机"
+
+# content.event.*
+msgid "content.event.evt_d4_injury_decision"
+msgstr "伤员处理"
+
+msgid "content.event.evt_clinic_run_outcome"
+msgstr "诊所搜索结果"
+
+msgid "content.event.evt_d2_scavenge_return"
+msgstr "搜寻归来"
+
+msgid "content.event.evt_d3_water_warning"
+msgstr "饮水告急"
+
+msgid "content.event.evt_d5_stranger_visit"
+msgstr "陌生人来访"
+
+msgid "content.event.evt_d6_supply_drop"
+msgstr "空投补给"
+
+msgid "content.event.evt_d7_weekly_summary"
+msgstr "周度总结"
+
+msgid "content.event.evt_park_water_run"
+msgstr "公园取水"
+
+msgid "content.event.evt_radio_rumour"
+msgstr "电台传闻"
+
+# content.facility.*
+msgid "content.facility.fac_barrier_basic"
+msgstr "防御围栏"
+
+msgid "content.facility.fac_kitchen_basic"
+msgstr "简易厨房"
+
+msgid "content.facility.fac_medical_basic"
+msgstr "医务室"
+
+msgid "content.facility.fac_storage_basic"
+msgstr "仓库"
+
+msgid "content.facility.fac_watch_basic"
+msgstr "瞭望哨"
+
+msgid "content.facility.fac_sleep_basic"
+msgstr "休息区"

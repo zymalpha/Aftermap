@@ -1,0 +1,8 @@
+# Pinned versions for CI reproducibility.
+# Tested green on Windows (Python 3.12) and Ubuntu (Python 3.11).
+# When updating, re-run `python tools/content_validator/validate.py content`
+# and `python -m pytest tools/map_pipeline/tests/ -q` locally first.
+
+jsonschema==4.23.0
+referencing==0.30.2
+pytest==8.3.3

@@ -24,7 +24,38 @@ func _ready() -> void:
 	_ensure_layout()
 
 func _ensure_layout() -> void:
-	if has_node("SettingsVBox"):
+	if has_node("SettingsVBox/KeybindList/KeybindVBox"):
+		# .tscn already defines the layout; bind zoom/font/color/effect buttons
+		# so their pressed signals reach the right handlers.
+		if settings == null:
+			settings = AccessSettingsScript.new()
+		var zoom_row: HBoxContainer = get_node_or_null("SettingsVBox/ZoomRow") as HBoxContainer
+		if zoom_row != null:
+			for i in range(ZOOM_OPTIONS.size()):
+				var btn: Button = zoom_row.get_node_or_null("ZoomOption_%d" % i) as Button
+				if btn != null and btn.pressed.get_connections().is_empty():
+					btn.pressed.connect(_on_zoom_pressed.bind(float(ZOOM_OPTIONS[i])))
+		var font_row: HBoxContainer = get_node_or_null("SettingsVBox/FontRow") as HBoxContainer
+		if font_row != null:
+			for i in range(FONT_OPTIONS.size()):
+				var btn: Button = font_row.get_node_or_null("FontOption_%d" % i) as Button
+				if btn != null and btn.pressed.get_connections().is_empty():
+					btn.pressed.connect(_on_font_pressed.bind(String(FONT_OPTIONS[i])))
+		var color_row: HBoxContainer = get_node_or_null("SettingsVBox/ColorRow") as HBoxContainer
+		if color_row != null:
+			for i in range(COLOR_OPTIONS.size()):
+				var btn: Button = color_row.get_node_or_null("ColorOption_%d" % i) as Button
+				if btn != null and btn.pressed.get_connections().is_empty():
+					btn.pressed.connect(_on_color_pressed.bind(String(COLOR_OPTIONS[i])))
+		var effects_row: HBoxContainer = get_node_or_null("SettingsVBox/EffectsRow") as HBoxContainer
+		if effects_row != null:
+			for i in range(EFFECT_TOGGLES.size()):
+				var btn: Button = effects_row.get_node_or_null("EffectToggle_%s" % EFFECT_TOGGLES[i]) as Button
+				if btn != null and btn.pressed.get_connections().is_empty():
+					btn.pressed.connect(_on_effect_pressed.bind(String(EFFECT_TOGGLES[i])))
+		var close_btn: Button = get_node_or_null("SettingsVBox/CloseButton") as Button
+		if close_btn != null and close_btn.pressed.get_connections().is_empty():
+			close_btn.pressed.connect(_on_close_pressed)
 		return
 	var vbox: VBoxContainer = VBoxContainer.new()
 	vbox.name = "SettingsVBox"

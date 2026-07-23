@@ -48,7 +48,17 @@ func _ready() -> void:
 	_render_step()
 
 func _ensure_layout() -> void:
-	if has_node("TutorialVBox"):
+	if has_node("TutorialVBox/NavBar/NextButton"):
+		# .tscn already defines the layout; bind instance variables + buttons.
+		_title_label = get_node_or_null("TutorialVBox/TitleLabel") as Label
+		_step_label = get_node_or_null("TutorialVBox/StepContent/StepLabel") as Label
+		_step_body = get_node_or_null("TutorialVBox/StepContent/StepBody") as RichTextLabel
+		_next_button = get_node_or_null("TutorialVBox/NavBar/NextButton") as Button
+		_skip_button = get_node_or_null("TutorialVBox/NavBar/SkipButton") as Button
+		if _next_button != null and _next_button.pressed.get_connections().is_empty():
+			_next_button.pressed.connect(_on_next_pressed)
+		if _skip_button != null and _skip_button.pressed.get_connections().is_empty():
+			_skip_button.pressed.connect(_on_skip_pressed)
 		return
 	var vbox: VBoxContainer = VBoxContainer.new()
 	vbox.name = "TutorialVBox"

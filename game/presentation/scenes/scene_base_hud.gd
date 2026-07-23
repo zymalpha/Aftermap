@@ -50,7 +50,23 @@ func _ready() -> void:
 	_ensure_layout()
 
 func _ensure_layout() -> void:
-	if has_node("TopBar"):
+	if has_node("TopBar/DayLabel"):
+		# .tscn already defines the layout; bind every instance variable
+		# so update_from_session() can address the existing nodes.
+		_top_bar = get_node_or_null("TopBar") as HBoxContainer
+		_day_label = get_node_or_null("TopBar/DayLabel") as Label
+		_clock_label = get_node_or_null("TopBar/ClockLabel") as Label
+		_pressure_label = get_node_or_null("TopBar/PressureLabel") as Label
+		_pressure_progress = get_node_or_null("TopBar/PressureProgress") as ProgressBar
+		_facility_box = get_node_or_null("FacilityPanel/FacilityBox") as VBoxContainer
+		_character_box = get_node_or_null("CharacterPanel/CharacterBox") as VBoxContainer
+		_resource_box = get_node_or_null("ResourcePanel/ResourceBox") as VBoxContainer
+		_role_grid = get_node_or_null("RolePanel/RoleGrid") as GridContainer
+		if _role_grid != null:
+			for role_id in ROLE_IDS:
+				var role_btn: Button = _role_grid.get_node_or_null("Role_%s" % role_id) as Button
+				if role_btn != null and role_btn.pressed.get_connections().is_empty():
+					role_btn.pressed.connect(_on_role_pressed.bind(role_id))
 		return
 	# Top bar
 	_top_bar = HBoxContainer.new()

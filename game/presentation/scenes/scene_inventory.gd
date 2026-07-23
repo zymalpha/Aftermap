@@ -22,7 +22,16 @@ func _ready() -> void:
 	_ensure_layout()
 
 func _ensure_layout() -> void:
-	if has_node("InventoryHBox"):
+	if has_node("InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList"):
+		# .tscn already defines the layout; bind _resource_list and the
+		# Move buttons (which need pressed -> _on_resource_move_pressed
+		# to actually fire).
+		_resource_list = get_node_or_null("InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList") as VBoxContainer
+		if _resource_list != null:
+			for key in RESOURCE_KEYS:
+				var move_btn: Button = _resource_list.get_node_or_null("Resource_%s/MoveButton" % key) as Button
+				if move_btn != null and move_btn.pressed.get_connections().is_empty():
+					move_btn.pressed.connect(_on_resource_move_pressed.bind(key))
 		return
 	var vbox: VBoxContainer = VBoxContainer.new()
 	vbox.name = "InventoryVBox"

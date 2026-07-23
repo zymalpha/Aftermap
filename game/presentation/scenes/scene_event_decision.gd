@@ -19,7 +19,30 @@ func _ready() -> void:
 	_ensure_layout()
 
 func _ensure_layout() -> void:
-	if has_node("DecisionVBox"):
+	if has_node("DecisionVBox/OptionList/OptionButton_0"):
+		# .tscn already defines the layout; bind instance variables so
+		# set_event() can address the existing nodes (and so subsequent
+		# rebuilds keep references correct). Reconnect pressed signals
+		# unconditionally — the programmatic-build path already connected
+		# them; the .tscn path exposes them without bindings, so the first
+		# caller otherwise sees no signal.
+		_title_label = get_node_or_null("DecisionVBox/TitleLabel") as Label
+		_description_label = get_node_or_null("DecisionVBox/DescriptionLabel") as RichTextLabel
+		_option_list = get_node_or_null("DecisionVBox/OptionList") as VBoxContainer
+		if _option_list != null:
+			for i in range(MAX_OPTIONS):
+				var btn_name: String = "OptionButton_%d" % i
+				var btn_v: Button = _option_list.get_node_or_null(btn_name) as Button
+				if btn_v != null:
+					# Each call creates a fresh Callable via .bind; we can't
+					# deduplicate reliably, so we just always (re)connect.
+					# Duplicate signal connections are filtered by Godot when
+					# bound to the same Callable & target, but bound Callables
+					# to the same method via .bind() are NOT seen as duplicates.
+					# To keep this idempotent across _ensure_layout calls,
+					# only connect if the button has no connections at all.
+					if btn_v.pressed.get_connections().is_empty():
+						btn_v.pressed.connect(_on_option_pressed.bind(i))
 		return
 	var vbox: VBoxContainer = VBoxContainer.new()
 	vbox.name = "DecisionVBox"

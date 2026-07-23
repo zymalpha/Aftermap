@@ -34,7 +34,33 @@ func _ready() -> void:
 	_refresh_button_states()
 
 func _ensure_layout() -> void:
-	if has_node("MainVBox"):
+	if has_node("MainVBox/ButtonGrid/StartCampaignButton"):
+		# .tscn already defines the layout; bind buttons + city_panel
+		# so signal connections are live (the .tscn path leaves them
+		# unbound by default).
+		var btn_start: Button = get_node_or_null("MainVBox/ButtonGrid/StartCampaignButton") as Button
+		var btn_cont: Button = get_node_or_null("MainVBox/ButtonGrid/ContinueButton") as Button
+		var btn_set: Button = get_node_or_null("MainVBox/ButtonGrid/SettingsButton") as Button
+		var btn_quit: Button = get_node_or_null("MainVBox/ButtonGrid/QuitButton") as Button
+		if btn_start != null and btn_start.pressed.get_connections().is_empty():
+			btn_start.pressed.connect(_on_start_campaign_pressed)
+		if btn_cont != null and btn_cont.pressed.get_connections().is_empty():
+			btn_cont.pressed.connect(_on_continue_pressed)
+		if btn_set != null and btn_set.pressed.get_connections().is_empty():
+			btn_set.pressed.connect(_on_settings_pressed)
+		if btn_quit != null and btn_quit.pressed.get_connections().is_empty():
+			btn_quit.pressed.connect(_on_quit_pressed)
+		_city_panel = get_node_or_null("CityPanel") as PanelContainer
+		if _city_panel != null:
+			for i in range(CITY_CHOICES.size()):
+				var c: Dictionary = CITY_CHOICES[i]
+				var cid: String = String(c.get("id", ""))
+				var city_btn: Button = get_node_or_null("CityPanel/CityPanelVBox/CityRow_%s/CityButton_%s" % [cid, cid]) as Button
+				if city_btn != null and city_btn.pressed.get_connections().is_empty():
+					city_btn.pressed.connect(_on_city_button_pressed.bind(cid))
+			var cancel_btn: Button = get_node_or_null("CityPanel/CityPanelVBox/CityPanelCancel") as Button
+			if cancel_btn != null and cancel_btn.pressed.get_connections().is_empty():
+				cancel_btn.pressed.connect(_on_city_cancel_pressed)
 		return
 	var root: VBoxContainer = VBoxContainer.new()
 	root.name = "MainVBox"

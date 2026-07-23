@@ -19,7 +19,15 @@ func _ready() -> void:
 	_ensure_layout()
 
 func _ensure_layout() -> void:
-	if has_node("UpgradeVBox"):
+	if has_node("UpgradeVBox/FacilityGrid/FacilitySlot_0"):
+		# .tscn already defines the layout; bind _grid + slot buttons.
+		_grid = get_node_or_null("UpgradeVBox/FacilityGrid") as GridContainer
+		_detail_label = get_node_or_null("UpgradeVBox/DetailPanel/DetailLabel") as Label
+		if _grid != null:
+			for i in range(FACILITY_SLOTS):
+				var slot: Button = _grid.get_node_or_null("FacilitySlot_%d" % i) as Button
+				if slot != null and slot.pressed.get_connections().is_empty():
+					slot.pressed.connect(_on_slot_pressed.bind(i))
 		return
 	var vbox: VBoxContainer = VBoxContainer.new()
 	vbox.name = "UpgradeVBox"

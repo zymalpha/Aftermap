@@ -22,7 +22,13 @@ func _ready() -> void:
 	_ensure_layout()
 
 func _ensure_layout() -> void:
-	if has_node("ReportVBox"):
+	if has_node("ReportVBox/StartTodayButton"):
+		# .tscn already defines the layout; bind instance variables + button.
+		_title_label = get_node_or_null("ReportVBox/TitleLabel") as Label
+		_summary_list = get_node_or_null("ReportVBox/SummaryList") as VBoxContainer
+		var btn: Button = get_node_or_null("ReportVBox/StartTodayButton") as Button
+		if btn != null and btn.pressed.get_connections().is_empty():
+			btn.pressed.connect(_on_start_today_pressed)
 		return
 	var vbox: VBoxContainer = VBoxContainer.new()
 	vbox.name = "ReportVBox"

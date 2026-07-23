@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://stage15_tutorial"]
+
+[ext_resource type="Script" path="res://game/presentation/scenes/scene_tutorial.gd" id="1_tut"]
+
+[node name="Tutorial" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 0
+script = ExtResource("1_tut")
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.04, 0.05, 0.08, 1)
+
+[node name="TutorialVBox" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+theme_override_constants/separation = 16
+
+[node name="TitleLabel" type="Label" parent="TutorialVBox"]
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 32
+text = "首日引导"
+
+[node name="StepContent" type="PanelContainer" parent="TutorialVBox"]
+custom_minimum_size = Vector2(720, 256)
+
+[node name="StepLabel" type="Label" parent="TutorialVBox/StepContent"]
+theme_override_font_sizes/font_size = 24
+text = "第 1 步 / 5"
+
+[node name="StepBody" type="RichTextLabel" parent="TutorialVBox/StepContent"]
+custom_minimum_size = Vector2(720, 192)
+bbcode_enabled = true
+fit_content = true
+
+[node name="NavBar" type="HBoxContainer" parent="TutorialVBox"]
+alignment = 1
+theme_override_constants/separation = 16
+
+[node name="NextButton" type="Button" parent="TutorialVBox/NavBar"]
+custom_minimum_size = Vector2(96, 32)
+text = "下一步"
+
+[node name="SkipButton" type="Button" parent="TutorialVBox/NavBar"]
+custom_minimum_size = Vector2(96, 32)
+text = "跳过教程"

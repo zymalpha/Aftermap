@@ -1,0 +1,85 @@
+[gd_scene load_steps=2 format=3 uid="uid://stage15_facility_upgrade"]
+
+[ext_resource type="Script" path="res://game/presentation/scenes/scene_facility_upgrade.gd" id="1_fu"]
+
+[node name="FacilityUpgrade" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 0
+script = ExtResource("1_fu")
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.07, 0.08, 0.1, 1)
+
+[node name="UpgradeVBox" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="UpgradeVBox"]
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 24
+text = "设施升级"
+
+[node name="FacilityGrid" type="GridContainer" parent="UpgradeVBox"]
+columns = 4
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+
+[node name="FacilitySlot_0" type="Button" parent="UpgradeVBox/FacilityGrid"]
+custom_minimum_size = Vector2(96, 32)
+text = "设施 1"
+
+[node name="FacilitySlot_1" type="Button" parent="UpgradeVBox/FacilityGrid"]
+custom_minimum_size = Vector2(96, 32)
+text = "设施 2"
+
+[node name="FacilitySlot_2" type="Button" parent="UpgradeVBox/FacilityGrid"]
+custom_minimum_size = Vector2(96, 32)
+text = "设施 3"
+
+[node name="FacilitySlot_3" type="Button" parent="UpgradeVBox/FacilityGrid"]
+custom_minimum_size = Vector2(96, 32)
+text = "设施 4"
+
+[node name="FacilitySlot_4" type="Button" parent="UpgradeVBox/FacilityGrid"]
+custom_minimum_size = Vector2(96, 32)
+text = "设施 5"
+
+[node name="FacilitySlot_5" type="Button" parent="UpgradeVBox/FacilityGrid"]
+custom_minimum_size = Vector2(96, 32)
+text = "设施 6"
+
+[node name="FacilitySlot_6" type="Button" parent="UpgradeVBox/FacilityGrid"]
+custom_minimum_size = Vector2(96, 32)
+text = "设施 7"
+
+[node name="FacilitySlot_7" type="Button" parent="UpgradeVBox/FacilityGrid"]
+custom_minimum_size = Vector2(96, 32)
+text = "设施 8"
+
+[node name="FacilitySlot_8" type="Button" parent="UpgradeVBox/FacilityGrid"]
+custom_minimum_size = Vector2(96, 32)
+text = "设施 9"
+
+[node name="FacilitySlot_9" type="Button" parent="UpgradeVBox/FacilityGrid"]
+custom_minimum_size = Vector2(96, 32)
+text = "设施 10"
+
+[node name="FacilitySlot_10" type="Button" parent="UpgradeVBox/FacilityGrid"]
+custom_minimum_size = Vector2(96, 32)
+text = "设施 11"
+
+[node name="FacilitySlot_11" type="Button" parent="UpgradeVBox/FacilityGrid"]
+custom_minimum_size = Vector2(96, 32)
+text = "设施 12"
+
+[node name="DetailPanel" type="PanelContainer" parent="UpgradeVBox"]
+
+[node name="DetailLabel" type="Label" parent="UpgradeVBox/DetailPanel"]
+custom_minimum_size = Vector2(640, 96)
+theme_override_font_sizes/font_size = 16
+text = "选择设施查看升级需求"

@@ -1,0 +1,135 @@
+[gd_scene load_steps=2 format=3 uid="uid://stage15_inventory"]
+
+[ext_resource type="Script" path="res://game/presentation/scenes/scene_inventory.gd" id="1_inv"]
+
+[node name="Inventory" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 0
+script = ExtResource("1_inv")
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.07, 0.08, 0.1, 1)
+
+[node name="InventoryVBox" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="InventoryVBox"]
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 24
+text = "库存与装备"
+
+[node name="InventoryHBox" type="HBoxContainer" parent="InventoryVBox"]
+alignment = 1
+theme_override_constants/separation = 32
+
+[node name="BaseStockPanel" type="PanelContainer" parent="InventoryVBox/InventoryHBox"]
+custom_minimum_size = Vector2(320, 320)
+
+[node name="ResourceList" type="VBoxContainer" parent="InventoryVBox/InventoryHBox/BaseStockPanel"]
+
+[node name="Resource_food" type="HBoxContainer" parent="InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList"]
+
+[node name="ResourceLabel" type="Label" parent="InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList/Resource_food"]
+theme_override_font_sizes/font_size = 16
+text = "food 0"
+
+[node name="MoveButton" type="Button" parent="InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList/Resource_food"]
+custom_minimum_size = Vector2(64, 24)
+text = "→角色"
+
+[node name="Resource_water" type="HBoxContainer" parent="InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList"]
+
+[node name="ResourceLabel" type="Label" parent="InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList/Resource_water"]
+theme_override_font_sizes/font_size = 16
+text = "water 0"
+
+[node name="MoveButton" type="Button" parent="InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList/Resource_water"]
+custom_minimum_size = Vector2(64, 24)
+text = "→角色"
+
+[node name="Resource_material" type="HBoxContainer" parent="InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList"]
+
+[node name="ResourceLabel" type="Label" parent="InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList/Resource_material"]
+theme_override_font_sizes/font_size = 16
+text = "material 0"
+
+[node name="MoveButton" type="Button" parent="InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList/Resource_material"]
+custom_minimum_size = Vector2(64, 24)
+text = "→角色"
+
+[node name="Resource_parts" type="HBoxContainer" parent="InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList"]
+
+[node name="ResourceLabel" type="Label" parent="InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList/Resource_parts"]
+theme_override_font_sizes/font_size = 16
+text = "parts 0"
+
+[node name="MoveButton" type="Button" parent="InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList/Resource_parts"]
+custom_minimum_size = Vector2(64, 24)
+text = "→角色"
+
+[node name="Resource_medical" type="HBoxContainer" parent="InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList"]
+
+[node name="ResourceLabel" type="Label" parent="InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList/Resource_medical"]
+theme_override_font_sizes/font_size = 16
+text = "medical 0"
+
+[node name="MoveButton" type="Button" parent="InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList/Resource_medical"]
+custom_minimum_size = Vector2(64, 24)
+text = "→角色"
+
+[node name="Resource_fuel" type="HBoxContainer" parent="InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList"]
+
+[node name="ResourceLabel" type="Label" parent="InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList/Resource_fuel"]
+theme_override_font_sizes/font_size = 16
+text = "fuel 0"
+
+[node name="MoveButton" type="Button" parent="InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList/Resource_fuel"]
+custom_minimum_size = Vector2(64, 24)
+text = "→角色"
+
+[node name="Resource_ammo" type="HBoxContainer" parent="InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList"]
+
+[node name="ResourceLabel" type="Label" parent="InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList/Resource_ammo"]
+theme_override_font_sizes/font_size = 16
+text = "ammo 0"
+
+[node name="MoveButton" type="Button" parent="InventoryVBox/InventoryHBox/BaseStockPanel/ResourceList/Resource_ammo"]
+custom_minimum_size = Vector2(64, 24)
+text = "→角色"
+
+[node name="CharEquipmentPanel" type="PanelContainer" parent="InventoryVBox/InventoryHBox"]
+custom_minimum_size = Vector2(320, 320)
+
+[node name="EquipmentList" type="VBoxContainer" parent="InventoryVBox/InventoryHBox/CharEquipmentPanel"]
+
+[node name="CharLabel" type="Label" parent="InventoryVBox/InventoryHBox/CharEquipmentPanel/EquipmentList"]
+theme_override_font_sizes/font_size = 16
+text = "角色：—"
+
+[node name="EquipSlot_0" type="HBoxContainer" parent="InventoryVBox/InventoryHBox/CharEquipmentPanel/EquipmentList"]
+
+[node name="EquipSlotLabel" type="Label" parent="InventoryVBox/InventoryHBox/CharEquipmentPanel/EquipmentList/EquipSlot_0"]
+theme_override_font_sizes/font_size = 16
+text = "槽位 1 —"
+
+[node name="EquipSlot_1" type="HBoxContainer" parent="InventoryVBox/InventoryHBox/CharEquipmentPanel/EquipmentList"]
+
+[node name="EquipSlotLabel" type="Label" parent="InventoryVBox/InventoryHBox/CharEquipmentPanel/EquipmentList/EquipSlot_1"]
+theme_override_font_sizes/font_size = 16
+text = "槽位 2 —"
+
+[node name="EquipSlot_2" type="HBoxContainer" parent="InventoryVBox/InventoryHBox/CharEquipmentPanel/EquipmentList"]
+
+[node name="EquipSlotLabel" type="Label" parent="InventoryVBox/InventoryHBox/CharEquipmentPanel/EquipmentList/EquipSlot_2"]
+theme_override_font_sizes/font_size = 16
+text = "槽位 3 —"
+
+[node name="ItemLabel" type="Label" parent="InventoryVBox/InventoryHBox/CharEquipmentPanel/EquipmentList"]
+theme_override_font_sizes/font_size = 16
+text = "物品 —"

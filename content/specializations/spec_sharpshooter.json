@@ -1,0 +1,8 @@
+{
+  "id": "spec_sharpshooter",
+  "name_zh": "精确射手",
+  "name_en": "Sharpshooter",
+  "primary_skill": "combat",
+  "bonus": {"combat": 2},
+  "trigger_event_tags": ["combat", "ranged"]
+}

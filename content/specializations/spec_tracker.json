@@ -1,0 +1,8 @@
+{
+  "id": "spec_tracker",
+  "name_zh": "追踪",
+  "name_en": "Tracker",
+  "primary_skill": "search",
+  "bonus": {"search": 2},
+  "trigger_event_tags": ["scavenge", "outdoor"]
+}

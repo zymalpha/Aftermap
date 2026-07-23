@@ -1,0 +1,8 @@
+{
+  "id": "spec_intimidator",
+  "name_zh": "威慑",
+  "name_en": "Intimidator",
+  "primary_skill": "social",
+  "bonus": {"social": 1, "combat": 1},
+  "trigger_event_tags": ["social", "combat"]
+}

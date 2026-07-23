@@ -1,0 +1,8 @@
+{
+  "id": "spec_surgeon",
+  "name_zh": "外科",
+  "name_en": "Surgeon",
+  "primary_skill": "medical",
+  "bonus": {"medical": 2},
+  "trigger_event_tags": ["injury", "surgery"]
+}

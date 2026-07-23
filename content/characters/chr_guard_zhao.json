@@ -1,0 +1,10 @@
+{
+  "id": "chr_guard_zhao",
+  "name_zh": "前警察赵",
+  "name_en": "Ex-Cop Zhao",
+  "background_story": "分局副所长，灾变日被困警局二楼，靠同事尸体掩护逃出。",
+  "starting_skills": {"combat": 2, "search": 1, "medical": 0, "engineering": 0, "social": 1},
+  "starting_items": ["itm_handgun", "itm_crowbar"],
+  "specialization_id": "spec_tactical",
+  "starting_trait_ids": ["trt_pragmatist", "trt_value_no_abandon"]
+}

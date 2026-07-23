@@ -1,0 +1,10 @@
+{
+  "id": "chr_doctor_xu",
+  "name_zh": "医生徐",
+  "name_en": "Doctor Xu",
+  "background_story": "内科主治，灾后在废墟中坚持每日查房直到断水。",
+  "starting_skills": {"medical": 3, "search": 0, "social": 1, "engineering": 0, "combat": 0},
+  "starting_items": ["itm_antibiotics", "itm_bandage"],
+  "specialization_id": "spec_surgeon",
+  "starting_trait_ids": ["trt_pragmatist", "trt_value_no_abandon"]
+}

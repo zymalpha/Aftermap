@@ -1,0 +1,8 @@
+{
+  "id": "spec_carpenter",
+  "name_zh": "木工",
+  "name_en": "Carpenter",
+  "primary_skill": "engineering",
+  "bonus": {"engineering": 1, "search": 1},
+  "trigger_event_tags": ["engineering", "build"]
+}

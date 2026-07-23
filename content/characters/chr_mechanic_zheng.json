@@ -1,0 +1,10 @@
+{
+  "id": "chr_mechanic_zheng",
+  "name_zh": "机修工郑",
+  "name_en": "Mechanic Zheng",
+  "background_story": "汽修厂老板，灾后靠改装发电机和焊枪保住自己的车间。",
+  "starting_skills": {"engineering": 3, "search": 1, "medical": 0, "social": 0, "combat": 0},
+  "starting_items": ["itm_crowbar", "itm_fuel_can"],
+  "specialization_id": "spec_mechanic",
+  "starting_trait_ids": ["trt_pragmatist", "trt_value_no_abandon"]
+}

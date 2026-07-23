@@ -1,0 +1,8 @@
+{
+  "id": "spec_field_medic",
+  "name_zh": "战地医护",
+  "name_en": "Field Medic",
+  "primary_skill": "medical",
+  "bonus": {"medical": 1, "combat": 1},
+  "trigger_event_tags": ["injury", "combat", "field"]
+}

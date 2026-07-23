@@ -1,0 +1,8 @@
+{
+  "id": "spec_mechanic",
+  "name_zh": "机械师",
+  "name_en": "Mechanic",
+  "primary_skill": "engineering",
+  "bonus": {"engineering": 2},
+  "trigger_event_tags": ["engineering", "vehicle"]
+}

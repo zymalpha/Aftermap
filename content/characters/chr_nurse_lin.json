@@ -1,0 +1,10 @@
+{
+  "id": "chr_nurse_lin",
+  "name_zh": "护士林",
+  "name_en": "Nurse Lin",
+  "background_story": "医院急诊科护士，灾后被困地下药房，靠护士长口令活过第二周。",
+  "starting_skills": {"medical": 3, "social": 1, "engineering": 0, "search": 0, "combat": 0},
+  "starting_items": ["itm_bandage", "itm_flashlight"],
+  "specialization_id": "spec_first_aid",
+  "starting_trait_ids": ["trt_empath", "trt_value_no_abandon"]
+}

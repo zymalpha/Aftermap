@@ -1,0 +1,8 @@
+{
+  "id": "spec_forager",
+  "name_zh": "采集",
+  "name_en": "Forager",
+  "primary_skill": "search",
+  "bonus": {"search": 1, "medical": 1},
+  "trigger_event_tags": ["scavenge", "forage"]
+}

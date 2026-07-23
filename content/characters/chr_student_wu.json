@@ -1,0 +1,10 @@
+{
+  "id": "chr_student_wu",
+  "name_zh": "学生吴",
+  "name_en": "Student Wu",
+  "background_story": "大一新生，灾后藏在大学图书馆顶楼，靠泡面撑了两周。",
+  "starting_skills": {"search": 0, "medical": 0, "engineering": 0, "social": 1, "combat": 0},
+  "starting_items": ["itm_notebook", "itm_cloth_rag"],
+  "specialization_id": "spec_forager",
+  "starting_trait_ids": ["trt_empath", "trt_value_share_last"]
+}

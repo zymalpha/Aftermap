@@ -1,0 +1,10 @@
+{
+  "id": "chr_engineer_chen",
+  "name_zh": "工程师陈",
+  "name_en": "Engineer Chen",
+  "background_story": "市政电气工程师，灾后第三天带队抢修电台天线，受过烧伤。",
+  "starting_skills": {"engineering": 3, "medical": 0, "social": 1, "search": 1, "combat": 0},
+  "starting_items": ["itm_flashlight", "itm_walkie_talkie"],
+  "specialization_id": "spec_electrician",
+  "starting_trait_ids": ["trt_pragmatist", "trt_value_protect_children"]
+}

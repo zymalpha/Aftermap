@@ -1,0 +1,8 @@
+{
+  "id": "spec_tactical",
+  "name_zh": "战术指挥",
+  "name_en": "Tactical",
+  "primary_skill": "combat",
+  "bonus": {"combat": 1, "social": 1},
+  "trigger_event_tags": ["combat", "tactical"]
+}

@@ -1,0 +1,10 @@
+{
+  "id": "chr_journalist_ma",
+  "name_zh": "记者马",
+  "name_en": "Journalist Ma",
+  "background_story": "调查记者，灾变日恰好被困广播电台，靠发报机记录最后一份现场报道。",
+  "starting_skills": {"social": 2, "medical": 1, "search": 0, "engineering": 0, "combat": 0},
+  "starting_items": ["itm_walkie_talkie", "itm_notebook"],
+  "specialization_id": "spec_counselor",
+  "starting_trait_ids": ["trt_iron_will", "trt_value_share_last"]
+}

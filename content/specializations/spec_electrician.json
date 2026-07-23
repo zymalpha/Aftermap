@@ -1,0 +1,8 @@
+{
+  "id": "spec_electrician",
+  "name_zh": "电工",
+  "name_en": "Electrician",
+  "primary_skill": "engineering",
+  "bonus": {"engineering": 2},
+  "trigger_event_tags": ["engineering", "power"]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "spec_locksmith",
+  "name_zh": "开锁",
+  "name_en": "Locksmith",
+  "primary_skill": "search",
+  "bonus": {"search": 2},
+  "trigger_event_tags": ["scavenge", "lockpick"]
+}

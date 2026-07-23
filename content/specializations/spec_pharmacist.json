@@ -1,0 +1,8 @@
+{
+  "id": "spec_pharmacist",
+  "name_zh": "药剂师",
+  "name_en": "Pharmacist",
+  "primary_skill": "medical",
+  "bonus": {"medical": 1, "search": 1},
+  "trigger_event_tags": ["pharmacy", "medical"]
+}

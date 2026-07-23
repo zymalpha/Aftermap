@@ -1,0 +1,8 @@
+{
+  "id": "spec_salvage",
+  "name_zh": "打捞",
+  "name_en": "Salvage",
+  "primary_skill": "engineering",
+  "bonus": {"engineering": 1, "search": 1},
+  "trigger_event_tags": ["scavenge", "engineering"]
+}

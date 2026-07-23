@@ -1,0 +1,10 @@
+{
+  "id": "chr_soldier_yu",
+  "name_zh": "退伍兵余",
+  "name_en": "Veteran Yu",
+  "background_story": "野战部队退役，灾变夜带队护送平民至体育场。",
+  "starting_skills": {"combat": 3, "search": 1, "medical": 0, "engineering": 0, "social": 0},
+  "starting_items": ["itm_handgun", "itm_flashlight"],
+  "specialization_id": "spec_sharpshooter",
+  "starting_trait_ids": ["trt_iron_will", "trt_value_no_abandon"]
+}

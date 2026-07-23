@@ -1,0 +1,8 @@
+{
+  "id": "spec_scavenger",
+  "name_zh": "拾荒",
+  "name_en": "Scavenger",
+  "primary_skill": "search",
+  "bonus": {"search": 1, "engineering": 1},
+  "trigger_event_tags": ["scavenge", "poi"]
+}

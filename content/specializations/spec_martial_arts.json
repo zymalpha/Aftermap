@@ -1,0 +1,8 @@
+{
+  "id": "spec_martial_arts",
+  "name_zh": "武术",
+  "name_en": "Martial Arts",
+  "primary_skill": "combat",
+  "bonus": {"combat": 2},
+  "trigger_event_tags": ["combat", "melee"]
+}

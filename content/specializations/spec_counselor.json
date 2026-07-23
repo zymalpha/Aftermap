@@ -1,0 +1,8 @@
+{
+  "id": "spec_counselor",
+  "name_zh": "心理疏导",
+  "name_en": "Counselor",
+  "primary_skill": "social",
+  "bonus": {"social": 1, "medical": 1},
+  "trigger_event_tags": ["social", "morale"]
+}

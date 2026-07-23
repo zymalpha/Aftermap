@@ -1,0 +1,10 @@
+{
+  "id": "chr_farmer_zhou",
+  "name_zh": "农民周",
+  "name_en": "Farmer Zhou",
+  "background_story": "城郊菜农，灾后靠菜窖和手扶拖拉机撑过头两周。",
+  "starting_skills": {"engineering": 2, "search": 2, "medical": 0, "social": 0, "combat": 0},
+  "starting_items": ["itm_crowbar", "itm_fuel_can"],
+  "specialization_id": "spec_salvage",
+  "starting_trait_ids": ["trt_pragmatist", "trt_value_share_last"]
+}

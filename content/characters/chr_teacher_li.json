@@ -1,0 +1,10 @@
+{
+  "id": "chr_teacher_li",
+  "name_zh": "教师李",
+  "name_en": "Teacher Li",
+  "background_story": "高中语文老师，把最后五个学生送出校门后才撤离。",
+  "starting_skills": {"social": 3, "medical": 0, "engineering": 0, "search": 0, "combat": 0},
+  "starting_items": ["itm_notebook", "itm_map"],
+  "specialization_id": "spec_teacher",
+  "starting_trait_ids": ["trt_empath", "trt_value_share_last"]
+}

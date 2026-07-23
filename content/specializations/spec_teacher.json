@@ -1,0 +1,8 @@
+{
+  "id": "spec_teacher",
+  "name_zh": "教师",
+  "name_en": "Teacher",
+  "primary_skill": "social",
+  "bonus": {"social": 2},
+  "trigger_event_tags": ["social", "training"]
+}

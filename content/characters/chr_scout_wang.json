@@ -1,0 +1,10 @@
+{
+  "id": "chr_scout_wang",
+  "name_zh": "侦察兵王",
+  "name_en": "Scout Wang",
+  "background_story": "退役侦察兵，独居山林木屋，灾后第七天凭肌肉记忆走出封锁区。",
+  "starting_skills": {"search": 3, "combat": 1, "engineering": 0, "medical": 0, "social": 0},
+  "starting_items": ["itm_map", "itm_handgun"],
+  "specialization_id": "spec_tracker",
+  "starting_trait_ids": ["trt_iron_will", "trt_value_protect_children"]
+}

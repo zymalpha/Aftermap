@@ -1,0 +1,10 @@
+{
+  "id": "trt_personality_cautious",
+  "name_zh": "谨慎",
+  "kind": "personality",
+  "bonus": {"search": 1, "combat_defense": 1},
+  "penalty": {"speed": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "trap_triggered", "value": true}, "delta": {"axis": "trust", "amount": 0.1}}
+  ]
+}

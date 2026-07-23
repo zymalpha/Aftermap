@@ -1,0 +1,10 @@
+{
+  "id": "trt_personality_humorous",
+  "name_zh": "幽默",
+  "kind": "personality",
+  "bonus": {"social": 1, "morale_recovery": 1},
+  "penalty": {"intimidation": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "joke_told", "value": true}, "delta": {"axis": "intimacy", "amount": 0.1}}
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "id": "trt_personality_loner",
+  "name_zh": "独行",
+  "kind": "personality",
+  "bonus": {"search": 1, "stealth": 1},
+  "penalty": {"social": -1, "morale_recovery": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "party_split", "value": true}, "delta": {"axis": "trust", "amount": 0.05}}
+  ]
+}

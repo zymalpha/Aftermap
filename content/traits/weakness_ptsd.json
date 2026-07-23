@@ -1,0 +1,10 @@
+{
+  "id": "trt_weakness_ptsd",
+  "name_zh": "创伤后应激",
+  "kind": "weakness",
+  "bonus": {},
+  "penalty": {"night_morale": -2, "panic_resist": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "combat_heard", "value": true}, "delta": {"axis": "trust", "amount": -0.1}}
+  ]
+}

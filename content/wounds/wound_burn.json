@@ -1,0 +1,9 @@
+{
+  "id": "wound_burn",
+  "name_zh": "烧伤",
+  "body_part": "arm",
+  "severity": "moderate",
+  "hp_loss_per_day": 4,
+  "heal_time_days": 7,
+  "infection_dose_on_apply": 0.20
+}

@@ -1,0 +1,10 @@
+{
+  "id": "trt_value_learning",
+  "name_zh": "学习",
+  "kind": "value",
+  "bonus": {"learning_speed": 2},
+  "penalty": {"action_speed": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "knowledge_shared", "value": true}, "delta": {"axis": "intimacy", "amount": 0.1}}
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "id": "trt_weakness_claustrophobia",
+  "name_zh": "幽闭恐惧",
+  "kind": "weakness",
+  "bonus": {},
+  "penalty": {"indoor_morale": -2, "panic_resist": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "indoor_long", "value": true}, "delta": {"axis": "trust", "amount": -0.05}}
+  ]
+}

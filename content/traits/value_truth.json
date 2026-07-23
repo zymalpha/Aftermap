@@ -1,0 +1,10 @@
+{
+  "id": "trt_value_truth",
+  "name_zh": "求真",
+  "kind": "value",
+  "bonus": {"search": 1, "rumor_resist": 1},
+  "penalty": {"diplomacy_ease": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "lie_told", "value": true}, "delta": {"axis": "trust", "amount": -0.15}}
+  ]
+}

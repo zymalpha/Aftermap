@@ -1,0 +1,8 @@
+{
+  "id": "trt_weakness_insomnia",
+  "name_zh": "失眠",
+  "kind": "weakness",
+  "bonus": {},
+  "penalty": {"rest_recovery": -2, "alertness": -1},
+  "opinion_rules": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "wound_bite",
+  "name_zh": "咬伤",
+  "body_part": "head",
+  "severity": "critical",
+  "hp_loss_per_day": 8,
+  "heal_time_days": 10,
+  "infection_dose_on_apply": 0.50
+}

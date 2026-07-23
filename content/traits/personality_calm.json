@@ -1,0 +1,10 @@
+{
+  "id": "trt_personality_calm",
+  "name_zh": "冷静",
+  "kind": "personality",
+  "bonus": {"caution": 1, "panic_resist": 1},
+  "penalty": {"speed": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "panic_event", "value": true}, "delta": {"axis": "trust", "amount": 0.1}}
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "enemy_panicked_civilian",
+  "name_zh": "惊慌平民",
+  "hp_max": 20,
+  "combat_skill": 0,
+  "behavior_tag": "flee",
+  "loot_table": "lt_enemy_civilian"
+}

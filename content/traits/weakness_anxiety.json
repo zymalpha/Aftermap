@@ -1,0 +1,10 @@
+{
+  "id": "trt_weakness_anxiety",
+  "name_zh": "焦虑",
+  "kind": "weakness",
+  "bonus": {},
+  "penalty": {"panic_resist": -2, "rest_recovery": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "panic_event", "value": true}, "delta": {"axis": "trust", "amount": -0.1}}
+  ]
+}

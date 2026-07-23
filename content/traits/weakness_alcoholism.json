@@ -1,0 +1,8 @@
+{
+  "id": "trt_weakness_alcoholism",
+  "name_zh": "嗜酒",
+  "kind": "weakness",
+  "bonus": {},
+  "penalty": {"daily_stress_gain": 2, "social_when_sober": -1},
+  "opinion_rules": []
+}

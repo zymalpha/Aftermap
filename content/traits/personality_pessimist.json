@@ -1,0 +1,10 @@
+{
+  "id": "trt_personality_pessimist",
+  "name_zh": "悲观",
+  "kind": "personality",
+  "bonus": {"caution": 1, "planning": 1},
+  "penalty": {"morale_recovery": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "bad_news", "value": true}, "delta": {"axis": "trust", "amount": 0.05}}
+  ]
+}

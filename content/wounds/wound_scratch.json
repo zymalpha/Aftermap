@@ -1,0 +1,9 @@
+{
+  "id": "wound_scratch",
+  "name_zh": "擦伤",
+  "body_part": "arm",
+  "severity": "light",
+  "hp_loss_per_day": 1,
+  "heal_time_days": 2,
+  "infection_dose_on_apply": 0.05
+}

@@ -1,0 +1,10 @@
+{
+  "id": "trt_personality_resilient",
+  "name_zh": "坚韧",
+  "kind": "personality",
+  "bonus": {"hp_max": 5, "morale_decay_resist": 1},
+  "penalty": {"social": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "ally_injured", "value": true}, "delta": {"axis": "trust", "amount": 0.15}}
+  ]
+}

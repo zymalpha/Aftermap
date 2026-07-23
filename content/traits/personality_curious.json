@@ -1,0 +1,10 @@
+{
+  "id": "trt_personality_curious",
+  "name_zh": "好奇",
+  "kind": "personality",
+  "bonus": {"search": 1, "learning_speed": 1},
+  "penalty": {"caution": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "new_discovery", "value": true}, "delta": {"axis": "intimacy", "amount": 0.1}}
+  ]
+}

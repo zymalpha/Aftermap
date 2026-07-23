@@ -1,0 +1,10 @@
+{
+  "id": "trt_weakness_social_anxiety",
+  "name_zh": "社恐",
+  "kind": "weakness",
+  "bonus": {},
+  "penalty": {"social": -2, "morale_recovery": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "social_event", "value": true}, "delta": {"axis": "intimacy", "amount": -0.1}}
+  ]
+}

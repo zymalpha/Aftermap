@@ -1,0 +1,9 @@
+{
+  "id": "wound_laceration",
+  "name_zh": "撕裂伤",
+  "body_part": "torso",
+  "severity": "moderate",
+  "hp_loss_per_day": 3,
+  "heal_time_days": 5,
+  "infection_dose_on_apply": 0.15
+}

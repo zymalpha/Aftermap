@@ -1,0 +1,9 @@
+{
+  "id": "wound_bruise",
+  "name_zh": "瘀伤",
+  "body_part": "torso",
+  "severity": "light",
+  "hp_loss_per_day": 1,
+  "heal_time_days": 3,
+  "infection_dose_on_apply": 0.0
+}

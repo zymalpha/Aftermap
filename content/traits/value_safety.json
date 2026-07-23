@@ -1,0 +1,10 @@
+{
+  "id": "trt_value_safety",
+  "name_zh": "安全",
+  "kind": "value",
+  "bonus": {"caution": 1, "trap_detection": 1},
+  "penalty": {"risk_taking": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "danger_faced", "value": true}, "delta": {"axis": "trust", "amount": 0.05}}
+  ]
+}

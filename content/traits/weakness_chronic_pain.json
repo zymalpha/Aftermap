@@ -1,0 +1,8 @@
+{
+  "id": "trt_weakness_chronic_pain",
+  "name_zh": "慢性疼痛",
+  "kind": "weakness",
+  "bonus": {},
+  "penalty": {"speed": -1, "carry_capacity": -2},
+  "opinion_rules": []
+}

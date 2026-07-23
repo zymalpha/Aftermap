@@ -1,0 +1,10 @@
+{
+  "id": "trt_personality_obedient",
+  "name_zh": "服从",
+  "kind": "personality",
+  "bonus": {"morale_recovery": 1, "command_follow": 1},
+  "penalty": {"initiative": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "command_issued", "value": true}, "delta": {"axis": "trust", "amount": 0.05}}
+  ]
+}

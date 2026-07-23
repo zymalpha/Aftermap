@@ -1,0 +1,10 @@
+{
+  "id": "trt_value_work",
+  "name_zh": "工作",
+  "kind": "value",
+  "bonus": {"engineering": 1, "craft_efficiency": 1},
+  "penalty": {"rest_recovery": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "shift_done", "value": true}, "delta": {"axis": "trust", "amount": 0.05}}
+  ]
+}

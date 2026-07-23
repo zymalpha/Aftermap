@@ -1,0 +1,10 @@
+{
+  "id": "trt_personality_pragmatic",
+  "name_zh": "实用",
+  "kind": "personality",
+  "bonus": {"engineering": 1, "craft_efficiency": 1},
+  "penalty": {"social": -1},
+  "opinion_rules": [
+    {"when": {"op": "stat_compare", "stat": "morale", "compare": "<", "threshold": 30}, "delta": {"axis": "trust", "amount": 0.05}}
+  ]
+}

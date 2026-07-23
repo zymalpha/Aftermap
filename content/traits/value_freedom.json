@@ -1,0 +1,10 @@
+{
+  "id": "trt_value_freedom",
+  "name_zh": "自由",
+  "kind": "value",
+  "bonus": {"search": 1, "morale_when_outdoor": 1},
+  "penalty": {"morale_when_locked_down": -2},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "caged", "value": true}, "delta": {"axis": "trust", "amount": -0.1}}
+  ]
+}

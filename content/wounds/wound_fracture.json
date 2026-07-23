@@ -1,0 +1,9 @@
+{
+  "id": "wound_fracture",
+  "name_zh": "骨折",
+  "body_part": "leg",
+  "severity": "critical",
+  "hp_loss_per_day": 6,
+  "heal_time_days": 14,
+  "infection_dose_on_apply": 0.10
+}

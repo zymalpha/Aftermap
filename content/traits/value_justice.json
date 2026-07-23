@@ -1,0 +1,10 @@
+{
+  "id": "trt_value_justice",
+  "name_zh": "正义",
+  "kind": "value",
+  "bonus": {"social_defense": 1, "morale_when_party_full": 1},
+  "penalty": {"morale_when_ally_unjust": -2},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "injustice_seen", "value": true}, "delta": {"axis": "trust", "amount": -0.1}}
+  ]
+}

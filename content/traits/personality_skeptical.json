@@ -1,0 +1,10 @@
+{
+  "id": "trt_personality_skeptical",
+  "name_zh": "怀疑",
+  "kind": "personality",
+  "bonus": {"search": 1, "social_defense": 1},
+  "penalty": {"social": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "rumor_spread", "value": true}, "delta": {"axis": "trust", "amount": -0.1}}
+  ]
+}

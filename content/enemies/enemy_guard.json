@@ -1,0 +1,8 @@
+{
+  "id": "enemy_guard",
+  "name_zh": "守卫",
+  "hp_max": 30,
+  "combat_skill": 2,
+  "behavior_tag": "loyal",
+  "loot_table": "lt_enemy_guard"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "trt_value_loyalty",
+  "name_zh": "忠诚",
+  "kind": "value",
+  "bonus": {"morale_when_party_full": 2},
+  "penalty": {"morale_decay_when_ally_lost": 2},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "ally_injured", "value": true}, "delta": {"axis": "trust", "amount": 0.2}}
+  ]
+}

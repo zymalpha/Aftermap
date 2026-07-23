@@ -1,0 +1,10 @@
+{
+  "id": "trt_personality_optimist",
+  "name_zh": "乐观",
+  "kind": "personality",
+  "bonus": {"morale_recovery": 2},
+  "penalty": {"caution": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "good_news", "value": true}, "delta": {"axis": "intimacy", "amount": 0.1}}
+  ]
+}

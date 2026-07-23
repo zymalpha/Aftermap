@@ -1,0 +1,10 @@
+{
+  "id": "trt_value_honor",
+  "name_zh": "荣誉",
+  "kind": "value",
+  "bonus": {"combat": 1, "social_defense": 1},
+  "penalty": {"stealth": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "dishonor_done", "value": true}, "delta": {"axis": "trust", "amount": -0.2}}
+  ]
+}

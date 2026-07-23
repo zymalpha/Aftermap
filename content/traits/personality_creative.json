@@ -1,0 +1,10 @@
+{
+  "id": "trt_personality_creative",
+  "name_zh": "创造",
+  "kind": "personality",
+  "bonus": {"engineering": 1, "craft_efficiency": 1},
+  "penalty": {"routine_efficiency": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "innovation_made", "value": true}, "delta": {"axis": "intimacy", "amount": 0.1}}
+  ]
+}

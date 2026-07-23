@@ -1,0 +1,10 @@
+{
+  "id": "trt_value_faith",
+  "name_zh": "信仰",
+  "kind": "value",
+  "bonus": {"morale_recovery": 2},
+  "penalty": {"rumor_resist": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "ritual_done", "value": true}, "delta": {"axis": "intimacy", "amount": 0.15}}
+  ]
+}

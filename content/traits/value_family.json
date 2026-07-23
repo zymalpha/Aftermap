@@ -1,0 +1,10 @@
+{
+  "id": "trt_value_family",
+  "name_zh": "家庭",
+  "kind": "value",
+  "bonus": {"morale_when_family_safe": 2},
+  "penalty": {"morale_when_family_missing": -3},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "family_news", "value": true}, "delta": {"axis": "intimacy", "amount": 0.2}}
+  ]
+}

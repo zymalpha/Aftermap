@@ -1,0 +1,10 @@
+{
+  "id": "trt_personality_responsible",
+  "name_zh": "责任",
+  "kind": "personality",
+  "bonus": {"morale_decay_resist": 1, "reliability": 1},
+  "penalty": {"spontaneity": -1},
+  "opinion_rules": [
+    {"when": {"op": "flag_has", "flag": "duty_done", "value": true}, "delta": {"axis": "trust", "amount": 0.1}}
+  ]
+}

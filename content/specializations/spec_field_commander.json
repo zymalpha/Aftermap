@@ -1,0 +1,15 @@
+{
+  "id": "spec_field_commander",
+  "name_zh": "战斗指挥",
+  "name_en": "Field Commander",
+  "primary_skill": "combat",
+  "bonus": {
+    "combat": 2,
+    "social": 1
+  },
+  "trigger_event_tags": [
+    "combat",
+    "tactical",
+    "command"
+  ]
+}

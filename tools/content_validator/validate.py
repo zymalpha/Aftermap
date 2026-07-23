@@ -80,6 +80,7 @@ DIR_TO_SCHEMA: dict[str, str] = {
     "events": "event.schema.json",
     "event-chains": "event-chain.schema.json",
     "poi-rooms": "poi-room.schema.json",
+    "specializations": "specialization.schema.json",
 }
 
 

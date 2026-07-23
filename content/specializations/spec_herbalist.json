@@ -1,0 +1,15 @@
+{
+  "id": "spec_herbalist",
+  "name_zh": "草药师",
+  "name_en": "Herbalist",
+  "primary_skill": "medical",
+  "bonus": {
+    "medical": 1,
+    "search": 1
+  },
+  "trigger_event_tags": [
+    "medical",
+    "herb",
+    "forage"
+  ]
+}

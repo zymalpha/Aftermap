@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://aftermap.local/schemas/specialization.schema.json",
+  "title": "Specialization",
+  "description": "Character specialization (skill focus). Mirrors §04 §2.2 specializations and the 24-spec MVP quota (§09).",
+  "type": "object",
+  "required": ["id", "name_zh", "name_en", "primary_skill", "bonus", "trigger_event_tags"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^spec_[a-z0-9_]+$",
+      "description": "Stable specialization id; ASCII lowercase."
+    },
+    "name_zh": {"type": "string", "minLength": 1},
+    "name_en": {"type": "string", "minLength": 1},
+    "primary_skill": {
+      "type": "string",
+      "enum": ["combat", "medical", "engineering", "social", "search", "survival"],
+      "description": "Primary skill axis this specialization advances."
+    },
+    "bonus": {
+      "type": "object",
+      "description": "Stat modifiers applied when the specialization is active. Keys are stat names; values are signed numbers.",
+      "additionalProperties": {"type": "number"},
+      "minProperties": 1
+    },
+    "trigger_event_tags": {
+      "type": "array",
+      "description": "Event tags that activate this specialization's bonus.",
+      "items": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+      "uniqueItems": true,
+      "minItems": 1
+    }
+  }
+}

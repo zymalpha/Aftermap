@@ -1,0 +1,15 @@
+{
+  "id": "spec_salvage_master",
+  "name_zh": "拆解大师",
+  "name_en": "Salvage Master",
+  "primary_skill": "engineering",
+  "bonus": {
+    "engineering": 2,
+    "search": 1
+  },
+  "trigger_event_tags": [
+    "engineering",
+    "salvage",
+    "scrap"
+  ]
+}

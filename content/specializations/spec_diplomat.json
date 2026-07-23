@@ -1,0 +1,15 @@
+{
+  "id": "spec_diplomat",
+  "name_zh": "外交官",
+  "name_en": "Diplomat",
+  "primary_skill": "social",
+  "bonus": {
+    "social": 2,
+    "medical": 1
+  },
+  "trigger_event_tags": [
+    "social",
+    "trade",
+    "diplomacy"
+  ]
+}

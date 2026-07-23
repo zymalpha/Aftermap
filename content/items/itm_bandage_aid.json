@@ -1,0 +1,14 @@
+{
+  "id": "itm_bandage_aid",
+  "name_zh": "急救绷带",
+  "name_en": "First-Aid Bandage",
+  "kind": "consumable",
+  "weight_kg": 0.1,
+  "stack_size": 6,
+  "tags": [
+    "consumable",
+    "medical"
+  ],
+  "value_tier": 1,
+  "notes": "Stops bleed; reduces blood loss."
+}

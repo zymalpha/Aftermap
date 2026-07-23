@@ -1,0 +1,15 @@
+{
+  "id": "itm_bolts",
+  "name_zh": "弩箭",
+  "name_en": "Crossbow Bolts",
+  "kind": "ammo",
+  "weight_kg": 0.03,
+  "stack_size": 24,
+  "tags": [
+    "ammo",
+    "crossbow",
+    "stackable"
+  ],
+  "value_tier": 2,
+  "notes": "Ammunition for itm_crossbow."
+}

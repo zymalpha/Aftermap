@@ -1,0 +1,15 @@
+{
+  "id": "itm_pistol_ammo",
+  "name_zh": "手枪子弹",
+  "name_en": "Pistol Ammo",
+  "kind": "ammo",
+  "weight_kg": 0.01,
+  "stack_size": 64,
+  "tags": [
+    "ammo",
+    "9mm",
+    "stackable"
+  ],
+  "value_tier": 2,
+  "notes": "Ammunition for itm_pistol."
+}

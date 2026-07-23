@@ -1,0 +1,11 @@
+{
+  "id": "itm_rope",
+  "name_zh": "绳索",
+  "name_en": "Rope",
+  "kind": "tool",
+  "weight_kg": 0.5,
+  "stack_size": 1,
+  "tags": ["tool", "utility"],
+  "value_tier": 1,
+  "notes": "Climbing and binding tool."
+}

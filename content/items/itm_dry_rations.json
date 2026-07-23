@@ -1,0 +1,14 @@
+{
+  "id": "itm_dry_rations",
+  "name_zh": "压缩干粮",
+  "name_en": "Dry Rations",
+  "kind": "food",
+  "weight_kg": 0.3,
+  "stack_size": 8,
+  "tags": [
+    "food",
+    "stackable"
+  ],
+  "value_tier": 1,
+  "notes": "Long-shelf staple food."
+}

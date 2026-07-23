@@ -1,0 +1,11 @@
+{
+  "id": "itm_rifle",
+  "name_zh": "步枪",
+  "name_en": "Rifle",
+  "kind": "weapon",
+  "weight_kg": 3.5,
+  "stack_size": 1,
+  "tags": ["weapon", "ranged", "rifle"],
+  "value_tier": 4,
+  "notes": "Long-range firearm. Needs rifle ammo."
+}

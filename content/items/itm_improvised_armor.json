@@ -1,0 +1,14 @@
+{
+  "id": "itm_improvised_armor",
+  "name_zh": "简易护甲",
+  "name_en": "Improvised Armor",
+  "kind": "armor",
+  "weight_kg": 3.0,
+  "stack_size": 1,
+  "tags": [
+    "armor",
+    "defense"
+  ],
+  "value_tier": 2,
+  "notes": "Padded armor; reduces blunt damage."
+}

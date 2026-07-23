@@ -1,0 +1,11 @@
+{
+  "id": "itm_shotgun",
+  "name_zh": "霰弹枪",
+  "name_en": "Shotgun",
+  "kind": "weapon",
+  "weight_kg": 3.0,
+  "stack_size": 1,
+  "tags": ["weapon", "ranged", "shotgun"],
+  "value_tier": 4,
+  "notes": "Close-range spread firearm."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "itm_baseball_bat",
+  "name_zh": "棒球棍",
+  "name_en": "Baseball Bat",
+  "kind": "weapon",
+  "weight_kg": 1.1,
+  "stack_size": 1,
+  "tags": [
+    "weapon",
+    "melee"
+  ],
+  "value_tier": 1,
+  "notes": "Sturdy blunt melee weapon."
+}

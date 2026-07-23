@@ -1,0 +1,14 @@
+{
+  "id": "itm_old_photo",
+  "name_zh": "旧照片",
+  "name_en": "Old Photo",
+  "kind": "memento",
+  "weight_kg": 0.01,
+  "stack_size": 1,
+  "tags": [
+    "memento",
+    "lore"
+  ],
+  "value_tier": 1,
+  "notes": "A faded family photo; morale catalyst."
+}

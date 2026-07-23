@@ -1,0 +1,14 @@
+{
+  "id": "itm_milk_powder",
+  "name_zh": "奶粉",
+  "name_en": "Milk Powder",
+  "kind": "food",
+  "weight_kg": 0.4,
+  "stack_size": 4,
+  "tags": [
+    "food",
+    "stackable"
+  ],
+  "value_tier": 1,
+  "notes": "Nutrient-dense food base."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "itm_key_card",
+  "name_zh": "门禁卡",
+  "name_en": "Key Card",
+  "kind": "key",
+  "weight_kg": 0.02,
+  "stack_size": 1,
+  "tags": [
+    "key",
+    "access"
+  ],
+  "value_tier": 3,
+  "notes": "Unlocks secured facility doors."
+}

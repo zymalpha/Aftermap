@@ -1,0 +1,15 @@
+{
+  "id": "itm_water_purifier",
+  "name_zh": "净水片",
+  "name_en": "Water Purifier",
+  "kind": "consumable",
+  "weight_kg": 0.05,
+  "stack_size": 20,
+  "tags": [
+    "consumable",
+    "stackable",
+    "utility"
+  ],
+  "value_tier": 2,
+  "notes": "Purifies unsafe water sources."
+}

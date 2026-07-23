@@ -1,0 +1,14 @@
+{
+  "id": "itm_goggles",
+  "name_zh": "护目镜",
+  "name_en": "Goggles",
+  "kind": "armor",
+  "weight_kg": 0.2,
+  "stack_size": 1,
+  "tags": [
+    "armor",
+    "protection"
+  ],
+  "value_tier": 1,
+  "notes": "Eye protection; reduces flash and haze."
+}

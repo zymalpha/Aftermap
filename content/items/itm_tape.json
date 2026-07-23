@@ -1,0 +1,15 @@
+{
+  "id": "itm_tape",
+  "name_zh": "布胶带",
+  "name_en": "Tape Roll",
+  "kind": "tool",
+  "weight_kg": 0.2,
+  "stack_size": 6,
+  "tags": [
+    "tool",
+    "material",
+    "stackable"
+  ],
+  "value_tier": 1,
+  "notes": "Binding and patching material."
+}

@@ -1,0 +1,15 @@
+{
+  "id": "itm_energy_bar",
+  "name_zh": "能量棒",
+  "name_en": "Energy Bar",
+  "kind": "consumable",
+  "weight_kg": 0.1,
+  "stack_size": 12,
+  "tags": [
+    "consumable",
+    "food",
+    "stackable"
+  ],
+  "value_tier": 1,
+  "notes": "Quick calorie boost on the move."
+}

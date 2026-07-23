@@ -1,0 +1,14 @@
+{
+  "id": "itm_gas_mask",
+  "name_zh": "防毒面具",
+  "name_en": "Gas Mask",
+  "kind": "armor",
+  "weight_kg": 0.9,
+  "stack_size": 1,
+  "tags": [
+    "armor",
+    "protection"
+  ],
+  "value_tier": 3,
+  "notes": "Filters infection haze and gas."
+}

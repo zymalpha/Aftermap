@@ -1,0 +1,11 @@
+{
+  "id": "itm_duct_tape",
+  "name_zh": "胶带",
+  "name_en": "Duct Tape",
+  "kind": "tool",
+  "weight_kg": 0.2,
+  "stack_size": 4,
+  "tags": ["tool", "material", "stackable"],
+  "value_tier": 1,
+  "notes": "Multipurpose repair material."
+}

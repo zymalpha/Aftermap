@@ -1,0 +1,14 @@
+{
+  "id": "itm_lockpick",
+  "name_zh": "开锁器",
+  "name_en": "Lockpick",
+  "kind": "tool",
+  "weight_kg": 0.05,
+  "stack_size": 3,
+  "tags": [
+    "tool",
+    "security"
+  ],
+  "value_tier": 2,
+  "notes": "Opens simple mechanical locks."
+}

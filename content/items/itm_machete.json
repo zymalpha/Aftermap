@@ -1,0 +1,11 @@
+{
+  "id": "itm_machete",
+  "name_zh": "砍刀",
+  "name_en": "Machete",
+  "kind": "weapon",
+  "weight_kg": 1.0,
+  "stack_size": 1,
+  "tags": ["weapon", "melee"],
+  "value_tier": 2,
+  "notes": "Heavy blade melee weapon."
+}

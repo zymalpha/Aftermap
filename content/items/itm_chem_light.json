@@ -1,0 +1,15 @@
+{
+  "id": "itm_chem_light",
+  "name_zh": "荧光棒",
+  "name_en": "Chem Light",
+  "kind": "tool",
+  "weight_kg": 0.05,
+  "stack_size": 8,
+  "tags": [
+    "tool",
+    "light",
+    "stackable"
+  ],
+  "value_tier": 1,
+  "notes": "Single-use chemical light source."
+}

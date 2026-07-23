@@ -1,0 +1,14 @@
+{
+  "id": "itm_lighter",
+  "name_zh": "打火机",
+  "name_en": "Lighter",
+  "kind": "tool",
+  "weight_kg": 0.05,
+  "stack_size": 1,
+  "tags": [
+    "tool",
+    "fire"
+  ],
+  "value_tier": 1,
+  "notes": "Ignites fires; small light source."
+}

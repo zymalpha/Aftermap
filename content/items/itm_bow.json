@@ -1,0 +1,11 @@
+{
+  "id": "itm_bow",
+  "name_zh": "弓",
+  "name_en": "Bow",
+  "kind": "weapon",
+  "weight_kg": 1.2,
+  "stack_size": 1,
+  "tags": ["weapon", "ranged", "silent"],
+  "value_tier": 2,
+  "notes": "Silent ranged weapon; uses arrows."
+}

@@ -1,0 +1,15 @@
+{
+  "id": "itm_crossbow",
+  "name_zh": "十字弩",
+  "name_en": "Crossbow",
+  "kind": "weapon",
+  "weight_kg": 2.8,
+  "stack_size": 1,
+  "tags": [
+    "weapon",
+    "ranged",
+    "silent"
+  ],
+  "value_tier": 3,
+  "notes": "Silent ranged weapon; bolts reusable."
+}

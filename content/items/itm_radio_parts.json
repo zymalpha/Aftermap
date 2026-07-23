@@ -1,0 +1,15 @@
+{
+  "id": "itm_radio_parts",
+  "name_zh": "电台零件",
+  "name_en": "Radio Parts",
+  "kind": "material",
+  "weight_kg": 0.4,
+  "stack_size": 4,
+  "tags": [
+    "material",
+    "stackable",
+    "electronics"
+  ],
+  "value_tier": 2,
+  "notes": "Spare parts for radio repair."
+}

@@ -1,0 +1,11 @@
+{
+  "id": "itm_screwdriver",
+  "name_zh": "螺丝刀",
+  "name_en": "Screwdriver",
+  "kind": "tool",
+  "weight_kg": 0.2,
+  "stack_size": 1,
+  "tags": ["tool", "build"],
+  "value_tier": 1,
+  "notes": "Mechanical assembly tool."
+}

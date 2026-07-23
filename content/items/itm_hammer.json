@@ -1,0 +1,11 @@
+{
+  "id": "itm_hammer",
+  "name_zh": "锤子",
+  "name_en": "Hammer",
+  "kind": "tool",
+  "weight_kg": 0.6,
+  "stack_size": 1,
+  "tags": ["tool", "build"],
+  "value_tier": 1,
+  "notes": "Build and repair tool."
+}

@@ -141,11 +141,11 @@ UI / 输入 / 音频 / 视觉
 
 ---
 
-## 7. 目录结构
+## 7. 目录结构（清理后）
 
 ```
 E:\0_BestSelf\0_末世游戏制作\
-├── 策划案/                    # 14 份策划文档（原始未改）
+├── 策划案/                    # 14 份策划文档（原始未改，唯一权威源）
 ├── docs/
 │   ├── adr/                   # 6 份架构决策记录
 │   ├── api/                   # 模块接口契约
@@ -178,18 +178,24 @@ E:\0_BestSelf\0_末世游戏制作\
 │   ├── adapters/              # 存档 / 地图 / 本地化
 │   ├── assets_art/            # 56 张像素 PNG（程序生成）
 │   └── tests/                 # 17 个 headless 测试
+├── .github/                   # ISSUE/PR 模板 + CI workflow + dependabot
 ├── project.godot              # Godot 工程配置
 ├── export_presets.cfg         # Windows 导出预设
 ├── run.sh / run.bat           # 一键测试脚本
-├── README.md                  # 用户入口
-├── PUSH_AND_VIEW.md           # 推送 + 查看指南（合并版）
-├── PROJECT_INTRO.md           # 本文档
-├── CHANGELOG.md               # 版本变更
+├── .editorconfig              # 编辑器统一配置
 ├── LICENSE                    # MIT
-├── .github/                   # ISSUE/PR 模板 + CI workflow + dependabot
-├── .tools/godot/              # Godot portable（不入库）
-├── aftermap-v1.0.bundle       # v1.0 release bundle（504 KB）
-└── .git/                      # Git 仓库（55 commits）
+├── README.md                  # 用户入口（GitHub 首屏）
+├── PROJECT_INTRO.md           # 本文档（完整项目介绍）
+├── PUSH_AND_VIEW.md           # 推送 + 查看指南
+├── CHANGELOG.md               # 版本变更
+├── CONTRIBUTING.md            # 贡献指南
+├── CODE_OF_CONDUCT.md         # 行为准则
+├── SECURITY.md                # 漏洞报告流程
+├── CITATION.cff               # 学术引用格式
+├── aftermap-v1.0.bundle       # v1.0 release bundle（504 KB，gitignore）
+├── .tools/godot/              # Godot 4.6.2 portable（gitignore）
+├── .godot/                    # Godot 引擎缓存（gitignore，需保留以保证 class_name 解析）
+└── .git/                      # Git 仓库
 ```
 
 ---

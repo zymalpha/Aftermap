@@ -199,6 +199,9 @@ func _test_corrupt_po_does_not_crash() -> void:
 		f2.close()
 	var l2: RefCounted = _make_loc()
 	l2.load_from_po(tmp_path2, &"test")
+	# Set active lang to the dict we just loaded so lookup() finds the entries
+	# (lookup() only consults active + default langs, not arbitrary other langs).
+	l2.set_lang(&"test")
 	_expect(l2.lookup(&"good.key", "FB") == "good value", "good entry parsed (got '" + l2.lookup(&"good.key", "FB") + "')")
 	_expect(l2.lookup(&"another.key", "FB") == "another value", "another entry parsed (got '" + l2.lookup(&"another.key", "FB") + "')")
 	_expect(l2.get_load_errors() >= 1, "junk line counted as parse error")

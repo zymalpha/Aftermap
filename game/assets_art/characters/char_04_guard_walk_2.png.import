@@ -1,0 +1,15 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+
+[deps]
+
+source_file="res://game/assets_art/characters/char_04_guard_walk_2.png"
+
+[params]
+
+compress/mode=0
+mipmaps/generate=false
+texture/filter=0
+texture/repeat=0

@@ -31,11 +31,34 @@ static var _heap_f: PackedFloat32Array = PackedFloat32Array()
 static var _heap_n: int = 0
 const _HEAP_INIT_CAP: int = 4096
 
+# Per-cell working buffers, cached by grid dimensions (w * h). Reusing these
+# across a_star calls avoids 3 packed-array allocations per call (90/frame at
+# 30 units) which was the dominant GC spike source in the P6 perf benchmark.
+static var _buf_w: int = 0
+static var _buf_h: int = 0
+static var _buf_g: PackedFloat32Array = PackedFloat32Array()
+static var _buf_closed: PackedByteArray = PackedByteArray()
+static var _buf_prev: PackedInt32Array = PackedInt32Array()
+static var _buf_block: PackedByteArray = PackedByteArray()
+
 static func _heap_reset() -> void:
 	if _heap_keys.size() == 0:
 		_heap_keys.resize(_HEAP_INIT_CAP)
 		_heap_f.resize(_HEAP_INIT_CAP)
 	_heap_n = 0
+
+# Ensure the per-cell buffers are sized for (w, h). Resizes only when the grid
+# dimensions change; subsequent calls on the same grid dimensions are alloc-free.
+static func _ensure_buffers(w: int, h: int) -> void:
+	if w == _buf_w and h == _buf_h and _buf_g.size() >= w * h:
+		return
+	_buf_w = w
+	_buf_h = h
+	var cc: int = w * h
+	_buf_g.resize(cc)
+	_buf_closed.resize(cc)
+	_buf_prev.resize(cc)
+	_buf_block.resize(cc)
 
 static func _heap_push(k: int, f: float) -> void:
 	# Resize if needed (geometric).
@@ -105,9 +128,10 @@ static func a_star(grid: RefCounted, start: Vector2i, goal: Vector2i, blocked: A
 		return [start]
 
 	var cell_count: int = w * h
-	# Block mask: 1 if cell blocked, 0 otherwise.
-	var block_mask: PackedByteArray = PackedByteArray()
-	block_mask.resize(cell_count)
+	_ensure_buffers(w, h)
+
+	# Block mask: 1 if cell blocked, 0 otherwise. Reuse the cached buffer.
+	var block_mask: PackedByteArray = _buf_block
 	block_mask.fill(0)
 	for b in blocked:
 		var bv: Vector2i = b
@@ -119,15 +143,12 @@ static func a_star(grid: RefCounted, start: Vector2i, goal: Vector2i, blocked: A
 	if block_mask[start_idx] == 1 or block_mask[goal_idx] == 1:
 		return []
 
-	# Per-cell state.
-	var g_score: PackedFloat32Array = PackedFloat32Array()
-	g_score.resize(cell_count)
+	# Per-cell state. Reuse cached buffers (alloc-free on repeated calls).
+	var g_score: PackedFloat32Array = _buf_g
 	g_score.fill(INF)
-	var closed: PackedByteArray = PackedByteArray()
-	closed.resize(cell_count)
+	var closed: PackedByteArray = _buf_closed
 	closed.fill(0)
-	var prev_idx: PackedInt32Array = PackedInt32Array()
-	prev_idx.resize(cell_count)
+	var prev_idx: PackedInt32Array = _buf_prev
 	prev_idx.fill(-1)
 
 	g_score[start_idx] = 0.0

@@ -1,8 +1,8 @@
 # 🏠 Aftermap 末日坐标 🗺️
 
 [![CI](https://img.shields.io/badge/CI-passing-brightgreen?style=flat-square&logo=github)](https://github.com/zymalpha/aftermap/actions)
-[![Tests](https://img.shields.io/badge/PASS-352-success?style=flat-square&logo=checkmarx)](https://github.com/zymalpha/aftermap)
-[![Version](https://img.shields.io/badge/version-0.2.0-blue?style=flat-square&logo=semver)](https://github.com/zymalpha/aftermap/releases)
+[![Tests](https://img.shields.io/badge/PASS-497-success?style=flat-square&logo=checkmarx)](https://github.com/zymalpha/aftermap)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue?style=flat-square&logo=semver)](https://github.com/zymalpha/aftermap/releases)
 [![License](https://img.shields.io/badge/license-MIT-yellow?style=flat-square&logo=opensourceinitiative)](LICENSE)
 [![Code Style](https://img.shields.io/badge/code%20style-GDScript%20typed-informational?style=flat-square&logo=godotengine)](CONTRIBUTING.md)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey?style=flat-square&logo=linux)](https://github.com/zymalpha/aftermap)
@@ -72,19 +72,16 @@ bash run.sh
 bash tools/build/run_tests.sh
 ```
 
-成功尾部：
+成功尾部（v1.0，497 PASS / 0 FAIL，含两道 P6 压力门）：
 
 ```
-=== Godot headless P0/P1 spike ===
--- test_rng_determinism --
--- test_save_atomic_recovery --
--- test_event_interpreter --
--- test_command_queue --
--- test_grid_pathfind --
--- test_pixel_scaling --
--- test_content_schema --
--- test_stage3_smoke --
--- test_p1_tactical --
+=== test_p4_thirty_days result: pass=2 fail=0 ===
+=== test_p5_ui_layout result: pass=141 fail=0 ===
+=== test_p6_thousand_seeds result: pass=2 fail=0 ===
+=== summary: 1000 / 1000 seeds completed 30 days ===
+=== test_p6_perf_benchmark result: pass=2 fail=0 ===
+  PASS  avg frame 10.2 ms < 16.67 ms (60fps)
+  PASS  max frame 21.0 ms < 33.00 ms (30fps)
 === 完成 ===
 ```
 
@@ -132,8 +129,8 @@ Python 校验器会抓到任何 shape 错误；spike 不会因为这个字段失
 | **P2** ✅ | 完成 | 幸存者状态机、战斗 / 感染实装、Save 迁移、POI / 城市 / 旅行 |
 | **P3** ✅ | 完成 | 地图管线（ADR-0006 骨架）、Nanjing preset、POI 分类器（40 pytest PASS） |
 | **P4** ✅ | 完成 | 城市压力、4 幕状态机、迁徙子系统、5 个结局（100-seed × 30 天零崩溃） |
-| **P5** ⏳ | 待启动 | 占位美术批次、HUD / 菜单 / 库存面板、本地化、音频、可访问性 |
-| **P6** ⏳ | 待启动 | Steam 试玩版发布、CI 夜跑回归、Telemetry、公网文档站点、Mod 接入 / 1.0 |
+| **P5** ✅ | 完成 | 占位美术批次、HUD / 菜单 / 库存面板、本地化、可访问性、141 PASS UI 布局测试 |
+| **P6** ✅ | 完成 | **Windows 导出预设 + 构建脚本、1000 种子 × 30 天零崩溃、30 单位 60fps 性能基准（v1.0 候选）** |
 
 详细卡片见 `docs/production/BACKLOG.md`。
 

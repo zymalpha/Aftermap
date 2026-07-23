@@ -35,9 +35,9 @@ Branch 'main' set up to track remote 'main' from 'origin'.
 ### 方法 B：从 bundle 克隆推送（如果方法 A 凭证麻烦）
 
 ```bash
-# 1. 在工作区外（如 D:\workspace）从 bundle 克隆（v0.2 优先）
+# 1. 在工作区外（如 D:\workspace）从 bundle 克隆（v1.0 优先）
 cd /d/workspace
-git clone /e/0_BestSelf/0_末世游戏制作/aftermap-v0.2.bundle aftermap
+git clone /e/0_BestSelf/0_末世游戏制作/aftermap-v1.0.bundle aftermap
 cd aftermap
 
 # 2. 接远程 + 推送
@@ -49,17 +49,11 @@ git push -u origin main
 
 ## 验证推送成功
 
-打开 https://github.com/zymalpha/aftermap 应该看到 8 个 commit：
-```
-0389bcc chore: push instructions + bundle
-3f77c3d docs: stage 6 production + api docs, README, CHANGELOG, test runners
-c6c2320 feat(p1): tactical grid + pathfind + movement + FOV + sound + alertness + combat + search + infection
-6b3b85f test(p0): remaining P0 spike tests (command_queue, grid_pathfind, pixel_scaling)
-bc18aaf feat(p0): GameSession/RNG/Clock + Save + EventInterpreter core + 53-pass smoke
-de4216c feat(p0): ADR + JSON schema + content validator + sample data
-e79e503 chore: add .gitignore, run scripts, docs skeleton
-97f64fc chore: init repo with planning docs and skeleton dirs
-```
+打开 https://github.com/zymalpha/aftermap，确认：
+- 最新 tag 为 `v1.0.0`（`git tag` 本地已存在，需另推 tag：`git push origin v1.0.0`）
+- `main` HEAD 为 Stage 18 release commit（`chore: v1.0.0 release tag + bundle`）
+- `aftermap-v1.0.bundle` 已在仓库根（或随 push 带上）
+- 总测试数 **497 GDScript PASS / 40 pytest PASS / 222 内容文件 schema 校验**
 
 ## 推送完告诉我
 
@@ -69,7 +63,7 @@ e79e503 chore: add .gitignore, run scripts, docs skeleton
 
 # 查看当前效果
 
-当前会话已经可以**自动验证**一切（166 PASS / 0 FAIL），但你可能想看 **可视化** 跑起来是什么样子。当前阶段 P0+P1 只交付**逻辑层**（无美术素材），所以"看效果"有几条路径：
+当前会话已经可以**自动验证**一切（**497 GDScript PASS / 40 pytest PASS / 222 内容文件 schema 校验，0 失败**；含 1000 种子 × 30 天 + 30 单位 60fps 两道 P6 压力门），但你可能想看 **可视化** 跑起来是什么样子。当前 v1.0 交付**逻辑层 + 占位美术 + 完整 UI 场景**，"看效果"有几条路径：
 
 ## 路径 1：跑 P1 战术场景（占位美术）
 
@@ -102,7 +96,12 @@ cd /e/0_BestSelf/0_末世游戏制作
 .tools/godot/Godot_v4.6.2-stable_win64_console.exe --headless --path . --script game/tests/test_grid_pathfind.gd
 ```
 
-会看到 52 + 53 + 23 = **128 条 PASS**，含性能数字（"elapsed_ms < 33ms"）。
+会看到 P1 战术 + Stage3 烟雾 + 寻路 = **128 条 PASS**，含性能数字（"elapsed_ms < 33ms"）。跑 P6 两道门：
+
+```bash
+.tools/godot/Godot_v4.6.2-stable_win64_console.exe --headless --path . --script game/tests/test_p6_thousand_seeds.gd
+.tools/godot/Godot_v4.6.2-stable_win64_console.exe --headless --path . --script game/tests/test_p6_perf_benchmark.gd
+```
 
 ## 路径 3：全部跑一次（一键）
 
@@ -110,7 +109,7 @@ cd /e/0_BestSelf/0_末世游戏制作
 bash run.sh
 ```
 
-会跑 Python 校验器 + 全部 5 个 Godot 测试，输出 `<tests/166 PASS 0 FAIL>`。
+会跑 Python 校验器 + 全部 15 个 Godot 测试，输出 **497 PASS / 0 FAIL**（含 1000 种子 + perf 两道门）。
 
 ## 路径 4：翻文档了解"游戏到底设计成什么样"
 

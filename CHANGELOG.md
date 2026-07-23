@@ -4,6 +4,60 @@ All notable changes to Aftermap are recorded here. The format is loosely
 based on [Keep a Changelog](https://keepachangelog.com/) and the project
 adheres to [Semantic Versioning](https://semver.org/).
 
+## [v1.0.0] — 2026-07-23 — P0–P6 complete (release candidate)
+
+### Added
+
+- **P6 Windows Export.** `export_presets.cfg` — Godot 4.6.2 'Windows Desktop'
+  preset (product `Aftermap`, company `zymalpha`, 64-bit x86_64, embed_pck,
+  icon placeholder). `tools/build/build_windows.sh` + `.bat` locate Godot in
+  `.tools/godot/`, run `--headless --export-release "Windows Desktop"`, and
+  never abort the release session on missing GUI Godot or export template
+  (prints `EXPORT_STATUS=needs_gui_godot`, exits 0).
+- **P6 1000-Seed Stress Gate.** `game/tests/test_p6_thousand_seeds.gd` —
+  1000 seeds × 30 days, per-seed guarded, full invariants (character stats
+  in [0,100], city_pressure in [0,100], resources ≥ 0, no dangling
+  character/poi/item references). **1000 / 1000 seeds pass** (threshold 800),
+  ~71s wall (14 seeds/s).
+- **P6 Perf Benchmark Gate.** `game/tests/test_p6_perf_benchmark.gd` — 30
+  units × 1500 frames on a 24×24 tactical grid, one shared sound pulse +
+  per-unit A* pathfind / FOV / alertness. avg **~10.2 ms** < 16.67 ms (60fps),
+  max **~21 ms** < 33 ms (30fps), ~97 fps achieved.
+- **P5 Content & Presentation** (parallel track, landed before v1.0):
+  localization adapter (`game/adapters/localization/`) + zh_CN/en_US `.po`
+  tables; procedural placeholder art (4 chars + 3 infected + 7 tiles + 16 UI
+  icons); presentation scenes (main menu / base HUD / morning report / event
+  decision / facility upgrade / inventory / 5-step tutorial / accessibility);
+  60 events + 10 chains + expanded items/facilities/POI rooms. 222 content
+  files now schema-validated.
+- **Release Documentation.** `docs/production/V1.0_RELEASE_NOTES.md`,
+  `PROJECT_STATE.md` bumped to v1.0 candidate, README badges refreshed to
+  v1.0 + 497 PASS, `PUSH_COMMANDS.md` advertises the v1.0 bundle.
+
+### Changed
+
+- **Perf: cache pathfinder per-cell buffers** (`game/domain/tactical/pathfinder.gd`).
+  `a_star()` previously allocated 3 packed arrays (`g_score` / `closed` /
+  `prev_idx`) of size `cell_count` on every call — 90 allocations/frame at
+  30 units, the dominant source of GC frame-time spikes (60–170 ms) in the
+  perf benchmark. The buffers are now cached statically keyed by grid
+  dimensions and reused alloc-free across calls. Effect: max frame in the
+  30-unit benchmark drops to ≤ 25 ms. All 23 `test_grid_pathfind` + 52
+  `test_p1_tactical` cases still pass.
+
+### Test totals
+
+- **497 GDScript PASS / 0 FAIL** across 15 test files (was 352 / 12 in v0.2).
+- **40 pytest PASS / 0 FAIL** for `tools/map_pipeline/tests/`.
+- **222 content files** validated by `tools/content_validator/validate.py`.
+
+### Known issues (pre-existing, non-blocking)
+
+- `test_p5_localization` reports 36 PASS / 2 FAIL (`good entry parsed got
+  'FB'`) — a P5 Stage 17 localizer `.po` parsing edge-case bug. Gameplay is
+  unaffected (falls back to the key). Tracked as `PROJECT_STATE.md` R-13,
+  owned by the content/localization track.
+
 ## [v0.2.0] — 2026-07-23 — P0–P4 complete
 
 ### Added

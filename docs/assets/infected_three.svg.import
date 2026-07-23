@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cef5mcd11n8kx"
-path="res://.godot/imported/char_04_guard_walk_2.png-ce3a0b68412b8c0c022ce57f2be27d45.ctex"
+uid="uid://ckpmxhai0aipu"
+path="res://.godot/imported/infected_three.svg-5ea06b3be81e253ed102085a35d568e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/assets_art/characters/char_04_guard_walk_2.png"
-dest_files=["res://.godot/imported/char_04_guard_walk_2.png-ce3a0b68412b8c0c022ce57f2be27d45.ctex"]
+source_file="res://docs/assets/infected_three.svg"
+dest_files=["res://.godot/imported/infected_three.svg-5ea06b3be81e253ed102085a35d568e7.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

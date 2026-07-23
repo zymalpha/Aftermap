@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Aftermap"
 config/description="Aftermap 末日坐标 — 2D 像素末日生存经营游戏 (Godot 4.6.2)"
-config/version="0.1.0"
+config/version="1.0.0"
 config/author="zymalpha"
 config/copyright="Copyright (c) 2026 zymalpha"
 config/features=PackedStringArray("4.6", "GL Compatibility")

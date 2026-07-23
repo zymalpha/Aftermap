@@ -1,0 +1,341 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en_US\n"
+
+# ui.menu.*
+msgid "ui.menu.title"
+msgstr "Aftermap"
+
+msgid "ui.menu.start"
+msgstr "Start Campaign"
+
+msgid "ui.menu.continue"
+msgstr "Continue"
+
+msgid "ui.menu.load"
+msgstr "Load Save"
+
+msgid "ui.menu.save"
+msgstr "Save Progress"
+
+msgid "ui.menu.settings"
+msgstr "Settings"
+
+msgid "ui.menu.quit"
+msgstr "Quit"
+
+msgid "ui.menu.new_game"
+msgstr "New Game"
+
+msgid "ui.menu.language"
+msgstr "Language"
+
+msgid "ui.menu.credits"
+msgstr "Credits"
+
+msgid "ui.menu.back"
+msgstr "Back"
+
+msgid "ui.menu.confirm_quit"
+msgstr "Quit this campaign?"
+
+# ui.hud.*
+msgid "ui.hud.resources"
+msgstr "Resources"
+
+msgid "ui.hud.food"
+msgstr "Food"
+
+msgid "ui.hud.water"
+msgstr "Water"
+
+msgid "ui.hud.medicine"
+msgstr "Medicine"
+
+msgid "ui.hud.materials"
+msgstr "Materials"
+
+msgid "ui.hud.fuel"
+msgstr "Fuel"
+
+msgid "ui.hud.ammo"
+msgstr "Ammo"
+
+msgid "ui.hud.parts"
+msgstr "Parts"
+
+msgid "ui.hud.morale"
+msgstr "Morale"
+
+msgid "ui.hud.defense"
+msgstr "Defense"
+
+msgid "ui.hud.power"
+msgstr "Power"
+
+msgid "ui.hud.day"
+msgstr "Day {day}"
+
+msgid "ui.hud.time"
+msgstr "{h:02d}:{m:02d}"
+
+msgid "ui.hud.pause"
+msgstr "Pause"
+
+msgid "ui.hud.resume"
+msgstr "Resume"
+
+msgid "ui.hud.status"
+msgstr "Status"
+
+msgid "ui.hud.members"
+msgstr "Members"
+
+# ui.morning.*
+msgid "ui.morning.report"
+msgstr "Morning Report"
+
+msgid "ui.morning.summary"
+msgstr "Yesterday Summary"
+
+msgid "ui.morning.resources_change"
+msgstr "Resource Change"
+
+msgid "ui.morning.events"
+msgstr "Events"
+
+msgid "ui.morning.injuries"
+msgstr "Injuries"
+
+msgid "ui.morning.weather"
+msgstr "Weather Today"
+
+msgid "ui.morning.weather.clear"
+msgstr "Clear"
+
+msgid "ui.morning.weather.rain"
+msgstr "Rain"
+
+msgid "ui.morning.weather.storm"
+msgstr "Storm"
+
+msgid "ui.morning.weather.fog"
+msgstr "Fog"
+
+msgid "ui.morning.actions"
+msgstr "Today's Actions"
+
+msgid "ui.morning.confirm"
+msgstr "Begin Day"
+
+# ui.event.*
+msgid "ui.event.decision"
+msgstr "Decision"
+
+msgid "ui.event.option.stay"
+msgstr "Hold Position"
+
+msgid "ui.event.option.scavenge"
+msgstr "Scavenge"
+
+msgid "ui.event.option.trade"
+msgstr "Trade"
+
+msgid "ui.event.option.fight"
+msgstr "Fight"
+
+msgid "ui.event.option.flee"
+msgstr "Flee"
+
+msgid "ui.event.option.help"
+msgstr "Help"
+
+msgid "ui.event.option.ignore"
+msgstr "Ignore"
+
+msgid "ui.event.option.investigate"
+msgstr "Investigate"
+
+msgid "ui.event.option.wait"
+msgstr "Wait"
+
+msgid "ui.event.outcome"
+msgstr "Outcome"
+
+# ui.facility.*
+msgid "ui.facility.build"
+msgstr "Build"
+
+msgid "ui.facility.upgrade"
+msgstr "Upgrade"
+
+msgid "ui.facility.repair"
+msgstr "Repair"
+
+msgid "ui.facility.power_on"
+msgstr "Power On"
+
+msgid "ui.facility.power_off"
+msgstr "Power Off"
+
+msgid "ui.facility.upkeep"
+msgstr "Daily Upkeep"
+
+msgid "ui.facility.barrier"
+msgstr "Barrier"
+
+msgid "ui.facility.kitchen"
+msgstr "Kitchen"
+
+msgid "ui.facility.medical"
+msgstr "Medical Bay"
+
+msgid "ui.facility.storage"
+msgstr "Storage"
+
+msgid "ui.facility.watch"
+msgstr "Watchtower"
+
+msgid "ui.facility.sleep"
+msgstr "Sleeping Area"
+
+msgid "ui.facility.tier"
+msgstr "Tier {tier}"
+
+# ui.error.*
+msgid "ui.error.no_resource"
+msgstr "Not enough resources"
+
+msgid "ui.error.no_member"
+msgstr "No members available"
+
+msgid "ui.error.invalid_save"
+msgstr "Save corrupted"
+
+msgid "ui.error.save_failed"
+msgstr "Save failed"
+
+msgid "ui.error.load_failed"
+msgstr "Load failed"
+
+msgid "ui.error.network"
+msgstr "Communication error"
+
+msgid "ui.error.unknown"
+msgstr "Unknown error"
+
+msgid "ui.error.not_implemented"
+msgstr "Feature not yet available"
+
+# ui.tutorial.*
+msgid "ui.tutorial.welcome"
+msgstr "Welcome to Aftermap. Your shelter is your home — every day brings a choice."
+
+msgid "ui.tutorial.resources"
+msgstr "Watch the resource bar: food, water, fuel, and morale are consumed each day."
+
+msgid "ui.tutorial.facility"
+msgstr "Build facilities to expand your base — they cost materials and require upkeep."
+
+msgid "ui.tutorial.events"
+msgstr "Each morning an event may appear — read carefully and pick the best response."
+
+msgid "ui.tutorial.scavenge"
+msgstr "Scavenging yields rare supplies but burns fuel and exposes you to risk."
+
+msgid "ui.tutorial.members"
+msgstr "Member conditions change over time — watch injuries and morale closely."
+
+msgid "ui.tutorial.save"
+msgstr "Save often. There are no do-overs in the apocalypse."
+
+msgid "ui.tutorial.endings"
+msgstr "Your decisions shape your base's ending. Spend every resource wisely."
+
+# content.item.*
+msgid "content.item.itm_bandage"
+msgstr "Bandage"
+
+msgid "content.item.itm_antibiotics"
+msgstr "Antibiotics"
+
+msgid "content.item.itm_canned_food"
+msgstr "Canned Food"
+
+msgid "content.item.itm_water_bottle"
+msgstr "Water Bottle"
+
+msgid "content.item.itm_cloth_rag"
+msgstr "Cloth Rag"
+
+msgid "content.item.itm_crowbar"
+msgstr "Crowbar"
+
+msgid "content.item.itm_flashlight"
+msgstr "Flashlight"
+
+msgid "content.item.itm_fuel_can"
+msgstr "Fuel Can"
+
+msgid "content.item.itm_handgun"
+msgstr "Handgun"
+
+msgid "content.item.itm_9mm_ammo"
+msgstr "9mm Ammo"
+
+msgid "content.item.itm_map"
+msgstr "City Map"
+
+msgid "content.item.itm_notebook"
+msgstr "Survivor Notebook"
+
+msgid "content.item.itm_walkie_talkie"
+msgstr "Walkie Talkie"
+
+# content.event.*
+msgid "content.event.evt_d4_injury_decision"
+msgstr "Injury Decision"
+
+msgid "content.event.evt_clinic_run_outcome"
+msgstr "Clinic Run Outcome"
+
+msgid "content.event.evt_d2_scavenge_return"
+msgstr "Scavenge Return"
+
+msgid "content.event.evt_d3_water_warning"
+msgstr "Water Warning"
+
+msgid "content.event.evt_d5_stranger_visit"
+msgstr "Stranger Visit"
+
+msgid "content.event.evt_d6_supply_drop"
+msgstr "Supply Drop"
+
+msgid "content.event.evt_d7_weekly_summary"
+msgstr "Weekly Summary"
+
+msgid "content.event.evt_park_water_run"
+msgstr "Park Water Run"
+
+msgid "content.event.evt_radio_rumour"
+msgstr "Radio Rumor"
+
+# content.facility.*
+msgid "content.facility.fac_barrier_basic"
+msgstr "Barrier"
+
+msgid "content.facility.fac_kitchen_basic"
+msgstr "Kitchen"
+
+msgid "content.facility.fac_medical_basic"
+msgstr "Medical Bay"
+
+msgid "content.facility.fac_storage_basic"
+msgstr "Storage"
+
+msgid "content.facility.fac_watch_basic"
+msgstr "Watchtower"
+
+msgid "content.facility.fac_sleep_basic"
+msgstr "Sleeping Area"

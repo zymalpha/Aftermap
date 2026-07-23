@@ -11,6 +11,7 @@ const RESOURCE_KEYS: Array[String] = [
 ]
 
 signal item_moved(item_id: String, from: String, to: String, qty: int)
+signal back_to_menu()
 
 var _resource_list: VBoxContainer = null
 var _equipment_list: VBoxContainer = null

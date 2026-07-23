@@ -13,6 +13,7 @@ extends Control
 const _PATH: String = "res://game/presentation/scenes/scene_morning_report.gd"
 
 signal start_today()
+signal back_to_menu()
 
 var _summary_list: VBoxContainer = null
 var _title_label: Label = null

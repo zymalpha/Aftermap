@@ -8,6 +8,7 @@ const _PATH: String = "res://game/presentation/scenes/scene_event_decision.gd"
 const MAX_OPTIONS: int = 4
 
 signal option_chosen(index: int, payload: Dictionary)
+signal back_to_menu()
 
 var _title_label: Label = null
 var _description_label: RichTextLabel = null

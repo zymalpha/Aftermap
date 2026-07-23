@@ -229,7 +229,9 @@ func _find_character_index(characters_ref: Array, character_id: String) -> int:
 func _cmd_stat_add(cmd: Dictionary, snapshot: Dictionary) -> CommandResult:
 	var target: String = String(cmd.get("target", ""))
 	var stat: String = String(cmd.get("stat", ""))
-	var delta: int = int(cmd.get("delta", 0))
+	# Both `amount` (interpreter/api standard) and `delta` (legacy alias)
+	# are accepted. If neither is provided the value defaults to 0.
+	var delta: int = int(cmd.get("amount", cmd.get("delta", 0)))
 	if stat == "" or not _STAT_KEYS.has(stat):
 		_restore(snapshot)
 		return CommandResult.rejected("stat_add_unknown_stat: " + stat)

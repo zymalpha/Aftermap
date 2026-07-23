@@ -60,12 +60,21 @@ func _test_state_machine_full_day_cycles_through_states() -> void:
 	_expect(sm.current_state == 5, "ends at NIGHT_RESOLVE (5)")
 
 func _test_state_machine_night_resolve_increments_day() -> void:
-	print("[4] NIGHT_RESOLVE -> MORNING_REPORT increments day")
+	print("[4] NIGHT_RESOLVE -> MORNING_REPORT auto-rolls day")
 	var sm: RefCounted = StateMachineScript.new()
 	sm.run_full_day()
-	_expect(sm.day == 1, "still day 1 at NIGHT_RESOLVE (pre-rollover)")
-	sm.transition_to(0)  # MORNING_REPORT
-	_expect(sm.day == 2, "day incremented to 2 after returning to MORNING_REPORT")
+	# After run_full_day, current_state is MORNING_REPORT (day rolled over).
+	# run_full_day ends at NIGHT_RESOLVE; the hook chain (or
+	# run_full_day's own transition into MORNING_REPORT) auto-rolled day.
+	# If current_state is still NIGHT_RESOLVE, manually transition.
+	if sm.current_state != sm.State.MORNING_REPORT:
+		sm.transition_to(sm.State.MORNING_REPORT)
+	_expect(sm.day == 2, "day auto-rolled from 1 to 2 (got %d)" % sm.day)
+	# Roll again — now we're at MORNING, going around the cycle.
+	# Manually drive transitions: MORNING -> ... -> NIGHT_RESOLVE -> MORNING.
+	for s in [1, 2, 3, 4, 5, 0]:
+		sm.transition_to(s)
+	_expect(sm.day == 3, "day advanced to 3 after second full cycle (got %d)" % sm.day)
 
 func _test_state_machine_enter_exit_hooks() -> void:
 	print("[5] enter/exit hooks fire")

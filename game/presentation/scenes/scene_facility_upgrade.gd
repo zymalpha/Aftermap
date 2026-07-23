@@ -9,6 +9,7 @@ const _PATH: String = "res://game/presentation/scenes/scene_facility_upgrade.gd"
 const FACILITY_SLOTS: int = 12
 
 signal upgrade_requested(facility_id: String)
+signal back_to_menu()
 
 var _grid: GridContainer = null
 var _detail_label: Label = null

@@ -10,6 +10,7 @@ class_name ContentDB extends RefCounted
 const _PATH: String = "res://game/core/content_db.gd"
 
 const KNOWN_KINDS: Array[String] = [
+	"characters",
 	"items",
 	"events",
 	"event-chains",
@@ -17,6 +18,7 @@ const KNOWN_KINDS: Array[String] = [
 	"traits",
 	"poi-rooms",
 	"recipes",
+	"specializations",
 ]
 
 var _schemas: Dictionary = {}
@@ -140,6 +142,8 @@ func _load_file(path: String, kind: String, out_bucket: Dictionary) -> Error:
 ## this catches only the grossest defects at runtime.
 func _light_validate(obj: Dictionary, kind: String) -> bool:
 	match kind:
+		"characters":
+			return obj.has("id") and obj.has("name_zh") and obj.has("starting_skills")
 		"items":
 			# items must have an item `kind` (enum: tool/weapon/...)
 			return obj.has("id") and obj.has("name_zh") and obj.has("kind")

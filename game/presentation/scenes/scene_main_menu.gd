@@ -17,6 +17,7 @@ signal esc_quit()
 signal start_campaign(city_id: String)
 signal continue_requested()
 signal settings_requested()
+signal back_to_menu()
 
 # Static spec: cities shown in the city picker. Keys are content ids.
 const CITY_CHOICES: Array = [

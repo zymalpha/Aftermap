@@ -15,6 +15,7 @@ config/description="Aftermap 末日坐标 — 2D 像素末日生存经营游戏 
 config/version="1.0.0"
 config/author="zymalpha"
 config/copyright="Copyright (c) 2026 zymalpha"
+run/main_scene="res://game/main.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon=""
 

@@ -31,6 +31,7 @@ signal character_clicked(character_id: String)
 signal role_clicked(role_id: String)
 signal resource_clicked(resource_key: String)
 signal facility_clicked(facility_id: String)
+signal back_to_menu()
 
 var _selected_character: String = ""
 var _session_payload: Dictionary = {}
@@ -264,12 +265,29 @@ func _clear_children(parent: Node) -> void:
 
 func _on_character_pressed(cid: String) -> void:
 	_selected_character = cid
+	# Route through GameApp so the character_id + role_id pair is captured
+	# (signal can only carry role_id; cid is needed for the actual job assignment).
+	# Avoid hard-linking to GameApp class; use the static helper instead.
+	# We re-import at runtime to avoid a hard compile-time dependency.
+	var AppClass: GDScript = load("res://game/application/app.gd")
+	var app: RefCounted = null
+	if AppClass != null:
+		app = AppClass.get_app(self)
+	if app != null:
+		app.select_character_for_role(cid)
 	character_clicked.emit(cid)
 
 func _on_role_pressed(role_id: String) -> void:
 	if _selected_character == "":
 		push_warning("[BaseHUD] role %s clicked before a character was selected" % role_id)
 		return
+	# Forward directly to App — the signal can only carry one string, so
+	# we look up the App instance to preserve selected_character.
+	var AppClass: GDScript = load("res://game/application/app.gd")
+	if AppClass != null:
+		var app: RefCounted = AppClass.get_app(self)
+		if app != null:
+			app.handle_role_assign(_selected_character, role_id)
 	role_clicked.emit(role_id)
 
 func get_selected_character() -> String:

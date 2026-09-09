@@ -32,7 +32,13 @@ func _ready() -> void:
 	print("[boot] GameApp singleton ready on tree.root")
 
 	# First scene: main_menu.
-	router.goto("main_menu", {})
+	if OS.get_cmdline_user_args().has("--smoke"):
+		app.autosave_enabled = false
+		app.start_new_game("nanjing")
+		if app.session != null and app.session.base_state.has("campaign"):
+			print("PLAYABLE_EXPORT_READY")
+	else:
+		router.goto("main_menu", {})
 
 func _process(_dt: float) -> void:
 	# Reserved for future per-frame hooks (autosave timer, etc.).

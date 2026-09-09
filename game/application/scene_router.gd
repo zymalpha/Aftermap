@@ -44,7 +44,8 @@ func goto(scene_name: String, payload: Dictionary = {}) -> void:
 		_log("goto: already pending scene '%s'; replacing with '%s'" % [_pending_scene, scene_name])
 	_pending_scene = scene_name
 	_pending_payload = payload.duplicate(true)
-	tree.process_frame.connect(_do_pending_goto, CONNECT_ONE_SHOT)
+	if not tree.process_frame.is_connected(_do_pending_goto):
+		tree.process_frame.connect(_do_pending_goto, CONNECT_ONE_SHOT)
 
 ## Process the deferred goto. Runs on the next idle frame after the
 ## caller (typically _ready) has finished mutating the tree.
@@ -75,17 +76,13 @@ func _do_pending_goto() -> void:
 		_log("goto: change_scene_to_packed failed err=" + str(err))
 		return
 
-	# 3. The new scene is now tree.current_scene. Capture and wire up.
+	# Godot removes the outgoing scene immediately, but installs the new
+	# scene at the end of the frame. Never call _ready() manually.
+	await tree.scene_changed
 	current_scene = tree.current_scene
 	if current_scene == null:
 		_log("goto: current_scene is null after switch")
 		return
-
-	# Force _ready() to run synchronously (the engine defers it).
-	# Without this, scene scripts' instance variables may still be null
-	# when set_* is called. (See test_p5_scene_controllers.gd for why.)
-	if current_scene.has_method("_ready"):
-		current_scene.call("_ready")
 
 	_connect_scene_signals(current_scene)
 	_apply_payload(current_scene, scene_name, payload)
@@ -104,10 +101,7 @@ func _connect_scene_signals(scene: Node) -> void:
 	# Look up the GameApp singleton via the tree root metadata.
 	# (Avoid referencing the `GameApp` class_name directly so this
 	# script compiles without a hard dependency on app.gd.)
-	var AppCls: GDScript = load("res://game/application/app.gd")
-	var app: RefCounted = null
-	if AppCls != null and AppCls.has_method("get_app"):
-		app = AppCls.get_app(scene)
+	var app: RefCounted = tree.root.get_meta("app", null)
 	if app == null:
 		# App not ready yet (e.g. during initial goto from main.gd).
 		# No wiring possible; payload will still be applied.

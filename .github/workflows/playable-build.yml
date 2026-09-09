@@ -1,0 +1,87 @@
+name: Playable game build
+on:
+  push:
+    branches: [main, feat/playable-campaign]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  game:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install validation and render dependencies
+        run: |
+          python -m pip install -r requirements-dev.txt fonttools
+          sudo apt-get update -qq
+          sudo apt-get install -y xvfb libgl1-mesa-dri fonts-noto-cjk
+      - name: Download pinned Godot and export templates
+        run: |
+          curl -fL --retry 3 -o /tmp/godot.zip https://github.com/godotengine/godot/releases/download/4.6.2-stable/Godot_v4.6.2-stable_linux.x86_64.zip
+          echo '30e6b6d141f0cd5bebd629ad1d0ef1324e60091bb20662d026b402ba58c59937  /tmp/godot.zip' | sha256sum -c -
+          unzip -q /tmp/godot.zip -d /tmp
+          mv /tmp/Godot_v4.6.2-stable_linux.x86_64 /tmp/godot
+          chmod +x /tmp/godot
+          /tmp/godot --version
+          curl -fL --retry 3 -o /tmp/templates.tpz https://github.com/godotengine/godot/releases/download/4.6.2-stable/Godot_v4.6.2-stable_export_templates.tpz
+          echo '942366dc4e27e7686a99da4d3cfb1b8ae8d3eb9444f6d8217eef16245b599ef2  /tmp/templates.tpz' | sha256sum -c -
+          mkdir -p /tmp/godot-templates "$HOME/.local/share/godot/export_templates/4.6.2.stable"
+          unzip -q /tmp/templates.tpz 'templates/windows_release_x86_64.exe' 'templates/linux_release.x86_64' -d /tmp/godot-templates
+          cp /tmp/godot-templates/templates/* "$HOME/.local/share/godot/export_templates/4.6.2.stable/"
+      - name: Bundle Chinese font
+        run: |
+          python tools/build/prepare_font.py /usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc
+          cp /usr/share/doc/fonts-noto-cjk/copyright game/assets_art/fonts/LICENSE.txt
+      - name: Real engine regression tests
+        env:
+          GODOT_BIN: /tmp/godot
+        run: python tools/build/run_tests.py
+      - name: Test actual scenes, controls and rendering
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: |
+          mkdir -p build/qa
+          set -o pipefail
+          xvfb-run -a /tmp/godot --path . --audio-driver Dummy --script game/tests/test_playable_ui.gd 2>&1 | tee build/qa/ui.log
+          if grep -E 'SCRIPT ERROR:|^ERROR:' build/qa/ui.log; then exit 1; fi
+      - name: Export native games and smoke-test shipped content
+        run: |
+          mkdir -p build/windows build/linux
+          /tmp/godot --headless --path . --export-release 'Windows Desktop' build/windows/Aftermap.exe
+          /tmp/godot --headless --path . --export-release 'Linux Desktop' build/linux/Aftermap.x86_64
+          chmod +x build/linux/Aftermap.x86_64
+          set -o pipefail
+          build/linux/Aftermap.x86_64 --headless --quit-after 15 -- --smoke 2>&1 | tee build/qa/export-smoke.log
+          if grep -E 'SCRIPT ERROR:|^ERROR:' build/qa/export-smoke.log; then exit 1; fi
+          grep -q 'PLAYABLE_EXPORT_READY' build/qa/export-smoke.log
+          cp docs/PLAYING.md LICENSE build/windows/
+          cp docs/PLAYING.md LICENSE build/linux/
+          cp game/assets_art/fonts/LICENSE.txt build/windows/FONT-LICENSE.txt
+          cp game/assets_art/fonts/LICENSE.txt build/linux/FONT-LICENSE.txt
+      - name: Upload Windows game
+        uses: actions/upload-artifact@v4
+        with:
+          name: Aftermap-Windows
+          path: build/windows/
+          if-no-files-found: error
+          retention-days: 90
+      - name: Upload Linux game
+        uses: actions/upload-artifact@v4
+        with:
+          name: Aftermap-Linux
+          path: build/linux/
+          if-no-files-found: error
+          retention-days: 90
+      - name: Upload render evidence and bundled font
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Aftermap-QA
+          path: |
+            build/qa/
+            game/assets_art/fonts/
+          retention-days: 30

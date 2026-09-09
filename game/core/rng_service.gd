@@ -96,7 +96,9 @@ func to_dict() -> Dictionary:
 	var out: Dictionary = {}
 	for key in _state.keys():
 		var pair: Array = _state[key]
-		out[String(key)] = [int(pair[0]), int(pair[1])]
+		# JSON numbers are decoded as doubles. Decimal strings preserve all
+		# 64 bits, so continuing a save never changes the random sequence.
+		out[String(key)] = [str(int(pair[0])), str(int(pair[1]))]
 	return out
 
 func from_dict(d: Dictionary) -> void:

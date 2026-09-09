@@ -37,72 +37,19 @@
 
 ---
 
-## 🚀 快速开始（30 分钟上手）
+## 🚀 启动可玩版
 
-### 1️⃣ 前置环境（5 min）
+当前新增了可操作的完整单机循环：六个街区地点、回合制探索与战斗、基地工作与建设、夜间选择、自动存档，以及救援 / 生存 / 失败结局。
 
-- **Python 3.9+** — 跑内容 schema 校验。
-- **Godot 4.6.2 (stable)** — win64 / linux / macos 任选；放到 `.tools/godot/Godot_v4.6.2-stable_win64.exe` 或保证 `godot` 在 `PATH`。
-- 一个 POSIX shell（`bash`）或 Windows `cmd`。
+**直接玩：** 在 GitHub Actions 的 **Playable game build** 成功任务中下载 **Aftermap-Windows**，解压后双击 `Aftermap.exe`。无需安装 Godot 或 Python。Linux 玩家下载 **Aftermap-Linux**。
 
-> 💡 没有 Godot 也能跑：Python 校验器独立运行，Godot 缺失会优雅 WARN 退出 0。
+**从源码运行：** 安装 **Godot 4.6.2**，导入 `project.godot` 后按 **F5**；或将 Godot 加入 PATH，再执行 `run.bat` / `bash run.sh`。根目录启动脚本现在启动游戏。
 
-### 2️⃣ 克隆（2 min）
+**开发验证：** `python -m pip install -r requirements-dev.txt`，然后 `python tools/build/run_tests.py`。设置 `GODOT_BIN` 可指定 Godot 路径；加 `--full` 运行耗时的压力与性能测试。缺失引擎或脚本报错会明确失败。
 
-```bash
-git clone https://github.com/zymalpha/aftermap.git
-cd aftermap
-```
+详细操作、目标、存档与当前范围见 [游玩说明](docs/PLAYING.md)。第一天建议先建净水器，再派侦察兵去便利店。
 
-### 3️⃣ 跑通 spike（3 min）
-
-**Windows**：
-
-```bat
-run.bat
-REM 或：
-tools\build\run_tests.bat
-```
-
-**Linux / macOS / WSL**：
-
-```bash
-bash run.sh
-# 或：
-bash tools/build/run_tests.sh
-```
-
-成功尾部（v1.0，497 PASS / 0 FAIL，含两道 P6 压力门）：
-
-```
-=== test_p4_thirty_days result: pass=2 fail=0 ===
-=== test_p5_ui_layout result: pass=141 fail=0 ===
-=== test_p6_thousand_seeds result: pass=2 fail=0 ===
-=== summary: 1000 / 1000 seeds completed 30 days ===
-=== test_p6_perf_benchmark result: pass=2 fail=0 ===
-  PASS  avg frame 10.0 ms < 16.67 ms (60fps)
-  PASS  p99 frame 15.0 ms < 33.00 ms (sustained 30fps)
-=== 完成 ===
-```
-
-### 4️⃣ 阅读文档（15 min）
-
-| 文档 | 它能告诉你什么 |
-|---|---|
-| `docs/production/PROJECT_STATE.md` | 当前 spike 状态、已知风险、硬约束、交付物 |
-| `docs/production/BACKLOG.md` | P2–P6 路��图卡片 |
-| `docs/production/DECISIONS.md` | ADR 索引（0001–0006） |
-| `docs/production/CHANGELOG_DEV.md` | Stage 1–6 交付日志 |
-| `docs/api/game-session.md` | `GameSession` API 契约 |
-| `docs/api/tactical-session.md` | 战术网格 / 寻路 / FOV / 战斗 API |
-| `docs/api/content-db.md` | Content DB 契约 |
-| `docs/adr/0001..0006-*.md` | 架构决策记录 |
-| `README_ORIG_PLANNING.md/` | 完整策划案（设计源头） |
-
-### 5️⃣ 编辑一个事件（5 min）
-
-打开 `content/events/sample_first_night.json`，把 `weight` 从 `60` 改成 `55`，重跑 `bash run.sh`。
-Python 校验器会抓到任何 shape 错误；spike 不会因为这个字段失效。
+> 后面的 P0–P6 路线与历史测试数字记录的是原有模块原型。当前可玩版的验证请以分支 CI 日志和实际游戏构建为准。地图目前采用演示街区，不联网抓取真实地图。
 
 ---
 

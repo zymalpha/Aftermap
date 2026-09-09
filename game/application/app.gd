@@ -59,6 +59,11 @@ const DEFAULT_JOB_ASSIGNMENTS: Array = [
 ]
 
 # === State ===
+signal campaign_changed()
+
+var last_error: String = ""
+var autosave_enabled: bool = true
+var save_path: String = SAVE_PATH
 var router: RefCounted = null
 var session: RefCounted = null
 var state_machine: RefCounted = null
@@ -157,33 +162,56 @@ func start_new_game(city_id: String) -> void:
 
 	# 5. Seed starting stockpile
 	session.issue_command({"kind": "set_base_field", "key": "stockpile", "value": {
-		"food": 20, "water": 30, "material": 10, "parts": 4,
-		"medical": 3, "fuel": 2, "ammo": 12,
+		"food": 28, "water": 36, "material": 16, "parts": 8,
+		"medical": 6, "fuel": 4, "ammo": 12,
 	}})
 	session.issue_command({"kind": "set_base_field", "key": "base_name", "value": "南京避难所"})
 	session.issue_command({"kind": "set_base_field", "key": "population", "value": 4})
 
-	# 6. Go to morning_report for day 1
-	last_morning_report = _build_morning_report()
-	_goto("morning_report", {"report": last_morning_report})
+	session.issue_command({"kind":"campaign_action", "action":"initialize"})
+	last_error = ""
+	_save_current()
+	_goto("campaign", {})
 
 ## Continue a saved campaign.
 func continue_game() -> void:
-	if session != null:
-		_log("continue_game: existing session in progress, ignoring")
+	if session == null:
+		session = SaveV1Script.load(save_path)
+	if session == null:
+		last_error = "save_unavailable"
 		return
-	var loaded: RefCounted = SaveV1Script.load(SAVE_PATH)
-	if loaded == null:
-		_log("continue_game: no save found")
-		return
-	session = loaded
+	if not session.base_state.has("campaign"):
+		# Upgrade older prototype saves in place; keep characters and stock.
+		if session.characters.is_empty():
+			last_error = "save_unavailable"
+			session = null
+			return
+		session.issue_command({"kind":"campaign_action", "action":"initialize"})
 	state_machine = StateMachineScript.new()
+	state_machine.day = int(session.clock.current_day)
 	director = DirectorScript.new()
 	interpreter = InterpreterScript.new()
 	_install_state_machine_hooks()
 	current_day = int(session.clock.current_day)
-	last_morning_report = _build_morning_report()
-	_goto("morning_report", {"report": last_morning_report})
+	last_error = ""
+	_goto("campaign", {})
+
+func has_save() -> bool:
+	return session != null or FileAccess.file_exists(save_path) or FileAccess.file_exists(save_path + ".bak")
+
+func campaign_action(action: String, values: Dictionary = {}) -> RefCounted:
+	if session == null:
+		return null
+	var command: Dictionary = values.duplicate(true)
+	command["kind"] = "campaign_action"
+	command["action"] = action
+	var result: RefCounted = session.issue_command(command)
+	last_error = "" if result.is_ok() else result.message
+	if result.is_ok():
+		current_day = int(session.clock.current_day)
+		_save_current()
+	campaign_changed.emit()
+	return result
 
 ## Player clicked "开始今天" in morning_report scene.
 func start_today() -> void:
@@ -192,6 +220,7 @@ func start_today() -> void:
 		return
 	# Advance state machine: MORNING_REPORT -> BASE_PLANNING
 	state_machine.advance_steps(1, {})
+	_goto("campaign", {})
 	# Hooks will fire: BASE_PLANNING auto-assigns jobs + advance to DAY_ACTION
 	# Then NIGHT_MANAGEMENT will fire the daily event (if any)
 
@@ -259,6 +288,7 @@ func handle_option_chosen(idx: int, payload: Dictionary) -> void:
 
 ## Player clicked "返回主菜单" from any scene.
 func back_to_menu() -> void:
+	_save_current()
 	_goto("main_menu", {})
 
 ## Player pressed "继续" in main_menu.
@@ -313,6 +343,7 @@ func _on_enter_night_resolve(_state: int, _day: int, _payload: Dictionary) -> vo
 	# NIGHT_RESOLVE for MORNING_REPORT (see state_machine.gd). We
 	# additionally advance session.clock.current_day so the GameSession
 	# clock stays in sync with the state machine.
+	session.clock.current_day = int(state_machine.day) + 1
 	state_machine.transition_to(state_machine.State.MORNING_REPORT, {})
 	# Sync session.clock to the state machine's day counter.
 	# (We can't issue_command advance_day because the state machine
@@ -371,10 +402,11 @@ func _build_morning_report() -> Dictionary:
 	return mr.build(session, last_night_summary)
 
 func _save_current() -> void:
-	if session == null:
+	if session == null or not autosave_enabled:
 		return
-	var err: Error = SaveV1Script.save(session, SAVE_PATH)
+	var err: Error = SaveV1Script.save(session, save_path)
 	if err != OK:
+		last_error = "save_failed"
 		_log("auto-save failed err=" + str(err))
 
 func _goto(scene_name: String, payload: Dictionary) -> void:

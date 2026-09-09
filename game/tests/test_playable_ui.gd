@@ -64,8 +64,16 @@ func _run() -> void:
 	await capture("03-tactical")
 	await key(KEY_E)
 	expect(not app.session.base_state.campaign.mission.cargo.is_empty(),"keyboard E actually searches")
-	await key(KEY_D)
-	expect(app.session.base_state.campaign.mission.player==[3,8],"keyboard D moves player")
+	var focused: Button = current_scene.find_child("SearchButton",true,false) as Button
+	expect(focused!=null,"search button can receive keyboard focus")
+	if focused!=null: focused.grab_focus()
+	await key(KEY_RIGHT)
+	expect(app.session.base_state.campaign.mission.player==[3,8],"arrow key moves even when a button has focus")
+	focused = current_scene.find_child("SearchButton",true,false) as Button
+	if focused!=null: focused.grab_focus()
+	var turn: int = int(app.session.base_state.campaign.mission.turn)
+	await key(KEY_SPACE)
+	expect(int(app.session.base_state.campaign.mission.turn)==turn+1,"space waits exactly once instead of pressing focused search button")
 	await press("MenuButton")
 	expect(current_scene.name=="MainMenu","save and return works")
 	app.session = null

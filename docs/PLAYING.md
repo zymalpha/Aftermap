@@ -3,7 +3,7 @@
 Windows：解压整个压缩包，双击 `Aftermap.exe`。无需安装 Godot 或 Python。
 Linux：解压后运行 `chmod +x Aftermap.x86_64`，再运行 `./Aftermap.x86_64`。
 
-从源代码启动：安装 **Godot 4.6.2**，导入 `project.godot` 后按 F6/F5（运行整个项目使用 F5），或运行根目录 `run.bat` / `bash run.sh`。源代码在缺少内置字体时使用系统中文字体；Linux 可安装 `fonts-noto-cjk`。
+从源代码启动：安装 **Godot 4.6.2**，导入 `project.godot` 后按 F5 运行整个项目，或运行根目录 `run.bat` / `bash run.sh`。源代码在缺少内置字体时使用系统中文字体；Linux 可安装 `fonts-noto-cjk`。
 
 ## 目标
 

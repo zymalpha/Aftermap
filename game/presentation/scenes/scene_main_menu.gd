@@ -196,8 +196,13 @@ func _polish_menu() -> void:
 		var row: Control = get_node_or_null("CityPanel/CityPanelVBox/CityRow_"+city)
 		if row != null: row.hide()
 
+func _app() -> RefCounted:
+	if not is_inside_tree() or not get_tree().root.has_meta("app"):
+		return null
+	return get_tree().root.get_meta("app")
+
 func _refresh_button_states() -> void:
-	var app: RefCounted = get_tree().root.get_meta("app",null)
+	var app: RefCounted = _app()
 	var button: Button = get_node_or_null("MainVBox/ButtonGrid/ContinueButton")
 	if button != null:
 		button.disabled = app == null or not app.has_save()
@@ -210,7 +215,7 @@ func _on_start_campaign_pressed() -> void:
 
 func _on_continue_pressed() -> void:
 	continue_requested.emit()
-	var app: RefCounted = get_tree().root.get_meta("app",null)
+	var app: RefCounted = _app()
 	if app != null and not app.last_error.is_empty():
 		var dialog: AcceptDialog = AcceptDialog.new()
 		dialog.dialog_text = preload("res://game/presentation/ui/campaign_text.gd").message(app.last_error)
@@ -227,7 +232,7 @@ func _on_quit_pressed() -> void:
 func _on_city_button_pressed(city_id: String) -> void:
 	_selected_city = city_id
 	_city_panel.visible = false
-	var app: RefCounted = get_tree().root.get_meta("app",null)
+	var app: RefCounted = _app()
 	if app != null and app.has_save():
 		var dialog: ConfirmationDialog = ConfirmationDialog.new()
 		dialog.title = "开始新战役"

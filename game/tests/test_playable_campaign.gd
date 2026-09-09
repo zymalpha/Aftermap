@@ -12,6 +12,7 @@ func _initialize() -> void:
 	_test_save_roundtrip()
 	_test_night_and_endings()
 	_test_map_connectivity()
+	_test_combat_and_radio()
 	print("PLAYABLE_CAMPAIGN: %d checks, %d failures" % [checks,failures])
 	quit(1 if failures else 0)
 
@@ -141,3 +142,44 @@ func _test_map_connectivity() -> void:
 		for enemy in m.enemies:
 			expect(not m.walls.has(enemy.pos) and not seen.has(enemy.pos),"enemies never overlap walls/each other")
 			seen.append(enemy.pos)
+
+func _test_combat_and_radio() -> void:
+	var s: RefCounted = fresh(234)
+	act(s,"depart",{"location":"police","character":"chr_scout_wang"})
+	var cs: Dictionary = s.base_state.campaign.duplicate(true)
+	cs.mission.enemies = [{"pos":[6,8],"hp":100,"alert":0,"target":[6,8]}]
+	s.issue_command({"kind":"set_base_field","key":"campaign","value":cs})
+	var ammo: int = int(s.base_state.stockpile.ammo)
+	var pressure: int = int(s.base_state.city_pressure)
+	expect(act(s,"shoot",{"target":[6,8]}).is_ok(),"ranged attack commits")
+	expect(int(s.base_state.stockpile.ammo)==ammo-1,"shooting costs one round")
+	expect(int(s.base_state.city_pressure)==pressure+1,"gunfire raises city pressure")
+	expect(int(s.base_state.campaign.mission.enemies[0].alert)>0,"gunfire alerts enemy")
+	expect(s.base_state.campaign.mission.enemies[0].pos!=[6,8],"alert enemy advances toward player")
+	var stock: Dictionary = s.base_state.stockpile.duplicate(true)
+	stock.ammo = 0
+	s.issue_command({"kind":"set_base_field","key":"stockpile","value":stock})
+	var before: String = JSON.stringify(s.to_dict())
+	expect(not act(s,"shoot",{"target":s.base_state.campaign.mission.enemies[0].pos}).is_ok(),"empty magazine rejects attack")
+	expect(JSON.stringify(s.to_dict())==before,"rejected attack preserves turn, enemy and RNG")
+	cs = s.base_state.campaign.duplicate(true)
+	cs.mission.enemies = [{"pos":[3,8],"hp":100,"alert":0,"target":[3,8]}]
+	s.issue_command({"kind":"set_base_field","key":"campaign","value":cs})
+	expect(act(s,"attack",{"target":[3,8]}).is_ok(),"melee works without ammunition")
+	var fighter: Dictionary = {}
+	for c in s.characters:
+		if c.id=="chr_scout_wang": fighter=c
+	expect(int(fighter.stats.hp)<100 and int(fighter.stats.infection)>0,"adjacent enemy damages and infects player")
+	var infection: int = int(fighter.stats.infection)
+	var medical: int = int(s.base_state.stockpile.medical)
+	expect(act(s,"heal").is_ok(),"field bandage commits")
+	expect(int(s.base_state.stockpile.medical)==medical-1,"bandage consumes medical supply")
+	expect(int(fighter.stats.infection)<=infection,"bandage counters infection despite enemy turn")
+	var radio: RefCounted = fresh()
+	expect(not act(radio,"radio").is_ok(),"cannot transmit before construction")
+	expect(act(radio,"build",{"facility":"radio"}).is_ok(),"radio can be built")
+	var parts: int = int(radio.base_state.stockpile.parts)
+	expect(act(radio,"radio").is_ok(),"constructed radio transmits")
+	expect(int(radio.base_state.campaign.signal)==20,"transmission gains 20 signal")
+	expect(int(radio.base_state.stockpile.parts)==parts-2 and int(radio.base_state.stockpile.fuel)==3,"transmission consumes parts and fuel")
+	expect(not act(radio,"radio").is_ok(),"radio obeys daily action budget")

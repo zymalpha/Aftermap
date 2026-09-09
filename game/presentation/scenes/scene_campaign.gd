@@ -457,7 +457,7 @@ func _help() -> void:
 func _menu() -> void:
 	app.back_to_menu()
 
-func _unhandled_key_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if not event is InputEventKey or not event.pressed or event.echo: return
 	if _refresh_pending or (is_instance_valid(_dialog) and _dialog.visible): return
 	if event.keycode==KEY_ESCAPE:

@@ -1,126 +1,66 @@
 # 🏠 Aftermap 末日坐标 🗺️
 
-[![CI](https://img.shields.io/badge/CI-passing-brightgreen?style=flat-square&logo=github)](https://github.com/zymalpha/aftermap/actions)
-[![Tests](https://img.shields.io/badge/PASS-497-success?style=flat-square&logo=checkmarx)](https://github.com/zymalpha/aftermap)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue?style=flat-square&logo=semver)](https://github.com/zymalpha/aftermap/releases)
+[![Playable build](https://github.com/zymalpha/Aftermap/actions/workflows/playable-build.yml/badge.svg?branch=feat%2Fplayable-campaign)](https://github.com/zymalpha/Aftermap/actions/workflows/playable-build.yml)
+[![Version](https://img.shields.io/badge/version-1.1.0-blue?style=flat-square&logo=semver)](https://github.com/zymalpha/aftermap/releases)
 [![License](https://img.shields.io/badge/license-MIT-yellow?style=flat-square&logo=opensourceinitiative)](LICENSE)
 [![Code Style](https://img.shields.io/badge/code%20style-GDScript%20typed-informational?style=flat-square&logo=godotengine)](CONTRIBUTING.md)
-[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey?style=flat-square&logo=linux)](https://github.com/zymalpha/aftermap)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-lightgrey?style=flat-square&logo=linux)](https://github.com/zymalpha/aftermap)
 
-> 🎮 一款以**真实城市街区为蓝本**的 2D 像素末日生存经营游戏。
-> ⚔️ 回合制潜行 · 🏕️ 基地经营 · 🗺️ 程序生成迁徙 · 🧟 感染者生态。
+> 🎮 一款在**南京演示街区**展开的 2D 像素末日生存经营游戏。
+> ⚔️ 回合制潜行与战斗 · 🏕️ 基地经营 · 🗺️ 街区搜刮 · 🧟 感染与救援。
 
 ---
 
-## 🌟 中文 Hero
+## 🌟 末日坐标
 
 > 🏚️ **核灾后的第七天。**
 > 城市的电力早已熄灭，街区成了僵尸、拾荒者与流民的角斗场。
 > 你从避难所的废墟中爬出来，捡起一支生锈的撬棍——这是一张**手绘的街区地图**，
-> 每个节点都是一处抉择：**潜入、搜刮、战斗、迁徙**。
+> 每个节点都是一处抉择：**潜入、搜刮、战斗、撤离**。
 
 **核心一句话循环**：
-> 🗺️ **在真实街区上做回合制战术 → 🏕️ 回基地分配幸存者与资源 → 📖 触发事件推进 30 天叙事 → 💾 原子存档自动接力**
+> 🗺️ **在演示街区中探索与战斗 → 🏕️ 回基地分配幸存者与资源 → 📖 处理夜间事件、联络救援或坚持 30 天 → 💾 原子存档自动接力**
 
 ---
 
 ## ✨ 特性
 
-| | 特性 | 一句话 |
+| | 特性 | 当前可玩内容 |
 |---|---|---|
-| 🗺️ | **程序生成现实地图** | 把真实城市街区解析成战术网格（OSM 管线，ADR-0006） |
-| ⚔️ | **回合制潜行 + 战斗** | 视线 / 视野 / 警戒值 / 感染四态，战术维度的"看到 vs 被看到" |
-| 🏕️ | **基地 + 幸存者** | 30+ 设施、关系系统、班次轮换，长期经营而不只是单场战斗 |
-| 🧟 | **感染生态** | 感染态、变异、抗体；不是"看见就打"，是"看见了也未必打得过" |
-| 📦 | **白名单事件 + 内容驱动** | JSON 写剧情，校验器管 schema，解释器管沙箱（ADR-0005） |
-| 💾 | **原子存档 + SHA-256** | 跨回合不丢档；崩溃后 `.bak` 自动回滚（ADR-0004） |
+| 🗺️ | **街区探索** | 便利店、公园、药房、中学、诊所、警务站；视野与探索记忆 |
+| ⚔️ | **回合制潜行与战斗** | 移动、搜刮、近战、射击、包扎、撤离；噪声会引来感染者 |
+| 🏕️ | **基地与幸存者** | 4 名成员、6 种工作、4 种可建造设施，夜间生产与口粮消耗 |
+| 🧟 | **生存挑战** | 伤病、感染、夜袭与永久阵亡；救援、长期生存、失败三种结局 |
+| 📦 | **配置驱动** | 地点、物资、设施成本和夜间选择由 JSON 配置并经 Schema 校验 |
+| 💾 | **自动存档** | 保存战斗中途与未决事件；主档损坏时尝试恢复备用档 |
 
 ---
 
-## 🚀 快速开始（30 分钟上手）
+## 🚀 启动可玩版
 
-### 1️⃣ 前置环境（5 min）
+当前新增了可操作的完整单机循环：六个街区地点、回合制探索与战斗、基地工作与建设、夜间选择、自动存档，以及救援 / 生存 / 失败结局。
 
-- **Python 3.9+** — 跑内容 schema 校验。
-- **Godot 4.6.2 (stable)** — win64 / linux / macos 任选；放到 `.tools/godot/Godot_v4.6.2-stable_win64.exe` 或保证 `godot` 在 `PATH`。
-- 一个 POSIX shell（`bash`）或 Windows `cmd`。
+**直接玩：** 在 GitHub Actions 的 **Playable game build** 成功任务中下载 **Aftermap-Windows**，解压后双击 `Aftermap.exe`。无需安装 Godot 或 Python。Linux 玩家下载 **Aftermap-Linux**。
 
-> 💡 没有 Godot 也能跑：Python 校验器独立运行，Godot 缺失会优雅 WARN 退出 0。
+**从源码运行：** 安装 **Godot 4.6.2**，导入 `project.godot` 后按 **F5**；或将 Godot 加入 PATH，再执行 `run.bat` / `bash run.sh`。根目录启动脚本现在启动游戏。
 
-### 2️⃣ 克隆（2 min）
+**开发验证：** `python -m pip install -r requirements-dev.txt`，然后 `python tools/build/run_tests.py`。设置 `GODOT_BIN` 可指定 Godot 路径；加 `--full` 运行耗时的压力与性能测试。缺失引擎或脚本报错会明确失败。
 
-```bash
-git clone https://github.com/zymalpha/aftermap.git
-cd aftermap
-```
+详细操作、目标、存档与当前范围见 [游玩说明](docs/PLAYING.md)。第一天建议先建净水器，再派侦察兵去便利店。
 
-### 3️⃣ 跑通 spike（3 min）
-
-**Windows**：
-
-```bat
-run.bat
-REM 或：
-tools\build\run_tests.bat
-```
-
-**Linux / macOS / WSL**：
-
-```bash
-bash run.sh
-# 或：
-bash tools/build/run_tests.sh
-```
-
-成功尾部（v1.0，497 PASS / 0 FAIL，含两道 P6 压力门）：
-
-```
-=== test_p4_thirty_days result: pass=2 fail=0 ===
-=== test_p5_ui_layout result: pass=141 fail=0 ===
-=== test_p6_thousand_seeds result: pass=2 fail=0 ===
-=== summary: 1000 / 1000 seeds completed 30 days ===
-=== test_p6_perf_benchmark result: pass=2 fail=0 ===
-  PASS  avg frame 10.0 ms < 16.67 ms (60fps)
-  PASS  p99 frame 15.0 ms < 33.00 ms (sustained 30fps)
-=== 完成 ===
-```
-
-### 4️⃣ 阅读文档（15 min）
-
-| 文档 | 它能告诉你什么 |
-|---|---|
-| `docs/production/PROJECT_STATE.md` | 当前 spike 状态、已知风险、硬约束、交付物 |
-| `docs/production/BACKLOG.md` | P2–P6 路��图卡片 |
-| `docs/production/DECISIONS.md` | ADR 索引（0001–0006） |
-| `docs/production/CHANGELOG_DEV.md` | Stage 1–6 交付日志 |
-| `docs/api/game-session.md` | `GameSession` API 契约 |
-| `docs/api/tactical-session.md` | 战术网格 / 寻路 / FOV / 战斗 API |
-| `docs/api/content-db.md` | Content DB 契约 |
-| `docs/adr/0001..0006-*.md` | 架构决策记录 |
-| `README_ORIG_PLANNING.md/` | 完整策划案（设计源头） |
-
-### 5️⃣ 编辑一个事件（5 min）
-
-打开 `content/events/sample_first_night.json`，把 `weight` 从 `60` 改成 `55`，重跑 `bash run.sh`。
-Python 校验器会抓到任何 shape 错误；spike 不会因为这个字段失效。
+> 后面的 P0–P6 路线与历史测试数字记录的是原有模块原型。当前可玩版的验证请以分支 CI 日志和实际游戏构建为准。地图目前采用演示街区，不联网抓取真实地图。
 
 ---
 
 ## 🖼️ 游戏截图
 
-> 暂无真实截图，下方为矢量占位图，PR 欢迎替换。
+每次成功的 [Playable game build](https://github.com/zymalpha/Aftermap/actions/workflows/playable-build.yml) 都附带 **Aftermap-QA**，其中保存真实 Godot 渲染的菜单、基地、战术探索、返回报告、夜间事件、晨报与设施界面截图，以及界面测试和导出程序启动日志。
 
-| 视图 | 描述 |
-|---|---|
-| 🎯 Hero 主视觉 | ![hero](docs/assets/hero_main.svg) |
-| 🔲 战术网格 + FOV | ![grid](docs/assets/grid_fov.svg) |
-| 🔁 核心循环 | ![loop](docs/assets/loop_cycle.svg) |
-| 🧟 感染者三态 | ![infected](docs/assets/infected_three.svg) |
-| 📅 30 天战役时间线 | ![timeline](docs/assets/timeline_30days.svg) |
+`docs/assets/` 中的 SVG 是早期设计示意，历史模块进度见下方路线图。
 
 ---
 
-## 🛣️ 路线图
+## 🛣️ 原型模块历史路线图
 
 | 阶段 | 状态 | 内容 |
 |---|---|---|

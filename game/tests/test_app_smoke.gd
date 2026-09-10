@@ -44,6 +44,7 @@ func _make_app() -> RefCounted:
 	var router = RouterShim.new()
 	router.tree = self
 	var app: RefCounted = GameAppScript.new(router)
+	app.autosave_enabled = false
 	return app
 
 func _test_app_instantiates_with_router() -> void:

@@ -73,6 +73,7 @@ except ImportError:  # pragma: no cover - explicit failure mode
 # component of the file's parent folder, so content/items/foo.json matches
 # even when content_dir is given as an absolute path.
 DIR_TO_SCHEMA: dict[str, str] = {
+    "campaign": "campaign.schema.json",
     "items": "item.schema.json",
     "facilities": "facility.schema.json",
     "recipes": "recipe.schema.json",

@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "locations": [
+    {"id":"grocery","poi":"poi_grocery_01","name":"街角便利店","description":"货架间还有罐头和瓶装水。适合第一次出发。","risk":1,"loot":[{"food":8,"water":8},{"food":10},{"water":12},{"food":6,"medical":1}],"color":"d8b56d"},
+    {"id":"park","poi":"poi_park_01","name":"河畔公园","description":"收集净水与野外补给。视野开阔，也更容易暴露。","risk":1,"loot":[{"water":14},{"food":7,"water":5},{"material":6},{"water":10,"fuel":1}],"color":"83ac89"},
+    {"id":"pharmacy","poi":"poi_pharmacy_01","name":"长宁药房","description":"药品能够治疗伤口、控制感染。药柜里或许还有库存。","risk":2,"loot":[{"medical":4},{"medical":3,"water":4},{"food":4,"medical":2},{"medical":2,"parts":2}],"color":"d68e8e"},
+    {"id":"school","poi":"poi_school_01","name":"废弃中学","description":"修理工具、储备食物与电池。恢复电台的重要物资来源。","risk":2,"loot":[{"material":8,"parts":3},{"parts":4,"fuel":2},{"food":8,"water":6},{"material":6,"fuel":3}],"color":"93a9c5"},
+    {"id":"clinic","poi":"poi_clinic_01","name":"社区诊所","description":"医疗补给丰富，走廊深处却不太安静。","risk":3,"loot":[{"medical":5},{"medical":3,"parts":3},{"water":10,"medical":2},{"fuel":3,"parts":3}],"color":"b59bcc"},
+    {"id":"police","poi":"poi_police_01","name":"旧警务站","description":"弹药、燃油与通讯零件。准备好再深入这片街区。","risk":3,"loot":[{"ammo":8,"parts":3},{"fuel":4,"parts":4},{"material":10,"ammo":4},{"medical":2,"ammo":6}],"color":"ce956f"}
+  ],
+  "facilities": [
+    {"id":"water","name":"雨水净化器","description":"每晚生产 6 份水。","cost":{"material":6,"parts":2}},
+    {"id":"garden","name":"屋顶菜园","description":"每晚生产 4 份食物。","cost":{"material":8,"water":4}},
+    {"id":"barrier","name":"加固围墙","description":"大幅减轻夜间袭击的伤害。","cost":{"material":10,"parts":2}},
+    {"id":"radio","name":"短波电台","description":"解锁联络行动。每次消耗 2 零件、1 燃油，增加 20% 联络进度。","cost":{"material":8,"parts":4}}
+  ],
+  "events": [
+    {"id":"rain","title":"雨落在铁皮屋顶上","description":"第一滴雨划过破损的窗。有人端来桶，有人担心雨水中的污染。","options":[{"label":"过滤雨水","cost":{"material":2},"gain":{"water":14}},{"label":"留在屋内休息","stats":{"energy":5,"morale":2}}]},
+    {"id":"trader","title":"围墙外的交换","description":"一名背包客举起双手。他有燃油与零件，想换几顿能吃饱的晚餐。","options":[{"label":"用 6 食物换取零件与燃油","cost":{"food":6},"gain":{"parts":4,"fuel":2}},{"label":"婉拒交易，互道平安","stats":{"morale":1}}]},
+    {"id":"stranger","title":"敲门声","description":"一位受伤的陌生人请求一份药。他说附近中学的工具间还没有被搜空。","options":[{"label":"给他包扎","cost":{"medical":1},"gain":{"material":5,"parts":2},"stats":{"morale":5}},{"label":"隔着门指明道路","stats":{"morale":-2}}]},
+    {"id":"lights","title":"远处的一束光","description":"江对岸有规律地闪过一道光。也许是幸存者，也许只是尚未熄灭的设备。","options":[{"label":"消耗燃油，用灯光回应","cost":{"fuel":1},"signal":10,"stats":{"morale":3}},{"label":"记下方位，保持隐蔽","stats":{"energy":4}}]},
+    {"id":"argument","title":"还要坚持多久","description":"晚餐后，争论从一句抱怨变成了沉默。大家需要一个能够相信的明天。","options":[{"label":"分享额外的食物","cost":{"food":4},"stats":{"morale":9,"energy":5}},{"label":"一起检查明天的计划","stats":{"morale":3}}]},
+    {"id":"quiet","title":"片刻安宁","description":"街区罕见地安静下来。收音机的杂音里，似乎有人在重复一个坐标。","options":[{"label":"整理电台记录","signal":5,"stats":{"morale":2}},{"label":"让所有人多睡一会","stats":{"energy":9,"hp":3}}]}
+  ]
+}

@@ -14,6 +14,7 @@ const ClockScript: GDScript = preload("res://game/core/clock.gd")
 const ContentDBScript: GDScript = preload("res://game/core/content_db.gd")
 const CharacterScript: GDScript = preload("res://game/domain/survivors/character.gd")
 const StockpileScript: GDScript = preload("res://game/domain/inventory/stock.gd")
+const CampaignActionsScript: GDScript = preload("res://game/domain/campaign/campaign_actions.gd")
 
 ## Whitelisted stats for stat_add / set_base_stat. (策划04 §3)
 const _STAT_KEYS: Array[String] = [
@@ -77,6 +78,14 @@ func issue_command(cmd: Dictionary) -> CommandResult:
 	var snapshot: Dictionary = _snapshot()
 
 	match kind:
+		"campaign_action":
+			var actions: RefCounted = CampaignActionsScript.new()
+			var result: Dictionary = actions.execute(self, cmd)
+			if not bool(result.get("ok", false)):
+				_restore(snapshot)
+				return CommandResult.rejected(String(result.get("code", "invalid_action")))
+			save_meta["updated_at"] = Time.get_datetime_string_from_system(true)
+			return CommandResult.ok(String(result.get("code", "")), result)
 		"set_flag":
 			return _cmd_set_flag(cmd, snapshot)
 		"unlock_flag":
@@ -130,6 +139,8 @@ func from_dict(d: Dictionary) -> void:
 	base_state = {}
 	if typeof(base_raw) == TYPE_DICTIONARY:
 		base_state = (base_raw as Dictionary).duplicate(true)
+		if base_state.has("campaign"):
+			base_state["campaign"] = CampaignActionsScript.normalize_saved_state(base_state["campaign"])
 	var meta_raw: Variant = d.get("save_meta", {})
 	save_meta = {}
 	if typeof(meta_raw) == TYPE_DICTIONARY:

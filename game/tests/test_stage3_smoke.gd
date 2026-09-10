@@ -36,7 +36,7 @@ func _initialize() -> void:
 	_test_event_interpreter_unknown_op_rejected()
 	_test_event_interpreter_basic_apply()
 	_test_event_interpreter_conditions()
-	_test_director_placeholder()
+	_test_director_content_pick()
 	print("=== Stage 3 smoke test result: pass=%d fail=%d ===" % [_pass_count, _fail_count])
 	if _fail_count > 0:
 		quit(1)
@@ -301,10 +301,11 @@ func _test_event_interpreter_conditions() -> void:
 	_expect(interp.evaluate_condition({"op": "time_in_range", "day_from": 1, "day_to": 99}, s) == true, "time_in_range true")
 	_expect(interp.evaluate_condition({"op": "exec_arbitrary"}, s) == false, "unknown condition fails closed")
 
-func _test_director_placeholder() -> void:
-	print("[15] Director placeholder")
+func _test_director_content_pick() -> void:
+	print("[15] Director selects shipped content")
 	var s: RefCounted = GameSessionScript.new()
 	s.new_game(4, "res://content")
 	var d: RefCounted = DirectorScript.new()
 	var pick: StringName = d.pick_event_for_day(1, s)
-	_expect(pick == &"", "placeholder returns empty pick")
+	_expect(not String(pick).is_empty(), "day one selects a playable event")
+	_expect(not s.content.get_record("events", String(pick)).is_empty(), "selected event exists in the content database")

@@ -33,10 +33,6 @@ static func save(session: GameSession, path: String) -> Error:
 
 ## Load and verify; returns a new GameSession or null on hard failure.
 static func load(path: String) -> GameSession:
-	if not AtomicWrite.verify(path):
-		push_warning("[SaveV1] verification failed: " + path)
-		return null
-
 	var raw: PackedByteArray = AtomicWrite.load_or_recover(path)
 	if raw.is_empty():
 		return null
@@ -61,6 +57,11 @@ static func load(path: String) -> GameSession:
 	var payload: Variant = envelope.get("session_payload", {})
 	if typeof(payload) == TYPE_DICTIONARY:
 		session.from_dict(payload)
+	else:
+		return null
+	# Content metadata only stores the fingerprint, not the records.
+	if session.content.load_all("res://content") != OK:
+		return null
 	return session
 
 ## Convenience for tests / inspectors.

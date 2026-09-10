@@ -130,7 +130,7 @@ func _parse_po_text(raw: String) -> Dictionary:
 	var msgid_present: bool = false
 	var msgstr_present: bool = false
 
-	var lines: PackedStringArray = raw.split("\n", false)
+	var lines: PackedStringArray = raw.split("\n", true)
 	for line_raw in lines:
 		var line: String = line_raw.strip_edges()
 		if line.is_empty():

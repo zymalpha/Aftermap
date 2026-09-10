@@ -1,0 +1,203 @@
+{
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "locations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "enum": [
+              "grocery",
+              "park",
+              "pharmacy",
+              "school",
+              "clinic",
+              "police"
+            ]
+          },
+          "poi": {
+            "type": "string",
+            "pattern": "^poi_[a-z0-9_]+$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "risk": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "loot": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/definitions/stock"
+            }
+          },
+          "color": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{6}$"
+          }
+        },
+        "required": [
+          "id",
+          "poi",
+          "name",
+          "description",
+          "risk",
+          "loot",
+          "color"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "facilities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "enum": [
+              "water",
+              "garden",
+              "barrier",
+              "radio"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "cost": {
+            "$ref": "#/definitions/stock"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "description",
+          "cost"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "options": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "cost": {
+                  "$ref": "#/definitions/stock"
+                },
+                "gain": {
+                  "$ref": "#/definitions/stock"
+                },
+                "signal": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "stats": {
+                  "type": "object",
+                  "propertyNames": {
+                    "enum": [
+                      "hp",
+                      "energy",
+                      "infection",
+                      "morale",
+                      "hunger",
+                      "stress"
+                    ]
+                  },
+                  "additionalProperties": {
+                    "type": "integer",
+                    "minimum": -100,
+                    "maximum": 100
+                  }
+                }
+              },
+              "required": [
+                "label"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "description",
+          "options"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "version",
+    "locations",
+    "facilities",
+    "events"
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "campaign.schema.json",
+  "definitions": {
+    "stock": {
+      "type": "object",
+      "propertyNames": {
+        "enum": [
+          "food",
+          "water",
+          "material",
+          "parts",
+          "medical",
+          "fuel",
+          "ammo"
+        ]
+      },
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    }
+  }
+}

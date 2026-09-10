@@ -31,7 +31,9 @@ var _selected_city: String = ""
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
+	theme = preload("res://game/presentation/ui/survival_theme.gd").create()
 	_ensure_layout()
+	_polish_menu()
 	_refresh_button_states()
 
 func _ensure_layout() -> void:
@@ -171,10 +173,39 @@ func _ensure_city_panel() -> void:
 	add_child(panel)
 	_city_panel = panel
 
+func _polish_menu() -> void:
+	var root: Control = get_node_or_null("MainVBox")
+	if root == null: return
+	root.anchor_left = 0.5
+	root.anchor_right = 0.5
+	root.offset_left = -260
+	root.offset_right = 260
+	var title: Label = get_node_or_null("MainVBox/TitleLabel")
+	if title != null:
+		title.add_theme_font_size_override("font_size",64)
+		title.add_theme_color_override("font_color",Color("e3b968"))
+	var coords: Label = get_node_or_null("MainVBox/CoordsLabel")
+	if coords != null:
+		coords.text = "南京 · 四名幸存者 · 一张尚未画完的地图"
+	var grid: Control = get_node_or_null("MainVBox/ButtonGrid")
+	if grid != null:
+		grid.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		for b in grid.get_children():
+			if b is Button: b.custom_minimum_size = Vector2(310,48)
+	for city in ["placeholder_east","placeholder_west"]:
+		var row: Control = get_node_or_null("CityPanel/CityPanelVBox/CityRow_"+city)
+		if row != null: row.hide()
+
+func _app() -> RefCounted:
+	if not is_inside_tree() or not get_tree().root.has_meta("app"):
+		return null
+	return get_tree().root.get_meta("app")
+
 func _refresh_button_states() -> void:
-	# Continue is always enabled in the scaffold (real save-detection comes
-	# later). Setting + Quit always enabled.
-	pass
+	var app: RefCounted = _app()
+	var button: Button = get_node_or_null("MainVBox/ButtonGrid/ContinueButton")
+	if button != null:
+		button.disabled = app == null or not app.has_save()
 
 func _on_start_campaign_pressed() -> void:
 	if _city_panel == null:
@@ -184,6 +215,13 @@ func _on_start_campaign_pressed() -> void:
 
 func _on_continue_pressed() -> void:
 	continue_requested.emit()
+	var app: RefCounted = _app()
+	if app != null and not app.last_error.is_empty():
+		var dialog: AcceptDialog = AcceptDialog.new()
+		dialog.dialog_text = preload("res://game/presentation/ui/campaign_text.gd").message(app.last_error)
+		add_child(dialog)
+		dialog.popup_centered()
+		dialog.confirmed.connect(dialog.queue_free)
 
 func _on_settings_pressed() -> void:
 	settings_requested.emit()
@@ -194,7 +232,19 @@ func _on_quit_pressed() -> void:
 func _on_city_button_pressed(city_id: String) -> void:
 	_selected_city = city_id
 	_city_panel.visible = false
-	start_campaign.emit(city_id)
+	var app: RefCounted = _app()
+	if app != null and app.has_save():
+		var dialog: ConfirmationDialog = ConfirmationDialog.new()
+		dialog.title = "开始新战役"
+		dialog.dialog_text = "新战役会覆盖当前进度，确定重新开始吗？"
+		dialog.ok_button_text = "重新开始"
+		dialog.cancel_button_text = "取消"
+		dialog.confirmed.connect(func() -> void: start_campaign.emit(city_id); dialog.queue_free())
+		dialog.canceled.connect(dialog.queue_free)
+		add_child(dialog)
+		dialog.popup_centered()
+	else:
+		start_campaign.emit(city_id)
 
 func _on_city_cancel_pressed() -> void:
 	_city_panel.visible = false

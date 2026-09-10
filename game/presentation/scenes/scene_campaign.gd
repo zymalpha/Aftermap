@@ -139,6 +139,7 @@ func _base(body: HBoxContainer) -> void:
 
 func _roster(body: HBoxContainer) -> void:
 	var panel: VBoxContainer = _panel(body,238)
+	panel.add_theme_constant_override("separation",8)
 	_label(panel,"幸存者  /  %d 人" % _living().size(),20,Style.TEXT)
 	_label(panel,"选择出发人员，安排夜间工作。",14,Style.MUTED)
 	if _character(selected_character).is_empty() or int(_character(selected_character).stats.hp)<=0:
@@ -146,10 +147,13 @@ func _roster(body: HBoxContainer) -> void:
 	for c in app.session.characters:
 		var alive: bool = int(c.stats.hp)>0
 		var card: VBoxContainer = VBoxContainer.new()
+		card.add_theme_constant_override("separation",4)
 		panel.add_child(card)
 		var name: String = String(c.get("name_zh",c.id))
 		var b: Button = _button(card,("●  " if c.id==selected_character and alive else "")+name,_select_character.bind(String(c.id)),"Character_"+c.id)
 		b.disabled = not alive
+		b.custom_minimum_size.y = 32
+		b.add_theme_font_size_override("font_size",16)
 		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		if not alive:
 			_label(card,"未能归来",14,Style.RED)
@@ -158,6 +162,7 @@ func _roster(body: HBoxContainer) -> void:
 		_bar(card,int(c.stats.hp),Style.GREEN if int(c.stats.hp)>35 else Style.RED,5)
 		var role: OptionButton = OptionButton.new()
 		role.name = "Role_"+String(c.id)
+		role.add_theme_font_size_override("font_size",14)
 		role.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		for id in Rules.ROLES: role.add_item(Copy.ROLES[id])
 		role.select(maxi(0,Rules.ROLES.find(String(c.get("job","rest")))))
@@ -186,8 +191,14 @@ func _explore(main: VBoxContainer) -> void:
 	_wrap(details,location.description)
 	_separator(details)
 	_label(details,"选择地点",14,Style.MUTED)
+	var locations: GridContainer = GridContainer.new()
+	locations.columns = 2
+	locations.add_theme_constant_override("h_separation",6)
+	locations.add_theme_constant_override("v_separation",6)
+	details.add_child(locations)
 	for loc in Rules.data().locations:
-		var b: Button = _button(details,loc.name,_select_location.bind(String(loc.id)),"Location_"+loc.id)
+		var b: Button = _button(locations,loc.name,_select_location.bind(String(loc.id)),"Location_"+loc.id)
+		b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		b.custom_minimum_size.y = 32
 		b.add_theme_font_size_override("font_size",15)
 		b.add_theme_stylebox_override("normal",Style.box(Style.PANEL,Color(loc.color) if loc.id==selected_location else Style.BORDER,6))
@@ -251,6 +262,7 @@ func _tactical(body: HBoxContainer) -> void:
 	main.add_child(_board)
 	_label(main,"黄色：补给箱   绿色：撤离点   红色 !：已警觉   暗区：探索过的区域",14,Style.MUTED)
 	var side: VBoxContainer = _panel(body,278)
+	side.add_theme_constant_override("separation",8)
 	var c: Dictionary = _character(mission.character)
 	_label(side,String(c.get("name_zh","幸存者")),23,Style.TEXT)
 	_label(side,"健康 %d / 100" % int(c.stats.hp),17,Style.TEXT)
@@ -366,7 +378,10 @@ func _button(parent: Node, text: String, callback: Callable, node_name: String =
 	button.custom_minimum_size.y = 40
 	button.pressed.connect(callback)
 	if accent:
-		button.add_theme_stylebox_override("normal",Style.box(Color("47523b"),Style.ACCENT,12))
+		var accent_box: StyleBoxFlat = Style.box(Color("47523b"),Style.ACCENT,12)
+		accent_box.content_margin_top = 5
+		accent_box.content_margin_bottom = 5
+		button.add_theme_stylebox_override("normal",accent_box)
 		button.add_theme_color_override("font_color",Color("f4e6c3"))
 	parent.add_child(button)
 	return button

@@ -40,6 +40,10 @@ static func create() -> Theme:
 		theme.set_color("font_color",type,TEXT)
 		theme.set_color("font_hover_color",type,Color.WHITE)
 		theme.set_color("font_disabled_color",type,Color("657877"))
+		for state in ["normal","hover","pressed","disabled"]:
+			var button_box: StyleBoxFlat = theme.get_stylebox(state,type)
+			button_box.content_margin_top = 5
+			button_box.content_margin_bottom = 5
 	theme.set_stylebox("panel","PanelContainer",box(PANEL))
 	theme.set_stylebox("panel","PopupMenu",box(PANEL))
 	theme.set_color("font_color","PopupMenu",TEXT)

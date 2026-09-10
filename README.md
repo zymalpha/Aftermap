@@ -1,39 +1,38 @@
 # 🏠 Aftermap 末日坐标 🗺️
 
-[![CI](https://img.shields.io/badge/CI-passing-brightgreen?style=flat-square&logo=github)](https://github.com/zymalpha/aftermap/actions)
-[![Tests](https://img.shields.io/badge/PASS-497-success?style=flat-square&logo=checkmarx)](https://github.com/zymalpha/aftermap)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue?style=flat-square&logo=semver)](https://github.com/zymalpha/aftermap/releases)
+[![Playable build](https://github.com/zymalpha/Aftermap/actions/workflows/playable-build.yml/badge.svg?branch=feat%2Fplayable-campaign)](https://github.com/zymalpha/Aftermap/actions/workflows/playable-build.yml)
+[![Version](https://img.shields.io/badge/version-1.1.0-blue?style=flat-square&logo=semver)](https://github.com/zymalpha/aftermap/releases)
 [![License](https://img.shields.io/badge/license-MIT-yellow?style=flat-square&logo=opensourceinitiative)](LICENSE)
 [![Code Style](https://img.shields.io/badge/code%20style-GDScript%20typed-informational?style=flat-square&logo=godotengine)](CONTRIBUTING.md)
-[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey?style=flat-square&logo=linux)](https://github.com/zymalpha/aftermap)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-lightgrey?style=flat-square&logo=linux)](https://github.com/zymalpha/aftermap)
 
-> 🎮 一款以**真实城市街区为蓝本**的 2D 像素末日生存经营游戏。
-> ⚔️ 回合制潜行 · 🏕️ 基地经营 · 🗺️ 程序生成迁徙 · 🧟 感染者生态。
+> 🎮 一款在**南京演示街区**展开的 2D 像素末日生存经营游戏。
+> ⚔️ 回合制潜行与战斗 · 🏕️ 基地经营 · 🗺️ 街区搜刮 · 🧟 感染与救援。
 
 ---
 
-## 🌟 中文 Hero
+## 🌟 末日坐标
 
 > 🏚️ **核灾后的第七天。**
 > 城市的电力早已熄灭，街区成了僵尸、拾荒者与流民的角斗场。
 > 你从避难所的废墟中爬出来，捡起一支生锈的撬棍——这是一张**手绘的街区地图**，
-> 每个节点都是一处抉择：**潜入、搜刮、战斗、迁徙**。
+> 每个节点都是一处抉择：**潜入、搜刮、战斗、撤离**。
 
 **核心一句话循环**：
-> 🗺️ **在真实街区上做回合制战术 → 🏕️ 回基地分配幸存者与资源 → 📖 触发事件推进 30 天叙事 → 💾 原子存档自动接力**
+> 🗺️ **在演示街区中探索与战斗 → 🏕️ 回基地分配幸存者与资源 → 📖 处理夜间事件、联络救援或坚持 30 天 → 💾 原子存档自动接力**
 
 ---
 
 ## ✨ 特性
 
-| | 特性 | 一句话 |
+| | 特性 | 当前可玩内容 |
 |---|---|---|
-| 🗺️ | **程序生成现实地图** | 把真实城市街区解析成战术网格（OSM 管线，ADR-0006） |
-| ⚔️ | **回合制潜行 + 战斗** | 视线 / 视野 / 警戒值 / 感染四态，战术维度的"看到 vs 被看到" |
-| 🏕️ | **基地 + 幸存者** | 30+ 设施、关系系统、班次轮换，长期经营而不只是单场战斗 |
-| 🧟 | **感染生态** | 感染态、变异、抗体；不是"看见就打"，是"看见了也未必打得过" |
-| 📦 | **白名单事件 + 内容驱动** | JSON 写剧情，校验器管 schema，解释器管沙箱（ADR-0005） |
-| 💾 | **原子存档 + SHA-256** | 跨回合不丢档；崩溃后 `.bak` 自动回滚（ADR-0004） |
+| 🗺️ | **街区探索** | 便利店、公园、药房、中学、诊所、警务站；视野与探索记忆 |
+| ⚔️ | **回合制潜行与战斗** | 移动、搜刮、近战、射击、包扎、撤离；噪声会引来感染者 |
+| 🏕️ | **基地与幸存者** | 4 名成员、6 种工作、4 种可建造设施，夜间生产与口粮消耗 |
+| 🧟 | **生存挑战** | 伤病、感染、夜袭与永久阵亡；救援、长期生存、失败三种结局 |
+| 📦 | **配置驱动** | 地点、物资、设施成本和夜间选择由 JSON 配置并经 Schema 校验 |
+| 💾 | **自动存档** | 保存战斗中途与未决事件；主档损坏时尝试恢复备用档 |
 
 ---
 
@@ -55,19 +54,13 @@
 
 ## 🖼️ 游戏截图
 
-> 暂无真实截图，下方为矢量占位图，PR 欢迎替换。
+每次成功的 [Playable game build](https://github.com/zymalpha/Aftermap/actions/workflows/playable-build.yml) 都附带 **Aftermap-QA**，其中保存真实 Godot 渲染的菜单、基地、战术探索、返回报告、夜间事件、晨报与设施界面截图，以及界面测试和导出程序启动日志。
 
-| 视图 | 描述 |
-|---|---|
-| 🎯 Hero 主视觉 | ![hero](docs/assets/hero_main.svg) |
-| 🔲 战术网格 + FOV | ![grid](docs/assets/grid_fov.svg) |
-| 🔁 核心循环 | ![loop](docs/assets/loop_cycle.svg) |
-| 🧟 感染者三态 | ![infected](docs/assets/infected_three.svg) |
-| 📅 30 天战役时间线 | ![timeline](docs/assets/timeline_30days.svg) |
+`docs/assets/` 中的 SVG 是早期设计示意，历史模块进度见下方路线图。
 
 ---
 
-## 🛣️ 路线图
+## 🛣️ 原型模块历史路线图
 
 | 阶段 | 状态 | 内容 |
 |---|---|---|

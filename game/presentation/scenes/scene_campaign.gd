@@ -29,10 +29,10 @@ func _ready() -> void:
 	var margin: MarginContainer = MarginContainer.new()
 	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	for edge in ["left","right","top","bottom"]:
-		margin.add_theme_constant_override("margin_"+edge,22)
+		margin.add_theme_constant_override("margin_"+edge,16)
 	add_child(margin)
 	_content = VBoxContainer.new()
-	_content.add_theme_constant_override("separation",14)
+	_content.add_theme_constant_override("separation",10)
 	margin.add_child(_content)
 	if app != null:
 		app.campaign_changed.connect(_schedule_refresh)
@@ -55,6 +55,7 @@ func _refresh() -> void:
 	var header: HBoxContainer = HBoxContainer.new()
 	_content.add_child(header)
 	var title: VBoxContainer = VBoxContainer.new()
+	title.add_theme_constant_override("separation",4)
 	header.add_child(title)
 	_label(title,"AFTERMAP  /  末日坐标",25,Style.TEXT)
 	_label(title,"南京避难所  ·  第 %02d 天" % int(app.session.clock.current_day),16,Style.MUTED)
@@ -262,7 +263,7 @@ func _tactical(body: HBoxContainer) -> void:
 	main.add_child(_board)
 	_label(main,"黄色：补给箱   绿色：撤离点   红色 !：已警觉   暗区：探索过的区域",14,Style.MUTED)
 	var side: VBoxContainer = _panel(body,278)
-	side.add_theme_constant_override("separation",8)
+	side.add_theme_constant_override("separation",6)
 	var c: Dictionary = _character(mission.character)
 	_label(side,String(c.get("name_zh","幸存者")),23,Style.TEXT)
 	_label(side,"健康 %d / 100" % int(c.stats.hp),17,Style.TEXT)
@@ -285,6 +286,8 @@ func _tactical(body: HBoxContainer) -> void:
 	side.add_child(space)
 	_wrap(side,"WASD / 方向键移动；点击地面向目标走一步。每次行动后，感染者行动一次。",14)
 	_button(side,"带上补给撤离  [R]",_act.bind("extract",{}),"ExtractButton",true)
+	for control in side.get_children():
+		if control is Button: control.custom_minimum_size.y = 32
 
 func _event(body: HBoxContainer) -> void:
 	var event: Dictionary = Rules.data().events[int(state.event_index)]

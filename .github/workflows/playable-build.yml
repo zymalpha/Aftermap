@@ -48,6 +48,7 @@ jobs:
           set -o pipefail
           xvfb-run -a /tmp/godot --path . --audio-driver Dummy --script game/tests/test_playable_ui.gd 2>&1 | tee build/qa/ui.log
           if grep -E 'SCRIPT ERROR:|^ERROR:' build/qa/ui.log; then exit 1; fi
+          grep -q 'PLAYABLE_UI: failures=0' build/qa/ui.log
       - name: Export native games and smoke-test shipped content
         run: |
           mkdir -p build/windows build/linux

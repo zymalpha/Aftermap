@@ -36,9 +36,11 @@ func press(node_name: String) -> void:
 func capture(name: String) -> void:
 	# Commands can succeed even when an overflowing layout hides their controls.
 	var bounds: Rect2 = Rect2(Vector2.ZERO,Vector2(root.size))
-	for node in current_scene.find_children("*","Button",true,false):
+	var controls: Array[Node] = current_scene.find_children("*","Button",true,false)
+	controls.append_array(current_scene.find_children("*","Label",true,false))
+	for node in controls:
 		if node.is_visible_in_tree():
-			expect(bounds.encloses(node.get_global_rect()),"visible button fits viewport in %s: %s %s" % [name,node.name,node.get_global_rect()])
+			expect(bounds.encloses(node.get_global_rect()),"visible control fits viewport in %s: %s %s" % [name,node.name,node.get_global_rect()])
 	if DisplayServer.get_name()=="headless": return
 	await RenderingServer.frame_post_draw
 	var image: Image = root.get_texture().get_image()
